@@ -1,4 +1,4 @@
 export interface borrower
-    {
-        borrower_id: number;
-    }
+        {
+            borrower_id: number;
+        }
