@@ -26,6 +26,8 @@
     "@ngrx/store": "^10.1.1",
     "@ngrx/store-devtools": "^10.1.1",
     "@syncfusion/ej2-layouts": "^18.4.30",
+    "devextreme": "20.2.4",
+    "devextreme-angular": "20.2.4",
     "ng-redux": "^4.4.1",
     "redux": "4.0.1",
     "redux-thunk": "^2.3.0",

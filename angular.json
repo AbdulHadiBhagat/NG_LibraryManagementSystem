@@ -31,6 +31,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.light.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -129,6 +131,7 @@
   },
   "defaultProject": "LearningManagmentSystem",
   "cli": {
-    "analytics": "bd1dd036-045d-4167-9437-13505bde666d"
+    "analytics": "bd1dd036-045d-4167-9437-13505bde666d",
+    "analytics": false
   }
 }
