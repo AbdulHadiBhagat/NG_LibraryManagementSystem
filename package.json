@@ -12,8 +12,6 @@
   "private": true,
   "dependencies": {
     "@angular-redux/store": "9.0.0",
-    "redux": "4.0.1",
-    "redux-thunk": "^2.3.0",
     "@angular/animations": "~11.0.4",
     "@angular/common": "~11.0.4",
     "@angular/compiler": "~11.0.4",
@@ -27,7 +25,11 @@
     "@ngrx/schematics": "^10.1.1",
     "@ngrx/store": "^10.1.1",
     "@ngrx/store-devtools": "^10.1.1",
+    "devextreme": "20.2.4",
+    "devextreme-angular": "20.2.4",
     "ng-redux": "^4.4.1",
+    "redux": "4.0.1",
+    "redux-thunk": "^2.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
