@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "LearningManagmentSystem"
+  "defaultProject": "LearningManagmentSystem",
+  "cli": {
+    "analytics": "bd1dd036-045d-4167-9437-13505bde666d"
+  }
 }
