@@ -9,6 +9,7 @@ import { DxSelectBoxModule,
   DxTextAreaModule,
   DxFormModule,
   DxFormComponent } from 'devextreme-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { BookCardsComponent } from './modules/Common/book-cards.component';
@@ -22,6 +23,8 @@ import { LibrarianComponent } from './modules/Librarian/librarian.component';
 import { PersonComponent } from './modules/Person/person.component';
 import { LoginComponent } from './common/login/login.component';
 import { WorkersComponent } from './common/workers/workers.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { WorkersComponent } from './common/workers/workers.component';
     PersonComponent,
     LibrarianComponent,
     LoginComponent,
-    WorkersComponent
+    WorkersComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { WorkersComponent } from './common/workers/workers.component';
     BrowserModule,
     DxSelectBoxModule,
     DxTextAreaModule,
-    DxFormModule
+    DxFormModule,
+    FontAwesomeModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent,BookCardsComponent,LoginComponent,WorkersComponent],
