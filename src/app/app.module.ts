@@ -17,6 +17,7 @@ import { ClerkComponent } from './modules/Clerk/clerk.component';
 import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
 import { PersonComponent } from './modules/Person/person.component';
+import { ManageComponent } from './ManageComponent/manage.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PersonComponent } from './modules/Person/person.component';
     ClerkComponent,
     BookComponent,
     PersonComponent,
-    LibrarianComponent
+    LibrarianComponent,
+    ManageComponent
   ],
   imports: [
     BrowserModule,
