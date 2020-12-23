@@ -22,8 +22,8 @@ import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
 import { PersonComponent } from './modules/Person/person.component';
 import { LoginComponent } from './common/login/login.component';
-import { WorkersComponent } from './common/workers/workers.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PersonsComponent } from './common/persons/persons.component';
 
 
 @NgModule({
@@ -38,8 +38,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     PersonComponent,
     LibrarianComponent,
     LoginComponent,
-    WorkersComponent,
-    NavbarComponent
+    NavbarComponent,
+    PersonsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +53,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     
   ],
   providers: [],
-  bootstrap: [AppComponent,BookCardsComponent,LoginComponent,WorkersComponent],
+  bootstrap: [AppComponent,BookCardsComponent,LoginComponent],
 })
 export class AppModule { }

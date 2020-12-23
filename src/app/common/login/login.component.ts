@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import {FormControl,FormGroup} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -9,25 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent  {
+
+  
+  FirstName = new FormControl('');
+  LastName= new FormControl('');
+  EmailId = new FormControl('');
+  Password = new FormControl('');
+  ConfirmPassword = new FormControl('');
 }
-// loginFrom =new FormGroup({
-//   username: new FormControl(''),
-//   password: new FormControl(''),
-
-// })
-
-
-// @NgModule({
-//   imports: [
-//       BrowserModule,
-//       DxSelectBoxModule,
-//       DxTextAreaModule,
-//       DxFormModule
-//   ],
-//   declarations: [AppComponent],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }
-
-// platformBrowserDynamic().bootstrapModule(AppModule);
 
