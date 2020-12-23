@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
 // @import '../node_modules/@syncfusion/ej2-base/styles/material.css';  
+=======
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';  
+>>>>>>> 103da42fa8ecd6f83047260cd228ab18ad971f4f
 @import '../node_modules/@syncfusion/ej2-layouts/styles/material.css';  
+
 
 #container {
     visibility: hidden;
