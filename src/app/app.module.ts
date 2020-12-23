@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {IvyCarouselModule} from 'angular-responsive-carousel'; 
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -17,6 +18,9 @@ import { ClerkComponent } from './modules/Clerk/clerk.component';
 import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
 import { PersonComponent } from './modules/Person/person.component';
+import { CarasolComponentComponent } from './carasol-component/carasol-component.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,12 +32,15 @@ import { PersonComponent } from './modules/Person/person.component';
     ClerkComponent,
     BookComponent,
     PersonComponent,
-    LibrarianComponent
+    LibrarianComponent,
+    CarasolComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),
+    IvyCarouselModule
     
   ],
   providers: [],
