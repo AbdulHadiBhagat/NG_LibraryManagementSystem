@@ -5,7 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import {IvyCarouselModule} from 'angular-responsive-carousel'; 
+ 
+
+
+import { DxSelectBoxModule,
+  DxTextAreaModule,
+  DxFormModule,
+  DxFormComponent } from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -18,7 +24,16 @@ import { ClerkComponent } from './modules/Clerk/clerk.component';
 import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
 import { PersonComponent } from './modules/Person/person.component';
+
 import { CarasolComponentComponent } from './carasol-component/carasol-component.component';
+
+
+
+import { ManageComponent } from './ManageComponent/manage.component';
+
+import { LoginComponent } from './common/login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PersonsComponent } from './common/persons/persons.component';
 
 
 
@@ -33,17 +48,23 @@ import { CarasolComponentComponent } from './carasol-component/carasol-component
     BookComponent,
     PersonComponent,
     LibrarianComponent,
-    CarasolComponentComponent
+    CarasolComponentComponent,
+    ManageComponent,
+    LoginComponent,
+    NavbarComponent,
+    PersonsComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
-    IvyCarouselModule
-    
+    DxSelectBoxModule,
+    DxTextAreaModule,
+    DxFormModule,   
   ],
   providers: [],
-  bootstrap: [AppComponent,BookCardsComponent]
+  bootstrap: [AppComponent,BookCardsComponent,LoginComponent],
 })
 export class AppModule { }

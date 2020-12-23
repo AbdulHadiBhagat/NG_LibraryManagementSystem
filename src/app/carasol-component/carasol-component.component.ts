@@ -27,6 +27,24 @@ export class  CarasolComponentComponent implements OnInit {
       buttonText: 'Button',
       
     },
+    {
+      title: 'Card Title 4',
+      description: 'Some quick example text to build on the card title and make up the bulk of the card content',
+      buttonText: 'Button',
+     
+    },
+    {
+      title: 'Card Title 5',
+      description: 'Some quick example text to build on the card title and make up the bulk of the card content',
+      buttonText: 'Button',
+
+    },
+    {
+      title: 'Card Title 6',
+      description: 'Some quick example text to build on the card title and make up the bulk of the card content',
+      buttonText: 'Button',
+      
+    },
   
   ];
   slides: any = [[]];
