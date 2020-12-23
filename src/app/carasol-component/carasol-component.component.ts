@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carasol-component.component.scss'],
 })
 export class  CarasolComponentComponent implements OnInit {
+  
   cards = [
     {
       title: 'Card Title 1',

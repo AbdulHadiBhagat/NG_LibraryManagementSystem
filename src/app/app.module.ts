@@ -11,7 +11,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { DxSelectBoxModule,
   DxTextAreaModule,
   DxFormModule,
-  DxFormComponent } from 'devextreme-angular';
+  DxFormComponent, 
+  DxDataGridComponent} from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -32,8 +33,12 @@ import { CarasolComponentComponent } from './carasol-component/carasol-component
 import { ManageComponent } from './ManageComponent/manage.component';
 
 import { LoginComponent } from './common/login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './common/navbar/navbar.component';
 import { PersonsComponent } from './common/persons/persons.component';
+import { GridComponent } from './grid/grid.component';
+import { Service } from './modules/Loan/loan';
+import { DxDataGridModule } from 'devextreme-angular';
+import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
 
 
 
@@ -52,7 +57,9 @@ import { PersonsComponent } from './common/persons/persons.component';
     ManageComponent,
     LoginComponent,
     NavbarComponent,
-    PersonsComponent
+    PersonsComponent,
+    GridComponent,
+    ShowAllBooksComponent
 
   ],
   imports: [
@@ -63,8 +70,9 @@ import { PersonsComponent } from './common/persons/persons.component';
     DxSelectBoxModule,
     DxTextAreaModule,
     DxFormModule,   
+    DxDataGridModule
   ],
-  providers: [],
+  providers: [Service],
   bootstrap: [AppComponent,BookCardsComponent,LoginComponent],
 })
 export class AppModule { }
