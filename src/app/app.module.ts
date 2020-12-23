@@ -5,7 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 
-
+import { DxSelectBoxModule,
+  DxTextAreaModule,
+  DxFormModule,
+  DxFormComponent } from 'devextreme-angular';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { BookCardsComponent } from './modules/Common/book-cards.component';
@@ -17,6 +20,8 @@ import { ClerkComponent } from './modules/Clerk/clerk.component';
 import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
 import { PersonComponent } from './modules/Person/person.component';
+import { LoginComponent } from './common/login/login.component';
+import { WorkersComponent } from './common/workers/workers.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +33,20 @@ import { PersonComponent } from './modules/Person/person.component';
     ClerkComponent,
     BookComponent,
     PersonComponent,
-    LibrarianComponent
+    LibrarianComponent,
+    LoginComponent,
+    WorkersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    
+    BrowserModule,
+    DxSelectBoxModule,
+    DxTextAreaModule,
+    DxFormModule
   ],
   providers: [],
-  bootstrap: [AppComponent,BookCardsComponent]
+  bootstrap: [AppComponent,BookCardsComponent,LoginComponent,WorkersComponent],
 })
 export class AppModule { }
