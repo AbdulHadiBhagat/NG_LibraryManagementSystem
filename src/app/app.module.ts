@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+ 
+
 
 import { DxSelectBoxModule,
   DxTextAreaModule,
   DxFormModule,
-  DxFormComponent } from 'devextreme-angular';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+  DxFormComponent, 
+  DxDataGridComponent} from 'devextreme-angular';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { BookCardsComponent } from './modules/Common/book-cards.component';
@@ -21,9 +25,21 @@ import { ClerkComponent } from './modules/Clerk/clerk.component';
 import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
 import { PersonComponent } from './modules/Person/person.component';
+
+import { CarasolComponentComponent } from './carasol-component/carasol-component.component';
+
+
+
+import { ManageComponent } from './ManageComponent/manage.component';
+
 import { LoginComponent } from './common/login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './common/navbar/navbar.component';
 import { PersonsComponent } from './common/persons/persons.component';
+import { GridComponent } from './grid/grid.component';
+import { Service } from './modules/Loan/loan';
+import { DxDataGridModule } from 'devextreme-angular';
+import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
+
 
 
 @NgModule({
@@ -37,22 +53,26 @@ import { PersonsComponent } from './common/persons/persons.component';
     BookComponent,
     PersonComponent,
     LibrarianComponent,
+    CarasolComponentComponent,
+    ManageComponent,
     LoginComponent,
     NavbarComponent,
-    PersonsComponent
+    PersonsComponent,
+    GridComponent,
+    ShowAllBooksComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    BrowserModule,
+    MDBBootstrapModule.forRoot(),
     DxSelectBoxModule,
     DxTextAreaModule,
-    DxFormModule,
-    FontAwesomeModule
-    
+    DxFormModule,   
+    DxDataGridModule
   ],
-  providers: [],
+  providers: [Service],
   bootstrap: [AppComponent,BookCardsComponent,LoginComponent],
 })
 export class AppModule { }
