@@ -9,9 +9,9 @@ import { FormControl } from '@angular/forms';
 export class PersonsComponent  {
 
    
-  // ClerkName = new FormControl('');
-  // ClerkId = new FormControl('');
-  // ClerkDesk = new FormControl('');
+  ClerkName = new FormControl('');
+  ClerkId = new FormControl('');
+  ClerkDesk = new FormControl('');
 
   LibrarianName = new FormControl('');
   LibrarianId = new FormControl('');
