@@ -1,0 +1,73 @@
+.bookcard_section
+{
+    margin-top: 50px;
+}
+
+.Historycard_section
+{
+    margin-top: 100px;
+    height: 50px;
+}
+ 
+
+.e-card {
+    background-color: rgb(203, 203, 206);
+ 
+}
+
+ 
+
+.e-card-image
+{
+    height: 5px;
+}
+
+.Button {
+    background-color:#003b00; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-left: 1250px ;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 12px;
+    margin-top: 15px;
+
+  }
+
+  .Button1 {
+    background-color:#003b00; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-left: 1250px ;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 12px;
+    margin-top: 250px;
+
+  }
+
+  .HisHead
+  {
+      font-family:'Franklin Gothic Medium';
+      color: white;
+      margin-top: 50px;
+      text-align: center;
+      background-image: linear-gradient(180deg, Green,black);
+  }
+
+  .bookHead
+  {
+    font-family:'Franklin Gothic Medium';
+    background-image: linear-gradient(180deg, Green,black);
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+  }
