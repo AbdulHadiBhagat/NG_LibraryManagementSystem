@@ -15,6 +15,5 @@ export class LoginComponent  {
   LastName= new FormControl('');
   EmailId = new FormControl('');
   Password = new FormControl('');
-  ConfirmPassword = new FormControl('');
 }
 

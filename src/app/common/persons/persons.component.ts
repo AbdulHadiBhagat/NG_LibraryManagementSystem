@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-persons',
   templateUrl: './persons.component.html',
   styleUrls: ['./persons.component.scss']
 })
-export class PersonsComponent implements OnInit {
+export class PersonsComponent  {
 
-  constructor() { }
+   
+  // ClerkName = new FormControl('');
+  // ClerkId = new FormControl('');
+  // ClerkDesk = new FormControl('');
 
-  ngOnInit(): void {
-  }
+  LibrarianName = new FormControl('');
+  LibrarianId = new FormControl('');
+  OfficeNo= new FormControl('');
+
+
 
 }
