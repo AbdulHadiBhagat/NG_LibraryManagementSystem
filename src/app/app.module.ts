@@ -39,8 +39,14 @@ import { GridComponent } from './grid/grid.component';
 import { Service } from './modules/Loan/loan';
 import { DxDataGridModule } from 'devextreme-angular';
 import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
+import { Route } from '@angular/router';
 
 
+
+const ROUTES: Route[] = [
+  { path: '', component: LoginComponent},
+  { path: 'home', component: HomeComponentComponent}
+]
 
 @NgModule({
   declarations: [
@@ -75,4 +81,6 @@ import { ShowAllBooksComponent } from './show-all-books/show-all-books.component
   providers: [Service], //BookCardsComponent,
    bootstrap: [AppComponent,LoginComponent],
 })
+
+
 export class AppModule { }
