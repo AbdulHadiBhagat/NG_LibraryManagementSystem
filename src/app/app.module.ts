@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-//import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
  
 
 
@@ -66,7 +66,7 @@ import { ShowAllBooksComponent } from './show-all-books/show-all-books.component
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    //MDBBootstrapModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
     DxSelectBoxModule,
     DxTextAreaModule,
     DxFormModule,   
