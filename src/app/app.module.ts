@@ -11,11 +11,14 @@ import { DxSelectBoxModule,
   DxTextAreaModule,
   DxFormModule,
   DxFormComponent, 
-  DxDataGridComponent} from 'devextreme-angular';
+  DxDataGridComponent,
+  DxPopupModule, 
+  DxButtonModule, 
+  DxTemplateModule} from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { BookCardsComponent } from './modules/Common/book-cards.component';
+import { BookCardsComponent } from './modules/Common/bookCards/book-cards.component';
 import { HomeComponentComponent } from './modules/home-component/home-component.component';
 import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { ReactiveFormsModule } from '@angular/forms';

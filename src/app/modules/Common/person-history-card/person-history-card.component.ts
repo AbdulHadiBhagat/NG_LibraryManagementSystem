@@ -8,9 +8,9 @@ import { librarian } from '../../Librarian/librarian';
 })
 export class PersonHistoryCardComponent implements OnInit {
 
-  @Input() librarian: any;
-  @Input() clerk: any;
-
+  // @Input() librarian: any;
+  // @Input() clerk: any;
+  @Input() person: any;
 
   constructor() { }
 

@@ -4,13 +4,13 @@
     <div id="lib-card" *ngFor="let item of slides; let i = index">
         <!-- <div *ngFor="let card of item; let cardIndex = index"> -->
             <!-- <div *ngFor="let item of slides | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"> -->
-    <app-person-history-card [librarian]="item">
+    <app-person-history-card [person]="item">
     </app-person-history-card>
     
 </div>
 
 </div>
-    <div >  
+    <div id="Pagination">  
         <div class="float-right"> 
             <p id="outOf">{{activePage}} of {{totalPage}}</p>
              <div class="float-right"> 
@@ -24,13 +24,28 @@
         </div>  
     </div>  
 
+<hr class="dashed">
 
-<!-- <h2>Clerks</h2>
+<h2>Clerks</h2>
 <div class = "clerks">
     
-    <div id="clerk-card" *ngFor="let item of slidesOne; let i = index">
-        <app-person-history-card [clerk]="item">
+    <div id="clerk-card" *ngFor="let item of slidesTwo; let i = index">
+        <app-person-history-card [person]="item">
     </app-person-history-card>
     </div>
    
-    </div> -->
+    </div>
+
+    <div id="Pagination">  
+        <div class="float-right"> 
+            <p id="outOf">{{activePageTwo}} of {{totalPageTwo}}</p>
+             <div class="float-right"> 
+                 <app-pagination 
+                    [totalRecords]="detailClerk.length" 
+                    [recordsPerPage]="4" 
+                    (onPageChange)="displayActivePageTwo($event)">
+                </app-pagination> 
+            </div>     
+             
+        </div>  
+    </div>      

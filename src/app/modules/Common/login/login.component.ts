@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { DxPopupModule, DxButtonModule, DxTemplateModule } from 'devextreme-angular';
 
 
 @Component({
@@ -18,7 +18,10 @@ export class LoginComponent  {
   EmailId = new FormControl('');
   Password = new FormControl('');
 
-
+  popupVisible = false;
+  showPopup() {
+    this.popupVisible = true;
+}
   constructor (private router: Router){}
 
 
