@@ -15,9 +15,9 @@ import { DxSelectBoxModule,
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-//import { BookCardsComponent } from './modules/Common/book-cards.component';
+import { BookCardsComponent } from './modules/Common/book-cards.component';
 import { HomeComponentComponent } from './modules/home-component/home-component.component';
-//import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
+import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BorrowerComponent } from './modules/Borrower/borrower.component';
 import { ClerkComponent } from './modules/Clerk/clerk.component';
@@ -29,14 +29,14 @@ import { CarasolComponentComponent } from './modules/carasol-component/carasol-c
 
 import { ManageComponent } from './modules/ManageComponent/manage.component';
 
-import { LoginComponent } from './common/login/login.component';
-import { NavbarComponent } from './common/navbar/navbar.component';
-import { GridComponent } from './grid/grid.component';
+import { LoginComponent } from './modules/Common/login/login.component';
+import { NavbarComponent } from './modules/Common/navbar/navbar.component';
 import { Service } from './modules/Loan/loan';
 import { DxDataGridModule } from 'devextreme-angular';
 import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
 import { PaginationComponent } from './modules/pagination/pagination.component';
 import { Route } from '@angular/router';
+import { GridComponent } from './modules/grid/grid.component';
 
 
 
@@ -48,9 +48,9 @@ const ROUTES: Route[] = [
 @NgModule({
   declarations: [
     AppComponent,
-    //BookCardsComponent,
+    BookCardsComponent,
     HomeComponentComponent,
-    //PersonHistoryCardComponent,
+    PersonHistoryCardComponent,
     BorrowerComponent,
     ClerkComponent,
     BookComponent,

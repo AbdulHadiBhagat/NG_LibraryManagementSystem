@@ -11,14 +11,17 @@ import { person } from '../Person/person';
 })
 export class ManageComponent implements OnInit {
 
-  activePage:number = 0;
-  // pageSize: any;
+  activePage:number = 1;
+  pageSize: number = 4;
+  totalDataSize:number = -1;
+  totalPage:number = -1;
   // page = 1;
   // R: any;
 
   
   displayActivePage(activePageNumber:number){  
     this.activePage = activePageNumber;
+    this.slides = this.chunk(this.detailLibrarian, 4);
     // let pageSize:number=this.slides.length;
     //   let startPage:number = (this.activePage)*pageSize;
     //   let endPage:number=this.activePage*pageSize;
@@ -165,8 +168,12 @@ export class ManageComponent implements OnInit {
   slides:any=[[]];
   
   chunk(arr: string | any[], chunkSize: number) {
+    // debugger;
     let R = [];
-    for (let i = 0; i < chunkSize; i ++) {
+    let start = (this.activePage - 1) * this.pageSize;
+    let end = start + this.pageSize;
+    for (let i = start; i < end; i ++) {
+      if(i == this.totalDataSize) return;
       R.push(arr[i]);
       
     }
@@ -176,11 +183,14 @@ export class ManageComponent implements OnInit {
   
  
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit(): void {
-    // this.pageSize=this.R.length;
-    this.slides = this.chunk(this.detailLibrarian, 4 );
+    this.totalDataSize=this.detailLibrarian.length;
+    this.totalPage = this.totalDataSize / this.pageSize;
+    this.slides = this.chunk(this.detailLibrarian, this.pageSize );
   }
 
 }
