@@ -15,16 +15,17 @@ import { DxSelectBoxModule,
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { BookCardsComponent } from './modules/Common/book-cards.component';
-import { HomeComponentComponent } from './home-component/home-component.component';
-import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
+//import { BookCardsComponent } from './modules/Common/book-cards.component';
+import { HomeComponentComponent } from './modules/home-component/home-component.component';
+//import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BorrowerComponent } from './modules/Borrower/borrower.component';
 import { ClerkComponent } from './modules/Clerk/clerk.component';
 import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
 import { PersonComponent } from './modules/Person/person.component';
-import { CarasolComponentComponent } from './carasol-component/carasol-component.component';
+
+import { CarasolComponentComponent } from './modules/carasol-component/carasol-component.component';
 
 import { ManageComponent } from './modules/ManageComponent/manage.component';
 
@@ -35,15 +36,21 @@ import { Service } from './modules/Loan/loan';
 import { DxDataGridModule } from 'devextreme-angular';
 import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
 import { PaginationComponent } from './modules/pagination/pagination.component';
+import { Route } from '@angular/router';
 
 
+
+const ROUTES: Route[] = [
+  { path: '', component: LoginComponent},
+  { path: 'home', component: HomeComponentComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookCardsComponent,
+    //BookCardsComponent,
     HomeComponentComponent,
-    PersonHistoryCardComponent,
+    //PersonHistoryCardComponent,
     BorrowerComponent,
     ClerkComponent,
     BookComponent,
@@ -70,7 +77,9 @@ import { PaginationComponent } from './modules/pagination/pagination.component';
     NgbModule,
     
   ],
-  providers: [Service],
-  bootstrap: [AppComponent,BookCardsComponent,LoginComponent],
+  providers: [Service], //BookCardsComponent,
+   bootstrap: [AppComponent,LoginComponent],
 })
+
+
 export class AppModule { }
