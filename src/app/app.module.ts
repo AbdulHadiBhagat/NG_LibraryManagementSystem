@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
- 
+
 
 
 import { DxSelectBoxModule,
@@ -40,7 +40,7 @@ import { Service } from './modules/Loan/loan';
 import { DxDataGridModule } from 'devextreme-angular';
 import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
 import { Route } from '@angular/router';
-
+import { TabComponent } from './common/tab/tab.component';
 
 
 const ROUTES: Route[] = [
@@ -65,8 +65,8 @@ const ROUTES: Route[] = [
     NavbarComponent,
     PersonsComponent,
     GridComponent,
-    ShowAllBooksComponent
-
+    ShowAllBooksComponent,
+    TabComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +76,9 @@ const ROUTES: Route[] = [
     DxSelectBoxModule,
     DxTextAreaModule,
     DxFormModule,   
-    DxDataGridModule
+    DxDataGridModule,
+    
+    
   ],
   providers: [Service], //BookCardsComponent,
    bootstrap: [AppComponent,LoginComponent],
