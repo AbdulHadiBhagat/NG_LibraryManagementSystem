@@ -40,6 +40,8 @@ import { ShowAllBooksComponent } from './show-all-books/show-all-books.component
 import { PaginationComponent } from './modules/pagination/pagination.component';
 import { Route } from '@angular/router';
 import { GridComponent } from './modules/grid/grid.component';
+import { BooksPopupComponent } from './modules/books-popup/books-popup.component';
+import popup from 'devextreme/ui/popup';
 
 
 
@@ -65,7 +67,8 @@ const ROUTES: Route[] = [
     NavbarComponent,
     GridComponent,
     ShowAllBooksComponent,
-    PaginationComponent
+    PaginationComponent,
+    BooksPopupComponent
 
   ],
   imports: [
@@ -80,8 +83,10 @@ const ROUTES: Route[] = [
     NgbModule,
     
   ],
-  providers: [Service], //BookCardsComponent,
-   bootstrap: [AppComponent,LoginComponent],
+  entryComponents:[BooksPopupComponent],
+    providers: [Service], //BookCardsComponent,
+    bootstrap: [AppComponent,LoginComponent],
+    
 })
 
 
