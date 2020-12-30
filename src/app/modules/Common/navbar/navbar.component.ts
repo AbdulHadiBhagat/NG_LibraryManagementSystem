@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 //import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 import { NavItem } from './nav-item';
 @Component({
@@ -14,7 +15,41 @@ export class NavbarComponent implements OnInit {
   new NavItem("Books"),
 new NavItem("History"),
 new NavItem("Logout")];
-  constructor() { }
+
+
+  constructor(private router: Router) { }
+
+  onClick(key: any){
+
+    console.log(key,"KEY");
+
+  switch (key) {
+
+    case 'Home' :
+      this.router.navigate(['./Home']);
+      break;
+    
+      case 'Manage' :
+        debugger;
+     this.router.navigate(['/Manage']);
+      break;
+
+      case 'Books':
+      this.router.navigate(['./book']);
+      break;
+
+      case 'History':
+        this.router.navigate(['./history']);
+      break;
+  
+    default:
+      break;
+  }
+  }
+
+
+      
+
 
   ngOnInit(): void {
   }

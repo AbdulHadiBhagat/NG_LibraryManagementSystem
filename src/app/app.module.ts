@@ -29,7 +29,7 @@ import { CarasolComponentComponent } from './modules/carasol-component/carasol-c
 
 import { ManageComponent } from './modules/ManageComponent/manage.component';
 
-import { LoginComponent } from './modules/Common/login/login.component';
+// import { LoginComponent } from './modules/Common/login/login.component';
 import { NavbarComponent } from './modules/Common/navbar/navbar.component';
 import { Service } from './modules/Loan/loan';
 import { DxDataGridModule } from 'devextreme-angular';
@@ -37,17 +37,28 @@ import { ShowAllBooksComponent } from './show-all-books/show-all-books.component
 import { PaginationComponent } from './modules/pagination/pagination.component';
 import { Route } from '@angular/router';
 import { GridComponent } from './modules/grid/grid.component';
+import { LoginComponent } from './modules/Common/login/login.component';
 
 
 
 const ROUTES: Route[] = [
-  { path: '', component: LoginComponent},
-  { path: 'home', component: HomeComponentComponent}
-]
+    { path: '', component: LoginComponent },
+    { path: 'home', component: NavbarComponent,
+       children:[
+        { path: '', component:HomeComponentComponent},
+        { path: 'manage', component:ManageComponent},
+        {path: 'books' , component:ShowAllBooksComponent},
+        {path:'history', component:PersonHistoryCardComponent}
+  
+       ]},
+  
+  
+  ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     BookCardsComponent,
     HomeComponentComponent,
     PersonHistoryCardComponent,
@@ -58,7 +69,6 @@ const ROUTES: Route[] = [
     LibrarianComponent,
     CarasolComponentComponent,
     ManageComponent,
-    LoginComponent,
     NavbarComponent,
     GridComponent,
     ShowAllBooksComponent,
@@ -76,6 +86,9 @@ const ROUTES: Route[] = [
     DxDataGridModule,
     NgbModule,
     
+  ],
+  exports:[
+    LoginComponent
   ],
   providers: [Service], //BookCardsComponent,
    bootstrap: [AppComponent,LoginComponent],
