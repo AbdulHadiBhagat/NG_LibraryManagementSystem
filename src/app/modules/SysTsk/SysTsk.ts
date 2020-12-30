@@ -1,4 +1,4 @@
-export class SysTsk
+export interface SysTsk
 {
     tsk_ID:Number;
     tskDesc:String;

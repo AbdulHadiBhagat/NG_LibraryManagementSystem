@@ -17,7 +17,15 @@
         Password:
         <input type = "text" [formControl]="Password"><br>
     <br>
-    <button class="button" type="submit" (click)="onLoginClick()"> submit</button>
 
+        Popup:
+        <input type = "text" [formControl]="Password" placeholder='Search...' id='search-text-input'>
+        <button id="popup" type="submit"><i class="fa fa-search" (click)="showPopup()">Popup</i></button><br>
+    <br>
+    <button class="button" type="submit" (click)="onLoginClick()"> submit</button>
      </label> 
+</div>
+
+<div id="comp-render" *ngIf="popupVisible">
+    <app-books-popup></app-books-popup>
 </div>

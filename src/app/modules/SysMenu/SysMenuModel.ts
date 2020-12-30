@@ -1,4 +1,4 @@
-export class SysMenuModel
+export interface SysMenuModel
 {
     menuSeq:Number
     menuText:String;

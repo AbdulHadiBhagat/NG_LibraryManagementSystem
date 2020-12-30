@@ -1,4 +1,4 @@
-export class SysTbl
+export interface SysTbl
 {
     tbl_ID:Number;
     tblDesc:String;

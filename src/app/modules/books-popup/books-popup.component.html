@@ -1,0 +1,18 @@
+    <dx-popup
+        [width]="300"
+        [height]="250"
+        [showTitle]="true"
+        title="Information"
+        [dragEnabled]="false"
+        [closeOnOutsideClick]="true"
+        [(visible)]="false">
+    <div>
+        <p>Hiiiiii</p>
+        <dx-data-grid
+        id="gridContainer"
+        [dataSource]="gridArray"
+        [columns]="['ID', 'Name', 'Password','Address', 'Phone_No']">
+    </dx-data-grid>
+
+    </div>
+    </dx-popup>

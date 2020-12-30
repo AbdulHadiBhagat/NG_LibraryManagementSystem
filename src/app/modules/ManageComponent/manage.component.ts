@@ -12,16 +12,23 @@ import { person } from '../Person/person';
 export class ManageComponent implements OnInit {
 
   activePage:number = 1;
+  activePageTwo:number = 1;
   pageSize: number = 4;
   totalDataSize:number = -1;
   totalPage:number = -1;
-  // page = 1;
-  // R: any;
-
+  totalPageTwo:number = -1;
   
   displayActivePage(activePageNumber:number){  
     this.activePage = activePageNumber;
     this.slides = this.chunk(this.detailLibrarian, 4);
+    // let pageSize:number=this.slides.length;
+    //   let startPage:number = (this.activePage)*pageSize;
+    //   let endPage:number=this.activePage*pageSize;
+  }
+
+  displayActivePageTwo(activePageNumber:number){  
+    this.activePageTwo = activePageNumber;
+    this.slidesTwo = this.chunkTwo(this.detailClerk, 4);
     // let pageSize:number=this.slides.length;
     //   let startPage:number = (this.activePage)*pageSize;
     //   let endPage:number=this.activePage*pageSize;
@@ -101,7 +108,7 @@ export class ManageComponent implements OnInit {
     {
       C_ID: '1',
       Desk_no: '01',
-      name : 'Areeba',
+      name : 'Areeba Khalid Qayyum Khanzada',
       address: 'abc',
       phone_no: '123',
     },
@@ -109,7 +116,7 @@ export class ManageComponent implements OnInit {
     {
       C_ID: '2',
       Desk_no: '02',
-      name : 'Musfirah',
+      name : 'Musfirah Riaz',
       address: 'abc',
       phone_no: '123',
     },
@@ -117,7 +124,7 @@ export class ManageComponent implements OnInit {
     {
       C_ID: '3',
       Desk_no: '03',
-      name : 'Varisha',
+      name : 'Varisha Ajaz',
       address: 'abc',
       phone_no: '123',
     },
@@ -125,7 +132,7 @@ export class ManageComponent implements OnInit {
     {
       C_ID: '4',
       Desk_no: '04',
-      name : 'Amna',
+      name : 'Amna Siddiqui',
       address: 'abc',
       phone_no: '123',
     },
@@ -166,11 +173,25 @@ export class ManageComponent implements OnInit {
   
   
   slides:any=[[]];
-  
+  slidesTwo:any=[[]];
   chunk(arr: string | any[], chunkSize: number) {
     // debugger;
     let R = [];
     let start = (this.activePage - 1) * this.pageSize;
+    let end = start + this.pageSize;
+    for (let i = start; i < end; i ++) {
+      if(i == this.totalDataSize) return;
+      R.push(arr[i]);
+      
+    }
+    return R;
+    // this.pageSize=R.length;
+  }
+
+  chunkTwo(arr: string | any[], chunkSize: number) {
+    // debugger;
+    let R = [];
+    let start = (this.activePageTwo - 1) * this.pageSize;
     let end = start + this.pageSize;
     for (let i = start; i < end; i ++) {
       if(i == this.totalDataSize) return;
@@ -190,7 +211,9 @@ export class ManageComponent implements OnInit {
   ngOnInit(): void {
     this.totalDataSize=this.detailLibrarian.length;
     this.totalPage = this.totalDataSize / this.pageSize;
+    this.totalPageTwo = this.totalDataSize / this.pageSize;
     this.slides = this.chunk(this.detailLibrarian, this.pageSize );
+    this.slidesTwo = this.chunkTwo(this.detailClerk, this.pageSize );
   }
 
 }
