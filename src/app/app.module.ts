@@ -38,8 +38,9 @@ import { PersonsComponent } from './common/persons/persons.component';
 import { GridComponent } from './grid/grid.component';
 import { Service } from './modules/Loan/loan';
 import { DxDataGridModule } from 'devextreme-angular';
-import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
+import { ShowAllBooksComponent } from './modules/show-all-books/show-all-books.component';
 import { Route } from '@angular/router';
+import { BookCardsComponent } from './modules/Common/book-cards.component';
 
 
 
@@ -51,7 +52,7 @@ const ROUTES: Route[] = [
 @NgModule({
   declarations: [
     AppComponent,
-    //BookCardsComponent,
+    BookCardsComponent,
     HomeComponentComponent,
     //PersonHistoryCardComponent,
     BorrowerComponent,
