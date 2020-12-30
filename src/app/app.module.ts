@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { DxSelectBoxModule,
   DxTextAreaModule,
@@ -18,9 +17,7 @@ import { DxSelectBoxModule,
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { BookCardsComponent } from './modules/Common/bookCards/book-cards.component';
 import { HomeComponentComponent } from './modules/home-component/home-component.component';
-import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BorrowerComponent } from './modules/Borrower/borrower.component';
 import { ClerkComponent } from './modules/Clerk/clerk.component';
@@ -33,15 +30,18 @@ import { CarasolComponentComponent } from './modules/carasol-component/carasol-c
 import { ManageComponent } from './modules/ManageComponent/manage.component';
 
 import { LoginComponent } from './modules/Common/login/login.component';
-import { NavbarComponent } from './modules/Common/navbar/navbar.component';
 import { Service } from './modules/Loan/loan';
 import { DxDataGridModule } from 'devextreme-angular';
 import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
 import { PaginationComponent } from './modules/pagination/pagination.component';
 import { Route } from '@angular/router';
+import { TabComponent } from './common/tab/tab.component';
 import { GridComponent } from './modules/grid/grid.component';
 import { BooksPopupComponent } from './modules/books-popup/books-popup.component';
 import popup from 'devextreme/ui/popup';
+import { BookCardsComponent } from './modules/common/bookCards/book-cards.component';
+import { PersonHistoryCardComponent } from './modules/common/person-history-card/person-history-card.component';
+import { NavbarComponent } from './common/navbar/navbar.component';
 
 
 
@@ -69,6 +69,7 @@ const ROUTES: Route[] = [
     ShowAllBooksComponent,
     PaginationComponent,
     BooksPopupComponent
+    TabComponent
 
   ],
   imports: [
@@ -80,7 +81,7 @@ const ROUTES: Route[] = [
     DxTextAreaModule,
     DxFormModule,   
     DxDataGridModule,
-    NgbModule,
+  
     
   ],
   entryComponents:[BooksPopupComponent],
