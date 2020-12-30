@@ -40,6 +40,8 @@ import { TabComponent } from './common/tab/tab.component';
 import { GridComponent } from './modules/grid/grid.component';
 import { BookCardsComponent } from './modules/Common/bookCards/book-cards.component';
 import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
+import { BooksPopupComponent } from './modules/books-popup/books-popup.component';
+import popup from 'devextreme/ui/popup';
 import { NavbarComponent } from './common/navbar/navbar.component';
 
 
@@ -66,8 +68,9 @@ const ROUTES: Route[] = [
     NavbarComponent,
     GridComponent,
     ShowAllBooksComponent,
-    TabComponent,
-    PaginationComponent
+    PaginationComponent,
+    BooksPopupComponent,
+    TabComponent
 
   ],
   imports: [
@@ -82,8 +85,10 @@ const ROUTES: Route[] = [
   
     
   ],
-  providers: [Service], //BookCardsComponent,
-   bootstrap: [AppComponent,LoginComponent],
+  entryComponents:[BooksPopupComponent],
+    providers: [Service], //BookCardsComponent,
+    bootstrap: [AppComponent,LoginComponent],
+    
 })
 
 

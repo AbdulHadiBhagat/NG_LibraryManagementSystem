@@ -20,22 +20,12 @@
 
         Popup:
         <input type = "text" [formControl]="Password" placeholder='Search...' id='search-text-input'>
-        <button id="popup" type="submit"><i class="fa fa-search">Popup</i></button><br>
+        <button id="popup" type="submit"><i class="fa fa-search" (click)="showPopup()">Popup</i></button><br>
     <br>
-    <button class="button" type="submit" (click)="showPopup()"> submit</button>
-
+    <button class="button" type="submit" (click)="onLoginClick()"> submit</button>
      </label> 
+</div>
 
-     <dx-popup
-        [width]="300"
-        [height]="250"
-        [showTitle]="true"
-        title="Information"
-        [dragEnabled]="false"
-        [closeOnOutsideClick]="true"
-        [(visible)]="popupVisible">
-        <div>
-            <p>Hiiiiii</p>
-        </div>
-    </dx-popup>
+<div id="comp-render" *ngIf="popupVisible">
+    <app-books-popup></app-books-popup>
 </div>

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {  ViewChild } from '@angular/core';
 // import { Input } from '@angular/core';
-import { book } from '../Book/book';
+
 
 @Component({
   selector: 'app-book-cards',
