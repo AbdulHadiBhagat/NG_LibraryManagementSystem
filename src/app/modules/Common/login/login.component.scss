@@ -1,0 +1,25 @@
+label{
+
+    color: gray;
+    text-align : center;
+    padding-left: 35%;
+    float: left;
+    }
+
+form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+      }
+      
+      form.example button:hover {
+        background: #0b7dda;
+      }
+    
+    

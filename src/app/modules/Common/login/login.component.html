@@ -1,0 +1,41 @@
+<div>
+    <label> 
+     <h1>
+         SIGN-IN FORM 
+     </h1>
+     <br>
+        First Name:
+        <input type = "text" [formControl]="FirstName"><br>
+     <br>
+        Last Name:
+        <input type = "text" [formControl]="LastName"><br> 
+        
+    <br>
+        Email Id:
+        <input type = "text" [formControl]="EmailId"><br>
+    <br>
+        Password:
+        <input type = "text" [formControl]="Password"><br>
+    <br>
+
+        Popup:
+        <input type = "text" [formControl]="Password" placeholder='Search...' id='search-text-input'>
+        <button id="popup" type="submit"><i class="fa fa-search">Popup</i></button><br>
+    <br>
+    <button class="button" type="submit" (click)="showPopup()"> submit</button>
+
+     </label> 
+
+     <dx-popup
+        [width]="300"
+        [height]="250"
+        [showTitle]="true"
+        title="Information"
+        [dragEnabled]="false"
+        [closeOnOutsideClick]="true"
+        [(visible)]="popupVisible">
+        <div>
+            <p>Hiiiiii</p>
+        </div>
+    </dx-popup>
+</div>

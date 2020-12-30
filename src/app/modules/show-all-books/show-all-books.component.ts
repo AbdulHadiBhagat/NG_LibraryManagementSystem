@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { book } from '../Book/book';
-import { BookCardsComponent } from '../Common/book-cards.component';
+import { BookCardsComponent } from '../Common/bookCards/book-cards.component'
 
 
 @Component({

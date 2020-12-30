@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { librarian } from '../../Librarian/librarian';
 
 @Component({
   selector: 'app-person-history-card',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonHistoryCardComponent implements OnInit {
 
+  // @Input() librarian: any;
+  // @Input() clerk: any;
+  @Input() person: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    // console.log(this.librarian,"LIBRARIAN");
   }
 
 }

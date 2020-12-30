@@ -7,11 +7,19 @@
 .Card-one {
     width: 300px;
     margin-left: 20px;
+    margin-right: 15px;
 }   
 
 .e-card {
     background-color: rgb(203, 203, 206);
 }
+
+.Card-two {
+    width: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+} 
+
 
 
 
