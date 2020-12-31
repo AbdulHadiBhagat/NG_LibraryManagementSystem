@@ -8,16 +8,20 @@ import { person } from '../Person/person';
 })
 export class BooksPopupComponent implements OnInit {
 
-  // popupVisible=false;
+  popupVisible=false;
 
-  gridArray:person[];
+  gridArray:person[] = [];
   
   
   constructor() 
   { 
+    this.popupVisible=true;
+    this.gridArray = [
+      {"id":1,"name":"Areeba","address":"123 Street","phone_no":1,"password":"ab123"}
     
-    this.gridArray=[{"id":1, "name":"Areeba", "password":"12","address":"piouu","phone_no": 0987},
-    {"id":2, "name":"Abdul Hadi", "password":"123","address":"piouubnm","phone_no": 098754}]
+    ];
+    // this.gridArray=[{"id":1, "name":"Areeba", "password":"12","address":"piouu","phone_no": 0987},
+    // {"id":2, "name":"Abdul Hadi", "password":"123","address":"piouubnm","phone_no": 098754}]
   
   }
 

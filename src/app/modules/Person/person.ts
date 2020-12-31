@@ -2,7 +2,7 @@ export interface person
     {
         id: number;
         name: string;
-        password: string;
         address: string;
+        password: string;
         phone_no: number;
     }

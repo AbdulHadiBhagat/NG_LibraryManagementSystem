@@ -4,9 +4,10 @@ import { HomeComponentComponent } from './modules/home-component/home-component.
 import { LoginComponent } from './modules/Common/login/login.component';
 // import { NavbarComponent } from 'angular-bootstrap-md';
 import { ManageComponent } from './modules/ManageComponent/manage.component';
-import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
+// import { ShowAllBooksComponent } from './show-all-books/show-all-books.component';
 import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { NavbarComponent } from './modules/Common/navbar/navbar.component';
+import { ShowAllBooksComponent } from './modules/show-all-books/show-all-books.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },

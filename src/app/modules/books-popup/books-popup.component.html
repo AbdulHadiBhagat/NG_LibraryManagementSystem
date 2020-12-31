@@ -5,13 +5,13 @@
         title="Information"
         [dragEnabled]="false"
         [closeOnOutsideClick]="true"
-        [(visible)]="false">
+        [(visible)]="popupVisible">
     <div>
         <p>Hiiiiii</p>
         <dx-data-grid
         id="gridContainer"
         [dataSource]="gridArray"
-        [columns]="['ID', 'Name', 'Password','Address', 'Phone_No']">
+        [columns]="['id', 'name', 'password','address', 'phone_no']">
     </dx-data-grid>
 
     </div>

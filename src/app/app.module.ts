@@ -90,7 +90,8 @@ const ROUTES: Route[] = [
     MDBBootstrapModule.forRoot(),
     DxSelectBoxModule,
     DxTextAreaModule,
-    DxFormModule,   
+    DxFormModule,
+    DxPopupModule,
     DxDataGridModule,
   
     
