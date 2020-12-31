@@ -1,4 +1,4 @@
-export class SysTblTsk
+export interface SysTblTsk
 {
     tbl_ID:Number;
     tsk_ID:Number;

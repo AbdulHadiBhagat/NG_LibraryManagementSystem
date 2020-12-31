@@ -8,6 +8,7 @@ import { NavItem } from './nav-item';
 })
 export class NavbarComponent implements OnInit {
 
+  test = ["hello", "abc"];
   
   navItem:NavItem[]=[new NavItem("Home"),
   new NavItem("Manage"),

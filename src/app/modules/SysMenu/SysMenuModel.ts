@@ -13,7 +13,7 @@ export interface SysMenuModel
     isBusinessMenu:any;
     fldrCod:Number;
     fldrKey:String;
-    stsList:Array;
+    stsList:any;
 
     
 

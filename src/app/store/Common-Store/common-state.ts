@@ -4,7 +4,7 @@ import { SysTblTsk } from "src/app/modules/SysTblTsk/SysTblTskModel";
 
 export interface CommonState {
    sysMenu:SysMenuModel;
-   person:person;
-   sysTblTsk:SysTblTsk;
+   person:any;
+   sysTblTsk:any;
 
 }

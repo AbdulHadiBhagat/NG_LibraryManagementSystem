@@ -8,6 +8,7 @@ import { ManageComponent } from './modules/ManageComponent/manage.component';
 import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { NavbarComponent } from './modules/Common/navbar/navbar.component';
 import { ShowAllBooksComponent } from './modules/show-all-books/show-all-books.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,14 +19,15 @@ const routes: Routes = [
       {path: 'books' , component:ShowAllBooksComponent},
       {path:'history', component:PersonHistoryCardComponent}
 
-     ]},
+     ]
+  },
 
 
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [BrowserModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

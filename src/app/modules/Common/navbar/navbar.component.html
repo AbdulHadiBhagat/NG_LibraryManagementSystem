@@ -6,14 +6,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <ul class="navbar-nav mr-auto" *ngFor="let item of navItem">
-
-      <li class="nav-item">
-        <a (click)="onClick(item.name)" class="nav-link" href="#">  {{item.name}}</a>
+    <ul class="navbar-nav mr-auto">
+      <li> HELLO </li>
+      <li *ngFor="let item of navItem" class="nav-item">
+        <a (click)="onClick(item.name)" class="nav-link">  {{item.name}}</a>
       </li>
      
      
     </ul>
   </div>
 </nav>
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
