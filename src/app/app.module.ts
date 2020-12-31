@@ -38,7 +38,6 @@ import { ShowAllBooksComponent } from './modules/show-all-books/show-all-books.c
 import { Route, Router, RouterModule, Routes } from '@angular/router';
 
 import { PaginationComponent } from './modules/pagination/pagination.component';
-import { TabComponent } from './common/tab/tab.component';
 import { GridComponent } from './modules/grid/grid.component';
 import { LoginComponent } from './modules/Common/login/login.component';
 import { BookCardsComponent } from './modules/Common/bookCards/book-cards.component';
@@ -71,7 +70,6 @@ import { AppRoutingModule } from './app-routing.module';
     ShowAllBooksComponent,
     PaginationComponent,
     BooksPopupComponent,
-    TabComponent
 
   ],
   imports: [
