@@ -18,7 +18,7 @@ export const testReducer = function(
         case UPDATE_TEST_CASES:
             return {
                 ...state,
-                testcases: action.type.payload
+                testcases: action.payload
             }
 
     }

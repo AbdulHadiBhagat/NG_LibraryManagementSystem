@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, Inject, InjectionToken } from '@angular/core';
+import {NgRedux,NgReduxModule} from '@angular-redux/store';
 // import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { StoreModule, ActionReducerMap } from '@ngrx/store';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
+import * as Redux from 'redux';
+import thunk from 'redux-thunk';
 import {
   DxSelectBoxModule,
   DxTextAreaModule,
@@ -47,7 +48,11 @@ import popup from 'devextreme/ui/popup';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './modules/Common/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { AppStateRedux } from './store/app.state';
+import { AppStore, appStoreProviders } from './store/app.store';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import rootReducer from './store/app.reducer';
 
 
 
@@ -74,6 +79,9 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+    NgReduxModule,
+    HttpClientModule,
+    HttpModule,
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
@@ -83,17 +91,25 @@ import { AppRoutingModule } from './app-routing.module';
     DxPopupModule,
     DxDataGridModule,
     AppRoutingModule,
+    
 
 
   ],
   exports: [
     RouterModule
   ],
-  providers: [Service], //BookCardsComponent,
+  providers: [Service,appStoreProviders,], //BookCardsComponent,
   bootstrap: [AppComponent],
   entryComponents: [BooksPopupComponent]
 
 })
 
 
-export class AppModule { }
+export class AppModule {
+  constructor(
+    ngRedux: NgRedux<any>,
+    @Inject(AppStore) public store: Redux.Store<AppStateRedux>
+  ){
+    ngRedux.configureStore(rootReducer, {}, [thunk], []);
+  }
+ }

@@ -10,8 +10,8 @@ import { AppStateRedux } from './app.state';
 export const AppStore = new InjectionToken('App.store');
 
 export function createAppStore(): Store<AppStateRedux> {
-  // return createStore<AppStateRedux, null, null, null>(reducer);
-  return createStore(reducer);
+  return createStore<AppStateRedux, any, null, null>(reducer);
+  // return createStore(reducer);
 }
 
 export const appStoreProviders = [
