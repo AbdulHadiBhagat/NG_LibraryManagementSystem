@@ -21,11 +21,8 @@ const routes: Routes = [
       { path: 'manage', component:ManageComponent},
       {path: 'books' , component:ShowAllBooksComponent},
       {path:'history', component:PersonHistoryCardComponent}
-
      ]
   },
-
-
 ];
 
 
@@ -34,3 +31,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+export const routingComponents={LoginComponent,NavbarComponent,HomeComponentComponent,
+  ManageComponent, ShowAllBooksComponent,PersonHistoryCardComponent}

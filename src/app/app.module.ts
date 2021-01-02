@@ -15,7 +15,8 @@ import {
   DxDataGridComponent,
   DxPopupModule,
   DxButtonModule,
-  DxTemplateModule
+  DxTemplateModule,
+  DxCheckBoxModule
 } from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -100,6 +101,7 @@ import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.compo
     DxTextAreaModule,
     DxFormModule,
     DxPopupModule,
+    DxCheckBoxModule,
     DxDataGridModule,
     AppRoutingModule,
     

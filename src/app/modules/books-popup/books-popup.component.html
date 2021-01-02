@@ -1,17 +1,97 @@
     <dx-popup
-        [width]="300"
-        [height]="250"
+        [width]="800"
+        [height]="600"
         [showTitle]="true"
         title="Information"
         [dragEnabled]="false"
         [closeOnOutsideClick]="true"
         [(visible)]="popupVisible">
     <div>
-        <p>Hiiiiii</p>
+        
         <dx-data-grid
         id="gridContainer"
         [dataSource]="gridArray"
-        [columns]="['id', 'name', 'password','address', 'phone_no']">
+        [showBorders]="true"
+        
+        
+       [columns]="['id', 'name', 'password','address', 'phone_no']"> 
+       <dxo-filter-row 
+       [visible]="showFilterRow" 
+       [applyFilter]="currentFilter"></dxo-filter-row>
+   <dxo-header-filter 
+       [visible]="showHeaderFilter"></dxo-header-filter>
+   <dxo-search-panel 
+       [visible]="true" 
+       [width]="240" 
+       placeholder="Search..."></dxo-search-panel>
+   <dxi-column 
+       dataField="id" 
+       [width]="140" 
+       caption="ID">
+       <dxo-header-filter 
+           [groupInterval]="10000"></dxo-header-filter>
+   </dxi-column>
+   <dxi-column 
+       dataField="name" 
+       alignment="right" 
+      
+       [width]="120">
+       <dxo-header-filter 
+           [dataSource]="gridArray"></dxo-header-filter>
+   </dxi-column>
+
+   <dxi-column 
+   dataField="password" 
+   alignment="right" 
+   [width]="180"></dxi-column>
+   <dxi-column 
+       dataField="address" 
+       alignment="right" 
+       [width]="180"></dxi-column>
+   
+   
+   <dxi-column 
+       dataField="phone_no" 
+       caption="Phone_No">
+       <dxo-header-filter [allowSearch]="true"></dxo-header-filter>
+   </dxi-column>
+        
+   
+   <div class="options">
+    <div class="caption">Options</div>
+    <div class="option">
+        <span>Apply Filter</span>
+        <dx-select-box
+            id="useFilterApplyButton" 
+            [items]="applyFilterTypes" 
+            [(value)]="currentFilter" 
+            valueExpr="key"
+            displayExpr="name"
+            [disabled]="!showFilterRow"></dx-select-box>
+    </div>
+    <div class="option">
+    <dx-check-box 
+        text="Filter Row" 
+        [(value)]="showFilterRow" 
+        (onValueChanged)="clearFilter()"></dx-check-box>
+    </div>
+    <div class="option">
+    <dx-check-box 
+        text="Header Filter" 
+        [(value)]="showHeaderFilter" 
+        (onValueChanged)="clearFilter()"></dx-check-box>
+    </div>
+   
+  </div> 
+   
+   
+   <dxo-paging [pageSize]="1"></dxo-paging>
+        <dxo-pager 
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[5, 10, 20]"
+            [showInfo]="true">
+        </dxo-pager>
+        
     </dx-data-grid>
 
     </div>

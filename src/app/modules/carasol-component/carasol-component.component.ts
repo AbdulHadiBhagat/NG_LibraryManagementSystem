@@ -1,6 +1,6 @@
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-carasol-component',
@@ -11,49 +11,49 @@ export class  CarasolComponentComponent implements OnInit {
   
   cards = [
     {
-      title: 'Card Title 1',
-      Author: 'Button',
-      subject:'sub',
+      title: 'A Course In Geometry',
+      Author: 'Arthur William',
+      subject:'Geometry',
      
     },
     {
-      title: 'Card Title 2',
-      Author: 'Button',
-      subject:'sub',
+      title: 'The Stars In The Night Sky',
+      Author: 'Musfirah Riaz',
+      subject:'Poetry',
 
     },
     {
-      title: 'Card Title 3',
-      Author: 'Button',
-      subject:'sub',
+      title: 'Literary Chaos',
+      Author: 'Najam ilyas',
+      subject:'Poetry',
       
     },
     {
-      title: 'Card Title 4',
-      Author: 'Button',
-      subject:'sub',
+      title: 'Everyday Greatness',
+      Author: 'Stephen R.Covey',
+      subject:'Inspirational',
      
     },
     {
-      title: 'Card Title 5',
-      Author: 'Button',
-      subject:'sub',
+      title: 'Mind Make Societies',
+      Author: 'Pascal Boyer',
+      subject:'Intellectual',
 
     },
     {
-      title: 'Card Title 6',
-      Author: 'Button',
-      subject:'sub',
+      title: 'The Enigma of Reason',
+      Author: 'Dan Sperber',
+      subject:'Self-help',
     },
     {
-      title: 'Card Title 6',
-      Author: 'Button',
-      subject:'sub',
+      title: 'The Secret of Our Success',
+      Author: 'Joseph Henrich',
+      subject:'Self-help',
     },
     {
-      title: 'Card Title 6',
-      Author: 'Button',
-      subject:'sub',
+      title: 'The C++ Programming Language',
+      Author: 'Bjarne Stroustrup',
+      subject:'Computer Science',
     },
   
   ];
@@ -65,69 +65,72 @@ export class  CarasolComponentComponent implements OnInit {
     }
     return R;
   }
+
+  @Input() ManageComponent: any; 
+  
   personHistory = [
     {
-      Name : 'Person Name',
+      Name : 'Musfirah Riaz',
       FineDue : 'None',
       FinePaid: ' Rs 15',
-      bookName: 'Blah',
+      bookName: 'The Secret of Our Success',
       ret_date: '20/1/20 ',
     },
     {
-      Name : 'Person Name',
+      Name : 'Areeba Khalid',
       FineDue : 'None',
       FinePaid: ' Rs 15',
-      bookName: 'Blah',
+      bookName: 'The Enigma of Reason',
       ret_date: '20/1/20 ',
 
     },
     {
-      Name : 'Person Name',
+      Name : 'Varisha Ajaz',
       FineDue : 'None',
       FinePaid: ' Rs 15',
-      bookName: 'Blah',
+      bookName: 'Everyday Greatness',
       ret_date: '20/1/20 ',
       
     },
     {
-      Name : 'Person Name',
+      Name : 'Amna Siddiqui',
       FineDue : 'None',
-      FinePaid: ' Rs 15',
-      bookName: 'Blah',
+      FinePaid: ' Rs 0',
+      bookName: 'The C++ Programming Language',
       ret_date: '20/1/20 ',
 
      
     },
     {
-      Name : 'Person Name',
-      FineDue : 'None',
-      FinePaid: ' Rs 15',
-      bookName: 'Blah',
+      Name : 'Abdul Hadi',
+      FineDue : 'Rs 25',
+      FinePaid: ' Rs 25',
+      bookName: 'A Course In Geometry',
       ret_date: '20/1/20 ',
 
 
     },
     {
-      Name : 'Person Name',
-      FineDue : 'None',
-      FinePaid: ' Rs 15',
-      bookName: 'Blah',
+      Name : 'Asad Sheikh',
+      FineDue : 'Rs 50',
+      FinePaid: ' Rs 30',
+      bookName: 'Najam ilyas',
       ret_date: '20/1/20 ',
 
     },
     {
-      Name : 'Person Name',
-      FineDue : 'None',
-      FinePaid: ' Rs 15',
-      bookName: 'Blah',
+      Name : 'Kubra Khan',
+      FineDue : 'Rs 100',
+      FinePaid: ' Rs 0',
+      bookName: 'Mind Make Societies',
       ret_date: '20/1/20 ',
 
     },
     {
-      Name : 'Person Name',
-      FineDue : 'None',
+      Name : 'Maaz Bin Riaz',
+      FineDue : 'Rs 0',
       FinePaid: ' Rs 15',
-      bookName: 'Blah',
+      bookName: 'The Stars In The Night Sky',
       ret_date: '20/1/20 ',
 
     },
