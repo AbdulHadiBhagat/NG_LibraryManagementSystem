@@ -7,16 +7,21 @@
 <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
               [animation]="'slide'">
   <mdb-carousel-item *ngFor="let item of slides; let i = index">
-    <div class="col-md-3 pb-2" *ngFor="let card of item; let cardIndex = index">
+    <div class="col-md-3 pb-2" *ngFor="let cards of item; let cardsIndex = index">
       <mdb-card class="my-1 h-100">
           <div class='Card-one'>
             <div class="e-card">
-                <div class="e-card-image">
-                    <div class="e-card-title">By: Musfirah Riaz </div>
+                <div class="e-card-image myclass">
+                    <div class="e-card-title">
+                      {{cards.title}} 
+                    </div>
                 </div>
                 <div class="e-card-content"> 
-                    The Stars in the night sky is a poetry book narrating a journey 
-                of a girl showing empowering of emotions. </div>
+                  <h4>{{cards.Author}}</h4>
+
+                  <h4>{{cards.subject}}</h4>
+
+                    </div>
             </div>
              </div>            
       </mdb-card>
@@ -76,7 +81,7 @@
               
           <div class='Card-two'>
             <div class="e-card">
-                <div class="e-card-image">
+                <div class="e-card-image myclass">
                   <!-- <img src="src\assets\sample.jpg"> -->
 
                     <div class="e-card-title">
@@ -91,6 +96,9 @@
                 <h4>{{personHistory.bookName}}</h4>
 
                 <h4>{{personHistory.ret_date}}</h4>
+                <!-- <li>Office No. : {{person.Office_no}}</li>
+                <li>Address : {{person.address}} </li>
+                <li>Phone No. : {{person.phone_no}} </li> -->
 
                 </div>
                 
@@ -112,4 +120,5 @@
     <button class="Button1">See More </button>
   
   </div>
+
   
