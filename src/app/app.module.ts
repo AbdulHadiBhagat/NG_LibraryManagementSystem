@@ -41,6 +41,8 @@ import { Route, Router, RouterModule, Routes } from '@angular/router';
 import { PaginationComponent } from './modules/pagination/pagination.component';
 import { GridComponent } from './modules/grid/grid.component';
 import { LoginComponent } from './modules/Common/login/login.component';
+import { PersonsComponent } from './modules/Common/persons/persons.component';
+
 import { BookCardsComponent } from './modules/Common/bookCards/book-cards.component';
 import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { BooksPopupComponent } from './modules/books-popup/books-popup.component';
@@ -53,6 +55,10 @@ import { AppStore, appStoreProviders } from './store/app.store';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import rootReducer from './store/app.reducer';
+import { PersonDetailComponent } from './modules/common/person-detail/person-detail.component';
+import { BorrowerDtoComponent } from './Dtos/borrower-dto/borrower-dto.component';
+import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
+import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.component';
 
 
 
@@ -75,6 +81,11 @@ import rootReducer from './store/app.reducer';
     ShowAllBooksComponent,
     PaginationComponent,
     BooksPopupComponent,
+    PersonsComponent,
+    PersonDetailComponent,
+    BorrowerDtoComponent,
+    LoanDtoComponent,
+    OnHoldDtoComponent
 
   ],
   imports: [
