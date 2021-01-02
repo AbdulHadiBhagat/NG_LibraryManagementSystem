@@ -1,5 +1,6 @@
  import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { relative } from 'path';
 //import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 import { NavItem } from './nav-item';
 @Component({
@@ -27,20 +28,20 @@ export class NavbarComponent implements OnInit {
   switch (key) {
 
     case 'Home' :
-      this.router.navigate(['./home']);
+      this.router.navigate(['home'] );
       break;
     
       case 'Manage' :
         debugger;
-     this.router.navigate(['./manage']);
+     this.router.navigate(['manage']);
       break;
 
       case 'Books':
-      this.router.navigate(['./books']);
+      this.router.navigate(['books']);
       break;
 
       case 'History':
-        this.router.navigate(['./history']);
+        this.router.navigate(['history']);
       break;
   
     default:

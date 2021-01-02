@@ -15,7 +15,8 @@ import {
   DxDataGridComponent,
   DxPopupModule,
   DxButtonModule,
-  DxTemplateModule
+  DxTemplateModule,
+  DxCheckBoxModule
 } from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -89,6 +90,7 @@ import rootReducer from './store/app.reducer';
     DxTextAreaModule,
     DxFormModule,
     DxPopupModule,
+    DxCheckBoxModule,
     DxDataGridModule,
     AppRoutingModule,
     
