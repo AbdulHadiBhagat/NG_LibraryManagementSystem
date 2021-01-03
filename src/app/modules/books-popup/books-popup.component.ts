@@ -20,11 +20,11 @@ export class BooksPopupComponent implements OnInit {
     showFilterRow: boolean;
     showHeaderFilter: boolean;
     selectedRowsData = [];
-    getSelectedData() {
+    getSelectedData(e:any) {
 
-      this.selectedRowsData = this.dataGrid.instance.getSelectedRowsData()[0].address;
-    console.log("a");
-     console.log(this.selectedRowsData)
+    //  this.selectedRowsData = this.dataGrid.instance.getSelectedRowsData();
+    console.log(e.data);
+     //console.log(this.selectedRowsData)
       
       
     }

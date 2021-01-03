@@ -16,7 +16,7 @@
         keyExpr="id"
     [hoverStateEnabled]="true"
     [selectedRowKeys]="[]"
-(cellClick)="getSelectedData()"
+    (onCellClick)="getSelectedData($event)"
        [columns]="['id', 'name', 'password','address', 'phone_no']"
        > 
        <dxo-selection mode="single" ></dxo-selection>
@@ -100,9 +100,6 @@
         </dxo-pager>
         
     </dx-data-grid>
-    <div id="Info" *ngIf="grid.selectedRowKeys.length">
-        
-        <p class="Notes">{{grid.instance.getSelectedRowsData()[0].address}}</p>
-    </div>
+   
     </div>
     </dx-popup>
