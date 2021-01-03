@@ -25,6 +25,8 @@
         Persons:
         <input type = "text" [formControl]="Password" placeholder='Search...' id='search-text-input'>
         <button id="popup" (click)="showPersonsPopup()"><i class="fa fa-search">PersonsPopup</i></button><br>
+        
+        <button id="popup" (click)="showCommontest()" type="submit"><i class="fa fa-search" (click)="showCommontest()">Commontest Popup</i></button><br>
     <br>
     <button class="button" type="submit" (click)="onLoginClick()"> submit</button>
      </label> 

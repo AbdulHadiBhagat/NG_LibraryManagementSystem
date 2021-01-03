@@ -17,7 +17,8 @@ import {
   DxButtonModule,
   DxTemplateModule,
   DxTabPanelModule,
-  DxTabsModule
+  DxTabsModule,
+  DxCheckBoxModule
 } from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -28,7 +29,6 @@ import { BorrowerComponent } from './modules/Borrower/borrower.component';
 import { ClerkComponent } from './modules/Clerk/clerk.component';
 import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
-import { PersonsComponent } from './modules/Common/persons/persons.component';
 
 import { CarasolComponentComponent } from './modules/carasol-component/carasol-component.component';
 
@@ -43,6 +43,8 @@ import { Route, Router, RouterModule, Routes } from '@angular/router';
 import { PaginationComponent } from './modules/pagination/pagination.component';
 import { GridComponent } from './modules/grid/grid.component';
 import { LoginComponent } from './modules/Common/login/login.component';
+import { PersonsComponent } from './modules/Common/persons/persons.component';
+
 import { BookCardsComponent } from './modules/Common/bookCards/book-cards.component';
 import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { BooksPopupComponent } from './modules/books-popup/books-popup.component';
@@ -56,6 +58,10 @@ import { HttpModule } from '@angular/http';
 import rootReducer from './store/app.reducer';
 import { PersonsPopupComponent } from './modules/persons-popup/persons-popup.component';
 import { PersonTabComponent } from './modules/Common/person-tab/person-tab.component';
+import { PersonDetailComponent } from './modules/Common/person-detail/person-detail.component';
+import { BorrowerDtoComponent } from './modules/Dtos/borrower-dto/borrower-dto.component';
+import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
+import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.component';
 
 
 
@@ -80,6 +86,11 @@ import { PersonTabComponent } from './modules/Common/person-tab/person-tab.compo
     PaginationComponent,
     BooksPopupComponent,
     PersonsPopupComponent,
+    PersonsComponent,
+    PersonDetailComponent,
+    BorrowerDtoComponent,
+    LoanDtoComponent,
+    OnHoldDtoComponent
 
   ],
   imports: [
@@ -95,6 +106,7 @@ import { PersonTabComponent } from './modules/Common/person-tab/person-tab.compo
     DxTextAreaModule,
     DxFormModule,
     DxPopupModule,
+    DxCheckBoxModule,
     DxDataGridModule,
     DxTabPanelModule,
     AppRoutingModule,

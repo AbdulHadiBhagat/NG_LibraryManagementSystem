@@ -6,5 +6,6 @@ export interface CommonState {
    sysMenu:SysMenuModel;
    persons:any;
    sysTblTsk:any;
+   commonTest:any;
 
 }

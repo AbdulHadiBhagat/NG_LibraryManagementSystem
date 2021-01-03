@@ -19,10 +19,12 @@ const initialState : CommonState = {
         fldrCod:-1,
         fldrKey:"",
         stsList:[],
+    
     },
 
     persons:{} ,
-    sysTblTsk:{}
+    sysTblTsk:{},
+    commonTest:{},
 
 }
 
