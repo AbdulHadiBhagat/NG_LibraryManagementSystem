@@ -56,8 +56,8 @@ import { AppStore, appStoreProviders } from './store/app.store';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import rootReducer from './store/app.reducer';
-import { PersonDetailComponent } from './modules/common/person-detail/person-detail.component';
-import { BorrowerDtoComponent } from './Dtos/borrower-dto/borrower-dto.component';
+import { PersonDetailComponent } from './modules/Common/person-detail/person-detail.component';
+import { BorrowerDtoComponent } from './modules/Dtos/borrower-dto/borrower-dto.component';
 import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
 import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.component';
 
