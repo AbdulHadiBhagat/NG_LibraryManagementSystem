@@ -23,14 +23,25 @@ export class LoginComponent implements OnInit  {
   EmailId = new FormControl('');
   Password = new FormControl('');
 
-  popupVisible = false;
+  //books popup
+  booksPopupVisible = false;
+  showBooksPopup(){
+    this.booksPopupVisible = true;
+  }
+
+  //persons popup
+  personsPopupVisible = false;
+  showPersonsPopup(){
+    this.personsPopupVisible = true;
+  }
+  
   showPopup() {
     // this.store.dispatch<any>(this.test.updateTestCases({
     //   id:"1",
     //   test:"hello"
     // }));
     this.store.dispatch<any>(this.test.getTestCases());
-    // this.popupVisible = true;
+    
 }
 
 showCommontest(){

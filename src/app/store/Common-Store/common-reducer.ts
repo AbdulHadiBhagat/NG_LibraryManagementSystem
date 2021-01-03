@@ -22,7 +22,7 @@ const initialState : CommonState = {
     
     },
 
-    person:{} ,
+    persons:{} ,
     sysTblTsk:{},
     commonTest:{},
 
@@ -38,7 +38,7 @@ export const commonReducer = function(
         case SET_PERSON:
             return {
                 ...state,
-                person: action.payload
+                persons: action.payload
             }
 
     }

@@ -16,6 +16,8 @@ import {
   DxPopupModule,
   DxButtonModule,
   DxTemplateModule,
+  DxTabPanelModule,
+  DxTabsModule,
   DxCheckBoxModule
 } from 'devextreme-angular';
 
@@ -27,7 +29,6 @@ import { BorrowerComponent } from './modules/Borrower/borrower.component';
 import { ClerkComponent } from './modules/Clerk/clerk.component';
 import { BookComponent } from './modules/Book/book.component';
 import { LibrarianComponent } from './modules/Librarian/librarian.component';
-import { PersonComponent } from './modules/Person/person.component';
 
 import { CarasolComponentComponent } from './modules/carasol-component/carasol-component.component';
 
@@ -47,7 +48,6 @@ import { PersonsComponent } from './modules/Common/persons/persons.component';
 import { BookCardsComponent } from './modules/Common/bookCards/book-cards.component';
 import { PersonHistoryCardComponent } from './modules/Common/person-history-card/person-history-card.component';
 import { BooksPopupComponent } from './modules/books-popup/books-popup.component';
-import popup from 'devextreme/ui/popup';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './modules/Common/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -56,6 +56,11 @@ import { AppStore, appStoreProviders } from './store/app.store';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import rootReducer from './store/app.reducer';
+<<<<<<< HEAD
+=======
+import { PersonsPopupComponent } from './modules/persons-popup/persons-popup.component';
+import { PersonTabComponent } from './modules/Common/person-tab/person-tab.component';
+>>>>>>> 7150547d191843e65a4c64cbeeff0caa3386695d
 import { PersonDetailComponent } from './modules/Common/person-detail/person-detail.component';
 import { BorrowerDtoComponent } from './modules/Dtos/borrower-dto/borrower-dto.component';
 import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
@@ -70,11 +75,12 @@ import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.compo
     LoginComponent,
     BookCardsComponent,
     HomeComponentComponent,
+    PersonTabComponent,
     PersonHistoryCardComponent,
     BorrowerComponent,
     ClerkComponent,
     BookComponent,
-    PersonComponent,
+    PersonsComponent,
     LibrarianComponent,
     CarasolComponentComponent,
     ManageComponent,
@@ -82,6 +88,7 @@ import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.compo
     ShowAllBooksComponent,
     PaginationComponent,
     BooksPopupComponent,
+    PersonsPopupComponent,
     PersonsComponent,
     PersonDetailComponent,
     BorrowerDtoComponent,
@@ -97,14 +104,16 @@ import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.compo
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
+    DxTabsModule,
     DxSelectBoxModule,
     DxTextAreaModule,
     DxFormModule,
     DxPopupModule,
     DxCheckBoxModule,
     DxDataGridModule,
+    DxTabPanelModule,
     AppRoutingModule,
-    
+    DxCheckBoxModule
 
 
   ],
