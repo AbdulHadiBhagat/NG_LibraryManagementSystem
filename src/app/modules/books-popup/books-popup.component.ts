@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { person } from '../Person/person';
+import { persons } from '../Common/persons/persons';
 
 @Component({
   selector: 'app-books-popup',
@@ -8,14 +8,14 @@ import { person } from '../Person/person';
 })
 export class BooksPopupComponent implements OnInit {
 
-  popupVisible=false;
+  booksPopupVisible=false;
 
-  gridArray:person[] = [];
+  gridArray:persons[] = [];
   
   
   constructor() 
   { 
-    this.popupVisible=true;
+    this.booksPopupVisible=true;
     this.gridArray = [
       {"id":1,"name":"Areeba","address":"123 Street","phone_no":1,"password":"ab123"}
     
