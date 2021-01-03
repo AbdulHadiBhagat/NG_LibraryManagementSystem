@@ -19,10 +19,12 @@ const initialState : CommonState = {
         fldrCod:-1,
         fldrKey:"",
         stsList:[],
+    
     },
 
-    person:{} ,
-    sysTblTsk:{}
+    persons:{} ,
+    sysTblTsk:{},
+    commonTest:{},
 
 }
 
@@ -36,7 +38,7 @@ export const commonReducer = function(
         case SET_PERSON:
             return {
                 ...state,
-                person: action.payload
+                persons: action.payload
             }
 
     }

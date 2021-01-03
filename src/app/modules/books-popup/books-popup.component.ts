@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { person } from '../Person/person';
+import { persons } from '../Common/persons/persons';
 import { DxDataGridComponent,
 DxDataGridModule,
 DxSelectBoxModule,
@@ -13,8 +13,8 @@ DxCheckBoxModule } from 'devextreme-angular';
 export class BooksPopupComponent implements OnInit {
   @ViewChild('grid', { static: false }) dataGrid: any;
   popupVisible=false;
-  
-  gridArray:person[] = [];
+  gridArray:persons[] = [];
+  booksPopupVisible=false;
   applyFilterTypes: any;
     currentFilter: any;
     showFilterRow: boolean;
@@ -28,9 +28,11 @@ export class BooksPopupComponent implements OnInit {
       
       
     }
+  
+  
   constructor() 
   { 
-    this.popupVisible=true;
+    this.booksPopupVisible=true;
     this.gridArray = [
       {"id":1,"name":"Areeba","address":"123 Street","phone_no":1,"password":"ab123"},
       {"id":2,"name": "Varisha", "address": "123 Street B", "phone_no": 3, "password":"bnmvc"},

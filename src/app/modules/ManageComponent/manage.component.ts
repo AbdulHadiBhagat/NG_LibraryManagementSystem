@@ -1,8 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { clerk } from '../Clerk/clerk';
 import { librarian } from '../Librarian/librarian';
-import { person } from '../Person/person';
-
+import { persons } from '../Common/persons/persons';
 
 @Component({
   selector: 'app-manage',

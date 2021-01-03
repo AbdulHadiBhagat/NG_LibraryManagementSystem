@@ -22,6 +22,11 @@
     height: 5px;
 }
 
+.myclass{
+
+    background-image: linear-gradient(180deg,lightblue,black);
+}
+
 .Button {
     background-color:#003b00; /* Green */
     border: none;
@@ -60,13 +65,13 @@
       color: white;
       margin-top: 50px;
       text-align: center;
-      background-image: linear-gradient(180deg, Green,black);
+      background-image: linear-gradient(180deg, rgb(45, 115, 196),black);
   }
 
   .bookHead
   {
     font-family:'Franklin Gothic Medium';
-    background-image: linear-gradient(180deg, Green,black);
+    background-image: linear-gradient(180deg, rgb(45, 115, 196),black);
     color: white;
     text-align: center;
     margin-top: 30px;

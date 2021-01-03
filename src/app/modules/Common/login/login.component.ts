@@ -5,6 +5,7 @@ import { DxPopupModule, DxButtonModule, DxTemplateModule } from 'devextreme-angu
 import { NgRedux } from '@angular-redux/store';
 import { TestActions } from 'src/app/store/test-store/test.actions';
 import { select } from '@angular-redux/store';
+import { CommonActions } from 'src/app/store/Common-Store/common.actions';
 
 
 @Component({
@@ -15,22 +16,39 @@ import { select } from '@angular-redux/store';
 export class LoginComponent implements OnInit  {
 
   @select(["test","testcases"]) test$:any;
+  @select(["commonTest","commonTests"]) commonTest$:any;
   
   FirstName = new FormControl('');
   LastName= new FormControl('');
   EmailId = new FormControl('');
   Password = new FormControl('');
 
-  popupVisible = false;
+  //books popup
+  booksPopupVisible = false;
+  showBooksPopup(){
+    this.booksPopupVisible = true;
+  }
+
+  //persons popup
+  personsPopupVisible = false;
+  showPersonsPopup(){
+    this.personsPopupVisible = true;
+  }
+  
   showPopup() {
     // this.store.dispatch<any>(this.test.updateTestCases({
     //   id:"1",
     //   test:"hello"
     // }));
     this.store.dispatch<any>(this.test.getTestCases());
-    // this.popupVisible = true;
+    
 }
-  constructor (private router: Router,private store:NgRedux<any>,private test:TestActions){}
+
+showCommontest(){
+  this.store.dispatch<any>(this.commonTest.getCommontest());
+}
+  constructor (private router: Router,private store:NgRedux<any>,private test:TestActions,
+   private commonTest:CommonActions){}
 
   ngOnInit(){
     this.test$.subscribe((data:any) => {
@@ -38,6 +56,11 @@ export class LoginComponent implements OnInit  {
         // console.log(data);
       }
     });
+    this.commonTest$.subscribe((data:any)=> {
+      if(data){
+        console.log(data);
+      }
+    })
   }
   public onLoginClick(){
     this.router.navigate(['./home']);

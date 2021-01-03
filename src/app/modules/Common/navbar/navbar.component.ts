@@ -10,36 +10,37 @@ import { NavItem } from './nav-item';
 export class NavbarComponent implements OnInit {
 
   
-  navItem:NavItem[]=[new NavItem("Home"),
+  navItem:NavItem[]=[
+  new NavItem("Home"),
   new NavItem("Manage"),
   new NavItem("Books"),
-new NavItem("History"),
-new NavItem("Logout")];
+  new NavItem("History"),
+  new NavItem("Logout")];
 
 
   constructor(private router: Router) { }
 
   onClick(key: any){
 
-    console.log(key,"KEY");
+    // console.log(key,"KEY");
 
   switch (key) {
 
     case 'Home' :
-      this.router.navigate(['./Home']);
+      this.router.navigate(['home'] );
       break;
     
       case 'Manage' :
         debugger;
-     this.router.navigate(['/Manage']);
+     this.router.navigate(['manage']);
       break;
 
       case 'Books':
-      this.router.navigate(['./book']);
+      this.router.navigate(['books']);
       break;
 
       case 'History':
-        this.router.navigate(['./history']);
+        this.router.navigate(['history']);
       break;
   
     default:

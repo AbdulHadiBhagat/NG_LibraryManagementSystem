@@ -1,48 +1,68 @@
-<div>
 
-<div>
-    <label> 
-     <h1>
-          CLERK
-     </h1>
-     <br>
-        Clerk Name:
-        <input type = "text" [formControl]="ClerkName"><br>
-    <br>
-        Clerk Id:
-        <input type = "text" [formControl]="ClerkId"><br>
-    <br>
-        Clerk Desk:
-        <input type = "text" [formControl]="ClerkDesk"><br>
-    <br>
-    <button class="button" type="submit"style="margin:20px;">Update</button>   <button class="button" type="submit">Delete</button>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <body ng-app="">
+  Click here to make the input field readonly:<input type="checkbox" ng-model="all"><br>
+  <br>
+   -->
+  
+<Detailform [formGroup]="PersonSection">
+ 
 
-    <br>
+    <h1> PERSON'S FORM</h1>
+
+   
+            <label>
+                Id:
+              <input  type="text" formControlName="Id"> 
+            </label><br>
+          <label>
+            Name:
+              <input type="text" formControlName="Name">
+            </label><br>
+          <label>
+             Address:
+              <input type="text" formControlName="Address">
+            </label><br>
+          <label>
+              Phone no:
+               <input type="text" formControlName="Phoneno">
+             </label><br>
     
-    </label> 
-</div>
-
-
-<div>
-
-    <label> 
-     <h1>
-          LIBRARIAN
-     </h1>
-     <br>
-        Librarian Name:
-        <input type = "text" [formControl]="LibrarianName"><br>
-    <br>
-        Librarian Id:
-        <input type = "text" [formControl]="LibrarianId"><br>
-    <br>
-        Office No:
-        <input type = "text" [formControl]="OfficeNo"><br>
-    <br>
-    <button class="button" type="submit"style="margin:20px;">Update</button>   <button class="button" type="submit">Delete</button>
-    <br>
+          <label>
+            Version no:
+            <input disabled type="text" formControlName="Versionno">
+             </label><br>
+         
+          <label>
+              Type:
+               <input readonly type="text" formControlName="Type">
+             </label><br>
+     
+        <label>
+              Salary:
+               <input type="text" formControlName="Salary">
+             </label><br>
+          
+          <div *ngIf = "type== 'L'" >
+         <label>
+              L_office no:
+               <input type="text" formControlName="L_officeno">
+             </label><br>
+     
+            </div>
+         
+         
+         <div *ngIf ="type=='C'">
+            <label>
+              D_desk no:
+               <input type="text" formControlName="D_deskno">
+             </label><br>
+     
+    </div> 
+          <button type="submit"  (click)="onUpdateClick()"style="margin:20px;">Update</button>    <button type="submit"  (click)="onDeleteClick()" style="margin:20px;">Delete</button>
     
-    </label> 
+      
+            </Detailform>
+    
 
-</div>
-</div>
+          
