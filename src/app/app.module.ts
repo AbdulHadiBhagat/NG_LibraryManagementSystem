@@ -16,7 +16,9 @@ import {
   DxPopupModule,
   DxButtonModule,
   DxTemplateModule,
-  DxCheckBoxModule
+  DxCheckBoxModule,
+  DxToolbarModule,
+  DxContextMenuModule
 } from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -54,6 +56,7 @@ import { AppStore, appStoreProviders } from './store/app.store';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import rootReducer from './store/app.reducer';
+import { LoanGridComponent } from './modules/loan-grid/loan-grid.component';
 
 
 
@@ -76,6 +79,7 @@ import rootReducer from './store/app.reducer';
     ShowAllBooksComponent,
     PaginationComponent,
     BooksPopupComponent,
+    LoanGridComponent,
 
   ],
   imports: [
@@ -91,10 +95,11 @@ import rootReducer from './store/app.reducer';
     DxFormModule,
     DxPopupModule,
     DxCheckBoxModule,
+    DxToolbarModule,
+    DxButtonModule,
+    DxContextMenuModule,
     DxDataGridModule,
     AppRoutingModule,
-    
-
 
   ],
   exports: [

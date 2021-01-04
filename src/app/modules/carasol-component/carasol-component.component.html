@@ -68,11 +68,11 @@
   <button class="Button"> See More </button>
 </div>
 
-<div>
-<h1 class="HisHead">History : </h1>
+<div  *ngIf='type=="A"'> 
+<h1 class="HisHead" >History : </h1>
 </div>
 
-<div  class= 'Historycard_section'>
+<div  class= 'Historycard_section'  *ngIf='type=="A"'>
   <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
                 [animation]="'slide'">
     <mdb-carousel-item *ngFor="let item of slideshistory; let i = index">
@@ -117,7 +117,7 @@
 <!-- button -->
   <div>
 
-    <button class="Button1">See More </button>
+    <button class="Button1"  *ngIf='type=="A"'>See More </button>
   
   </div>
 
