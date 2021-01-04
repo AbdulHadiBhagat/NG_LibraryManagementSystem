@@ -1,41 +1,53 @@
-<div>
-    <label> 
+
+
+    <form [formGroup]="LoginSection">
+     
      <h1>
          SIGN-IN FORM 
      </h1>
-     <br>
+     <label>
         First Name:
-        <input type = "text" [formControl]="FirstName"><br>
-     <br>
-        Last Name:
-        <input type = "text" [formControl]="LastName"><br> 
+        <input type = "text" formControlName="FirstName">
+     </label><br>
         
-    <br>
-        Email Id:
-        <input type = "text" [formControl]="EmailId"><br>
-    <br>
-        Password:
-        <input type = "text" [formControl]="Password"><br>
-    <br>
-
+     <label>
+     Last Name:
+        <input type = "text" formControlName ="LastName"> 
+     </label><br>
+     <label>   
+     Email Id:
+        <input type = "text" formControlName ="EmailId">
+     </label><br>
+        
+     
+     <label>
+     Password:
+        <input type = "text" formControlName ="Password">
+     </label><br>
+<label>
         Books:
-        <input type = "text" [formControl]="Password" placeholder='Search...' id='search-text-input'>
-        <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button><br>
-    <br>
+        <input type = "text" formControlName ="Password" placeholder='Search...' id='search-text-input'>
+        <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
+</label><br>
+<label>
         Persons:
-        <input type = "text" [formControl]="Password" placeholder='Search...' id='search-text-input'>
-        <button id="popup" (click)="showPersonsPopup()"><i class="fa fa-search">PersonsPopup</i></button><br>
-        
-        <button id="popup" (click)="showCommontest()" type="submit"><i class="fa fa-search" (click)="showCommontest()">Commontest Popup</i></button><br>
-    <br>
+        <input type = "text" formControlName="Password" placeholder='Search...' id='search-text-input'>
+        <button id="popup" (click)="showPersonsPopup()"><i class="fa fa-search">PersonsPopup</i></button>
+</label><br>
+<label> 
+        <button id="popup" (click)="showCommontest()" type="submit"><i class="fa fa-search" (click)="showCommontest()">Commontest Popup</i></button>
+</label><br>
+<label>
     <button class="button" type="submit" (click)="onLoginClick()"> submit</button>
-     </label> 
-</div>
-
+     </label><br>
+<label>
 <div id="comp-render" *ngIf="booksPopupVisible">
     <app-books-popup></app-books-popup>
 </div>
-
+</label><br>
+<label>
 <div id="comp-render" *ngIf="personsPopupVisible">
     <app-persons-popup></app-persons-popup>
 </div>
+</label><br>
+</form> 

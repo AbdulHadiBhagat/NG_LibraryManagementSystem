@@ -7,5 +7,6 @@ export interface CommonState {
    persons:any;
    sysTblTsk:any;
    commonTest:any;
+   gridRowData:any;
 
 }

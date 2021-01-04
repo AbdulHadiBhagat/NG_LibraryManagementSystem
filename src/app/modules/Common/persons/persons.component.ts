@@ -23,18 +23,22 @@ export class PersonsComponent implements OnInit {
 
 });
 
-type = "L";
-router: any;
+type = "C";
+
+// private variable: boolean = false ;
+
+//readonly = "R";
+// router: any;
 
 constructor() { }
 ngOnInit() {
   }
 
-  public onUpdateClick(){
-    this.router.navigate(['./person-detail']);
-  }
+  // public onUpdateClick(){
+  //   this.router.navigate(['./person-detail']);
+  // }
   
-  public onDeleteClick(){
-    this.router.navigate(['./person-detail']);
-  }
+  // public onDeleteClick(){
+  //   this.router.navigate(['./person-detail']);
+  // }
 }
