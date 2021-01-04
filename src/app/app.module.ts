@@ -110,7 +110,7 @@ import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.compo
     DxDataGridModule,
     DxTabPanelModule,
     AppRoutingModule,
-    
+    DxCheckBoxModule
 
 
   ],

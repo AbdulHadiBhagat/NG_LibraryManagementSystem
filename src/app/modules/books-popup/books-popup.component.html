@@ -9,12 +9,18 @@
     <div>
         
         <dx-data-grid
+        #grid
         id="gridContainer"
         [dataSource]="gridArray"
         [showBorders]="true"
-        
-        
-       [columns]="['id', 'name', 'password','address', 'phone_no']"> 
+        keyExpr="id"
+    [hoverStateEnabled]="true"
+    [selectedRowKeys]="[]"
+    (onCellClick)="getSelectedData($event)"
+       [columns]="['id', 'name', 'password','address', 'phone_no']"
+       > 
+       <dxo-selection mode="single" ></dxo-selection>
+      
        <dxo-filter-row 
        [visible]="showFilterRow" 
        [applyFilter]="currentFilter"></dxo-filter-row>
@@ -24,6 +30,7 @@
        [visible]="true" 
        [width]="240" 
        placeholder="Search..."></dxo-search-panel>
+
    <dxi-column 
        dataField="id" 
        [width]="140" 
@@ -93,6 +100,6 @@
         </dxo-pager>
         
     </dx-data-grid>
-
+   
     </div>
     </dx-popup>
