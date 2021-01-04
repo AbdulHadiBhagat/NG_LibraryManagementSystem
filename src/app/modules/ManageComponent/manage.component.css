@@ -13,7 +13,7 @@
 }
 
 #outOf{
-    margin-top: 8px;
+    margin-top: 25px;
     margin-right: 10px;
     display: inline-block;
 }
@@ -43,4 +43,20 @@
 hr.dashed {
     border-top: 3px dashed #bbb;
     margin-top: 90px;
+  }
+  .plus-button {
+	border: 1px solid rgb(27, 163, 50);
+	background-color: rgb(16, 138, 12);
+    font-size: 28px;
+	height: 1.5em;
+	width: 1.5em;
+    border-radius: 700px;
+    float: right;
+    margin-top: 3px;
+    
+	
+  }
+  #h2{
+      
+      display: inline-block;
   }

@@ -4,7 +4,7 @@ import { FormControl,FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-persons',
   templateUrl: './persons.component.html',
-  styleUrls: ['./persons.component.scss']
+  styleUrls: ['./persons.component.css']
 })
 export class PersonsComponent implements OnInit {
 
