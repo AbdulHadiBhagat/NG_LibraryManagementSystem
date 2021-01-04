@@ -1,0 +1,60 @@
+<form [formGroup]="LoanSection">
+ 
+
+    <h1> LOAN FORM</h1>
+
+   
+          <label>
+            borrowerName:
+              <input type="text" formControlName="borrowerName">
+            </label><br>
+          
+            <label>
+            issuerName:
+              <input type="text" formControlName="issuerName">
+            </label><br>
+        
+            <label>
+                receiverName:
+                  <input type="text" formControlName="receiverName">
+             </label><br>
+
+
+             
+            <label>
+                bookName:
+                  <input type="text" formControlName="bookName">
+             </label><br>
+
+              
+            <label>
+                issdate:
+                  <input type="text" formControlName="issdate">
+             </label><br>
+
+              
+            <label>
+                retdate:
+                  <input type="text" formControlName="retdate">
+             </label><br>
+
+
+              
+            <label>
+                finepaid:
+                  <input type="text" formControlName="finepaid">
+             </label><br>
+
+
+               
+            <label>
+                versionNo:
+                  <input readonly type="text" formControlName="versionNo">
+             </label><br>
+
+
+
+          <button type="submit" style="margin:20px;">Update</button>    <button type="submit" style="margin:20px;">Delete</button>
+    
+      
+            </form>

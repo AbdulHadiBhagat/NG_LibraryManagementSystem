@@ -6,25 +6,33 @@
 .Historycard_section
 {
     margin-top: 100px;
-    height: 50px;
+    /* height: 50px; */
 }
  
 
 .e-card {
     background-color: rgb(203, 203, 206);
+    height: 150px;
+    
  
 }
 
+.myclass1{
+    font-size: large;
+}
  
 
 .e-card-image
 {
-    height: 5px;
+    height: 150px;
+    
 }
 
 .myclass{
 
     background-image: linear-gradient(180deg,lightblue,black);
+    height: 150px;
+    
 }
 
 .Button {

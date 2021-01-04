@@ -1,0 +1,7 @@
+::ng-deep #Info .Notes {
+    padding-top: 20px;
+    text-align: justify;
+}
+::ng-deep .dark #Info .Notes {
+    color: rgb(181, 181, 181);
+}

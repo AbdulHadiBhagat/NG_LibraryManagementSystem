@@ -1,8 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { clerk } from '../Clerk/clerk';
 import { librarian } from '../Librarian/librarian';
-import { person } from '../Person/person';
-
 
 @Component({
   selector: 'app-manage',
@@ -18,7 +16,7 @@ export class ManageComponent implements OnInit {
   totalPage:number = -1;
   totalPageTwo:number = -1;
   
-  displayActivePage(activePageNumber:number){  
+  displayActivePage(activePageNumber:number){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ``
     this.activePage = activePageNumber;
     this.slides = this.chunk(this.detailLibrarian, 4);
     // let pageSize:number=this.slides.length;

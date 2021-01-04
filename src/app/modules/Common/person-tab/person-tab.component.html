@@ -1,0 +1,37 @@
+<!-- <dx-tab-panel  
+    [dataSource]="tabs"  
+    [selectedIndex]="0">  
+        <div *dxTemplate="let company of 'templ1'">  
+            <app-book-cards></app-book-cards>  
+        </div>  
+        <div *dxTemplate="let company of 'templ2'">  
+            <app-login></app-login>  
+        </div>  
+ </dx-tab-panel> -->
+
+ <!-- without animation -->
+<div id="longtabs">
+    <div class="caption">Manage Tabs</div>
+    <dx-tabs 
+    [dataSource]="tabs"
+    [width]="1300"
+    [selectedIndex]="0"
+    (onItemClick)="selectTab($event)"
+    animationEnabled="true">
+</dx-tabs>
+
+<div class="content dx-fieldset">
+       
+    <div class="dx-field">
+        <div class="dx-field-value-static left-aligned">
+            <!-- {{tabContent}} -->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- with animation -->
+
+    
+   
