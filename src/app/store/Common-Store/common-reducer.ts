@@ -1,6 +1,7 @@
 import { CommonState } from 'src/app/store/Common-Store/common-state'
 import { SysTblTsk } from 'src/app/modules/SysTblTsk/SysTblTskModel';
 import { SET_PERSON } from './common.actions';
+import { SET_GRID_DATA } from './common.actions'
 
 
 const initialState : CommonState = {
@@ -25,6 +26,7 @@ const initialState : CommonState = {
     persons:{} ,
     sysTblTsk:{},
     commonTest:{},
+    gridRowData:{}
 
 }
 
@@ -36,6 +38,18 @@ export const commonReducer = function(
     switch(action.type){
 
         case SET_PERSON:
+            return {
+                ...state,
+                persons: action.payload
+            }
+
+        case SET_GRID_DATA:
+            return {
+                ...state,
+                gridRowData:action.payload
+            }
+
+            case SET_PERSON:
             return {
                 ...state,
                 persons: action.payload
