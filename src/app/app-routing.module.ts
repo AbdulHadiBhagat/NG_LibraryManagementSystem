@@ -14,7 +14,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: '', component: PersonsComponent},
+  // { path: '', component: PersonsComponent},
+  {path:'history', component:PersonHistoryCardComponent},
   { path: 'home', component: NavbarComponent,
      children:[
       { path: '', component:HomeComponentComponent},
