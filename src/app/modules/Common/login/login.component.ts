@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl,FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DxPopupModule, DxButtonModule, DxTemplateModule } from 'devextreme-angular';
 import { NgRedux } from '@angular-redux/store';
@@ -17,11 +17,14 @@ export class LoginComponent implements OnInit  {
 
   @select(["test","testcases"]) test$:any;
   @select(["commonTest","commonTests"]) commonTest$:any;
+  LoginSection = new FormGroup({
+
+  FirstName : new FormControl(''),
+  LastName : new FormControl(''),
+  EmailId : new FormControl(''),
+  Password : new FormControl(''),
   
-  FirstName = new FormControl('');
-  LastName= new FormControl('');
-  EmailId = new FormControl('');
-  Password = new FormControl('');
+});
 
   //books popup
   booksPopupVisible = false;
@@ -34,7 +37,7 @@ export class LoginComponent implements OnInit  {
   showPersonsPopup(){
     this.personsPopupVisible = true;
   }
-  
+
   showPopup() {
     // this.store.dispatch<any>(this.test.updateTestCases({
     //   id:"1",

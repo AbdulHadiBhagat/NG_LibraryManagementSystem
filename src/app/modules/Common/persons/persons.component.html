@@ -4,7 +4,8 @@
   Click here to make the input field readonly:<input type="checkbox" ng-model="all"><br>
   <br>
    -->
-  
+   <!-- <div input readonly="{{ variable }}".> -->
+
 <Detailform [formGroup]="PersonSection">
  
 
@@ -59,10 +60,10 @@
              </label><br>
      
     </div> 
-          <button type="submit"  (click)="onUpdateClick()"style="margin:20px;">Update</button>    <button type="submit"  (click)="onDeleteClick()" style="margin:20px;">Delete</button>
+          <button type="submit" style="margin:20px;">Update</button>    <button type="submit" style="margin:20px;">Delete</button>
     
       
             </Detailform>
     
 
-          
+    <!-- </div>  -->
