@@ -8,6 +8,11 @@ import { FormControl,FormGroup } from '@angular/forms';
 })
 export class PersonsComponent implements OnInit {
 
+  selectedfun: string = '';
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedfun = event.target.value;
+  }
 
   PersonSection = new FormGroup({
     Id: new FormControl(''),
