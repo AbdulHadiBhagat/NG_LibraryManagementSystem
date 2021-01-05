@@ -22,11 +22,10 @@ export class LoginComponent implements OnInit , OnDestroy{
   
   LoginSection = new FormGroup({
 
-  FirstName : new FormControl(''),
-  LastName : new FormControl(''),
-  EmailId : new FormControl(''),
+  // FirstName : new FormControl(''),
+  // LastName : new FormControl(''),
+  Email : new FormControl(''),
   Password : new FormControl(''),
-  
 });
 
   @select(["common", "person" ]) personType$:any;
