@@ -1,10 +1,6 @@
  import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-
-=======
 //import { relative } from 'path';
->>>>>>> c9e249ad336def72a4b7cb387a4a9d0510c07d4f
 //import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 import { NavItem } from './nav-item';
 @Component({
