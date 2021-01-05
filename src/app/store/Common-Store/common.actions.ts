@@ -6,7 +6,7 @@ export const SET_PERSON = "setPerson";
 export const SET_COMMON_TEST ="setCommontest";
 export const SET_GRID_DATA="setGridData"
 
-export const DEFAULT_URL = "localhost:8080/"
+export const DEFAULT_URL = "http://localhost:8080/"
 @Injectable({
     providedIn: 'root'
   })
