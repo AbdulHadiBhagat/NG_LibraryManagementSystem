@@ -96,13 +96,13 @@ console.log(this.type);
 switch(this.type){
   case "A":
   {
-    this.store.dispatch<any>(this.action.getLoanData("loan/"))
+    this.store.dispatch<any>(this.action.getLoanData())
     break;
 
   }
 }
 
-this.store.dispatch<any>(this.action.getAllBooks("book/"))
+this.store.dispatch<any>(this.action.getAllBooks())
 
      }
   })
@@ -112,7 +112,7 @@ this.store.dispatch<any>(this.action.getAllBooks("book/"))
     
     
     this.router.navigate(['./home']);
-    this.Id=this.LoginSection.controls['EmailId'].value;
+    this.Id=this.LoginSection.controls['Email'].value;
     console.log(this.Id);
     
     this.store.dispatch<any>(this.action.login("person/", this.Id));

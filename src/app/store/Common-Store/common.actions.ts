@@ -25,10 +25,10 @@ export const DEFAULT_URL = "http://localhost:8080/"
     }
 
 
-    getLoanData(url:any)
+    getLoanData()
     {
         return(dispatch:any,getState:any)=>{
-            return this.dataService.getAll(DEFAULT_URL).subscribe((data:any)=>{
+            return this.dataService.getAll(DEFAULT_URL+"loan/"+"topn"+"8").subscribe((data:any)=>{
                
                 return dispatch(this.setLoanContent(data.clientdata));
             })
@@ -41,12 +41,12 @@ export const DEFAULT_URL = "http://localhost:8080/"
     return{ type: SET_CONTENT, payload:data}
 }
 
-getAllBooks(url:any)
+getAllBooks()
     {
         return(dispatch:any,getState:any)=>{
-            return this.dataService.getAll(DEFAULT_URL+url).subscribe((data:any)=>{
+            return this.dataService.getAll(DEFAULT_URL+"book/"+"topn"+"8").subscribe((data:any)=>{
                
-                return dispatch(this.setAllBooks(data));
+                return dispatch(this.setAllBooks(data.clientdata));
             })
 
         }
