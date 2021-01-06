@@ -9,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class  CarasolComponentComponent implements OnInit {
   
+  type:any="C";
   cards = [
     {
       title: 'A Course In Geometry',

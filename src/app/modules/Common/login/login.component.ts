@@ -1,5 +1,5 @@
+import { FormControl,FormGroup } from '@angular/forms';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DxPopupModule, DxButtonModule, DxTemplateModule } from 'devextreme-angular';
 import { NgRedux } from '@angular-redux/store';
@@ -18,6 +18,15 @@ export class LoginComponent implements OnInit , OnDestroy{
 
   @select(["test","testcases"]) test$:any;
   @select(["commonTest","commonTests"]) commonTest$:any;
+  
+  
+  LoginSection = new FormGroup({
+
+  // FirstName : new FormControl(''),
+  // LastName : new FormControl(''),
+  Email : new FormControl(''),
+  Password : new FormControl(''),
+});
 
   @select(["common", "person" ]) personType$:any;
   personSubscriber:any;
@@ -26,18 +35,6 @@ export class LoginComponent implements OnInit , OnDestroy{
   @select(["common", "gridRowData" ]) selectedGridRowData$:any;
    //Subscriber hy ye
    selectedGridRowDataSubscriber:any;
-   @select(["common", "loanHistory"]) loanHistory$:any;
-   loanHistorySubscriber:any;
-
-   @select(["common","allBooks"]) allBooks$:any;
-   allBooksSubscriber:any;
-
-
-  
-  FirstName = new FormControl('');
-  LastName= new FormControl('');
-  EmailId = new FormControl('');
-  Password = new FormControl('');
   Id:any;
   
 
@@ -53,7 +50,7 @@ export class LoginComponent implements OnInit , OnDestroy{
   showPersonsPopup(){
     this.personsPopupVisible = true;
   }
-  
+
   showPopup() {
     // this.store.dispatch<any>(this.test.updateTestCases({
     //   id:"1",
@@ -115,7 +112,7 @@ this.store.dispatch<any>(this.action.getAllBooks("book/"))
     
     
     this.router.navigate(['./home']);
-    this.Id=this.EmailId.value;
+    this.Id=this.LoginSection.controls['EmailId'].value;
     console.log(this.Id);
     
     this.store.dispatch<any>(this.action.login("person/", this.Id));

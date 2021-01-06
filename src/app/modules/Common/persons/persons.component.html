@@ -1,10 +1,64 @@
 
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <body ng-app="">
-  Click here to make the input field readonly:<input type="checkbox" ng-model="all"><br>
-  <br>
-   -->
-  
+<!-- <link rel="stylesheet" type="text/css" href="css/dx.common.css"/>
+<link rel="stylesheet" type="text/css" href="css/dx.light.css"/>
+
+
+
+<script  type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+<script  type="text/javascript" src="js/jquery-dx.all.js"></script> -->
+
+<!-- <style>
+
+  #treeBox {
+    width : 300px;
+  }
+</style> -->
+<!-- <div>
+<body id ="form">
+<div id="treeBox"></div>
+
+<script>
+var per = ["Add","Update","Delete"];
+$(function() {
+
+  $("#treeBox").dxDropDownBox({
+    value: per[0],
+
+    contentTemplate: function (e) {
+    var $list = $("<div>").dxList({
+      dataSource: per,
+      selectionMode: "single",
+      onItemClick: function (args){
+       
+        var value = args.itemData;
+        e.component.option("value",value);
+        e.component.close();
+
+
+      }
+    })
+return $list;
+    }
+  });
+
+}); -->
+<!-- 
+</script>
+</body>
+</div> --> 
+<article>
+  <h1>FUNCTIONALITY PERFORM</h1>
+  <h2><span>Select a function:</span></h2>
+  <select (change)="selectChangeHandler($event)">
+      <option value="ADDED">ADD</option>
+      <option value="UPDATED">UPDATE</option>
+      <option value="DELETED">DELETE</option>
+  </select>
+  <p><span>PERSON: </span><b>{{selectedfun}}</b></p>
+</article>
+
+
+
 <Detailform [formGroup]="PersonSection">
  
 
@@ -59,10 +113,8 @@
              </label><br>
      
     </div> 
-          <button type="submit"  (click)="onUpdateClick()"style="margin:20px;">Update</button>    <button type="submit"  (click)="onDeleteClick()" style="margin:20px;">Delete</button>
+          <!-- <button type="submit" style="margin:20px;">Update</button>    <button type="submit" style="margin:20px;">Delete</button> -->
     
       
             </Detailform>
     
-
-          

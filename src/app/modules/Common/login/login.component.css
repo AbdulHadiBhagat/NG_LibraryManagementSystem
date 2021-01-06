@@ -1,10 +1,10 @@
-label{
+form {
 
     color: gray;
     text-align : center;
     padding-left: 35%;
     float: left;
-    }
+}
 
 form.example button {
         float: left;
@@ -44,4 +44,3 @@ form.example button {
         margin-bottom: 10px;
         margin-top: 0;
     }
-    

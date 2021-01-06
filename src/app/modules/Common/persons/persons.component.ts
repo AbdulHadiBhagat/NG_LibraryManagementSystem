@@ -4,10 +4,15 @@ import { FormControl,FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-persons',
   templateUrl: './persons.component.html',
-  styleUrls: ['./persons.component.scss']
+  styleUrls: ['./persons.component.css']
 })
 export class PersonsComponent implements OnInit {
 
+  selectedfun: string = '';
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedfun = event.target.value;
+  }
 
   PersonSection = new FormGroup({
     Id: new FormControl(''),
@@ -23,18 +28,22 @@ export class PersonsComponent implements OnInit {
 
 });
 
-type = "L";
-router: any;
+type = "C";
+
+// private variable: boolean = false ;
+
+//readonly = "R";
+// router: any;
 
 constructor() { }
 ngOnInit() {
   }
 
-  public onUpdateClick(){
-    this.router.navigate(['./person-detail']);
-  }
+  // public onUpdateClick(){
+  //   this.router.navigate(['./person-detail']);
+  // }
   
-  public onDeleteClick(){
-    this.router.navigate(['./person-detail']);
-  }
+  // public onDeleteClick(){
+  //   this.router.navigate(['./person-detail']);
+  // }
 }

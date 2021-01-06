@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BorrowerDtoComponent } from './borrower-dto.component';
+import { OnholdsComponent } from './onholds.component';
 
-describe('BorrowerDtoComponent', () => {
-  let component: BorrowerDtoComponent;
-  let fixture: ComponentFixture<BorrowerDtoComponent>;
+describe('OnholdsComponent', () => {
+  let component: OnholdsComponent;
+  let fixture: ComponentFixture<OnholdsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BorrowerDtoComponent ]
+      declarations: [ OnholdsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BorrowerDtoComponent);
+    fixture = TestBed.createComponent(OnholdsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

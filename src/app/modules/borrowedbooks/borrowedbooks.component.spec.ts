@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OnHoldDtoComponent } from './on-hold-dto.component';
+import { BORROWEDBOOKSComponent } from './borrowedbooks.component';
 
-describe('OnHoldDtoComponent', () => {
-  let component: OnHoldDtoComponent;
-  let fixture: ComponentFixture<OnHoldDtoComponent>;
+describe('BORROWEDBOOKSComponent', () => {
+  let component: BORROWEDBOOKSComponent;
+  let fixture: ComponentFixture<BORROWEDBOOKSComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OnHoldDtoComponent ]
+      declarations: [ BORROWEDBOOKSComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OnHoldDtoComponent);
+    fixture = TestBed.createComponent(BORROWEDBOOKSComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,38 @@
+
+
+<dx-data-grid
+    id="gridContainer"
+    [dataSource]="gridData"
+    [showBorders]="true">
+
+
+
+    <dxi-column cellTemplate="diffCellTemplate"></dxi-column>
+
+    <div *dxTemplate="let d of 'diffCellTemplate'">
+        <dx-button
+                icon="check"
+                type="success"
+                text="Accept"
+               >
+            </dx-button>
+
+            <dx-button
+            icon="close"
+            type="fail"
+            text="Decline"
+           >
+        </dx-button>
+      </div>
+
+      <dxi-column caption=" Requested ID" type="number" dataField="REQ_ID" >REQ_ID</dxi-column>
+      <dxi-column caption="BorrowerID" type="number" dataField="borrower_id">borrower_id</dxi-column>
+      <dxi-column caption="Book" type="number" dataField="book_id" >book_id</dxi-column>
+      <dxi-column caption="Requested Date" type="date" dataField="req_date" >date</dxi-column>
+
+
+    <dxo-scrolling mode="virtual"></dxo-scrolling>
+
+
+    
+</dx-data-grid>

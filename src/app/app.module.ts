@@ -16,9 +16,11 @@ import {
   DxPopupModule,
   DxButtonModule,
   DxTemplateModule,
-  DxTabPanelModule,
+  DxCheckBoxModule,
+  DxToolbarModule,
+  DxContextMenuModule,
   DxTabsModule,
-  DxCheckBoxModule
+  DxTabPanelModule
 } from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -59,9 +61,13 @@ import rootReducer from './store/app.reducer';
 import { PersonsPopupComponent } from './modules/persons-popup/persons-popup.component';
 import { PersonTabComponent } from './modules/Common/person-tab/person-tab.component';
 import { PersonDetailComponent } from './modules/Common/person-detail/person-detail.component';
-import { BorrowerDtoComponent } from './modules/Dtos/borrower-dto/borrower-dto.component';
-import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
-import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.component';
+import { BORROWEDBOOKSComponent } from './modules/borrowedbooks/borrowedbooks.component';
+import { LoansComponent } from './modules/loans/loans.component';
+import { OnholdsComponent } from './modules/onholds/onholds.component';
+import { LoanGridComponent } from './modules/loan-grid/loan-grid.component';
+//import { BorrowerDtoComponent } from './modules/Dtos/borrower-dto/borrower-dto.component';
+//import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
+//import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.component';
 
 
 
@@ -85,12 +91,16 @@ import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.compo
     ShowAllBooksComponent,
     PaginationComponent,
     BooksPopupComponent,
+    LoanGridComponent,
     PersonsPopupComponent,
     PersonsComponent,
     PersonDetailComponent,
-    BorrowerDtoComponent,
-    LoanDtoComponent,
-    OnHoldDtoComponent
+    BORROWEDBOOKSComponent,
+    LoansComponent,
+    OnholdsComponent,
+    //BorrowerDtoComponent,
+    //LoanDtoComponent,
+    //OnHoldDtoComponent
 
   ],
   imports: [
@@ -107,10 +117,13 @@ import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.compo
     DxFormModule,
     DxPopupModule,
     DxCheckBoxModule,
+    DxToolbarModule,
+    DxButtonModule,
+    DxContextMenuModule,
     DxDataGridModule,
     DxTabPanelModule,
     AppRoutingModule,
-    DxCheckBoxModule
+   
 
 
   ],
