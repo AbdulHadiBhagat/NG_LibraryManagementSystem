@@ -95,23 +95,23 @@ console.log(data);
     public onLoginClick(){
     
     
-    this.router.navigate(['./home']);
-    this.Id=this.LoginSection.controls['EmailId'].value;
-    console.log(this.Id);
-    this.store.dispatch<any>(this.action.login("person/", this.Id));
+    this.router.navigateByUrl("home" );
+    // this.Id=this.LoginSection.controls['EmailId'].value;
+    // console.log(this.Id);
+    // this.store.dispatch<any>(this.action.login("person/", this.Id));
 
   }
 
   ngOnDestroy()
   {
-    if(this.selectedGridRowDataSubscriber){
-      this.selectedGridRowDataSubscriber.unSubscribe();
-    }
+    // if(this.selectedGridRowDataSubscriber){
+    //   this.selectedGridRowDataSubscriber.unSubscribe();
+    // }
 
-    if(this.personSubscriber)
-    {
-      this.personSubscriber.unSubscribe();
-    }
+    // if(this.personSubscriber)
+    // {
+    //   this.personSubscriber.unSubscribe();
+    // }
   }
 
   source=["id","name"];
