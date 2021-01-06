@@ -26,6 +26,12 @@ export class LoginComponent implements OnInit , OnDestroy{
   @select(["common", "gridRowData" ]) selectedGridRowData$:any;
    //Subscriber hy ye
    selectedGridRowDataSubscriber:any;
+   @select(["common", "loanHistory"]) loanHistory$:any;
+   loanHistorySubscriber:any;
+
+   @select(["common","allBooks"]) allBooks$:any;
+   allBooksSubscriber:any;
+
 
   
   FirstName = new FormControl('');
@@ -60,13 +66,15 @@ export class LoginComponent implements OnInit , OnDestroy{
 showCommontest(){
   this.store.dispatch<any>(this.commonTest.getCommontest());
 }
-  constructor (private router: Router,private store:NgRedux<any>,private test:TestActions,  private action:CommonActions,
+  
+
+constructor (private router: Router,private store:NgRedux<any>,private test:TestActions,  private action:CommonActions,
    private commonTest:CommonActions)
    {
 
 
    }
-
+ type:any;
   ngOnInit(){
     this.selectedGridRowDataSubscriber=
     this.selectedGridRowData$.subscribe((data:any)=>{
@@ -84,8 +92,23 @@ showCommontest(){
       if(data)
       {
 console.log(data);
-      }
-    })
+
+this.type=data.type;
+console.log(this.type);
+
+switch(this.type){
+  case "A":
+  {
+    this.store.dispatch<any>(this.action.getLoanData("loan/"))
+    break;
+
+  }
+}
+
+this.store.dispatch<any>(this.action.getAllBooks("book/"))
+
+     }
+  })
 }
  
     public onLoginClick(){
@@ -94,6 +117,7 @@ console.log(data);
     this.router.navigate(['./home']);
     this.Id=this.EmailId.value;
     console.log(this.Id);
+    
     this.store.dispatch<any>(this.action.login("person/", this.Id));
 
   }
@@ -101,12 +125,12 @@ console.log(data);
   ngOnDestroy()
   {
     if(this.selectedGridRowDataSubscriber){
-      this.selectedGridRowDataSubscriber.unSubscribe();
+      this.selectedGridRowDataSubscriber.unsubscribe();
     }
 
     if(this.personSubscriber)
     {
-      this.personSubscriber.unSubscribe();
+      this.personSubscriber.unsubscribe();
     }
   }
 

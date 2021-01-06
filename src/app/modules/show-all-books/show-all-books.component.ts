@@ -10,7 +10,7 @@ import { BookCardsComponent } from '../Common/bookCards/book-cards.component'
 })
 export class ShowAllBooksComponent implements OnInit {
 
-  cards:book[] = [
+  cards:any = [
     {
       
       "title": 'Card Title 1',
