@@ -1,6 +1,6 @@
 import { CommonState } from 'src/app/store/Common-Store/common-state'
 import { SysTblTsk } from 'src/app/modules/SysTblTsk/SysTblTskModel';
-import { SET_PERSON } from './common.actions';
+import { SET_ALL_BOOKS, SET_LOAN_CONTENT, SET_PERSON } from './common.actions';
 import { SET_GRID_DATA } from './common.actions'
 
 
@@ -23,10 +23,14 @@ const initialState : CommonState = {
     
     },
 
-    persons:{} ,
+    person:{} ,
     sysTblTsk:{},
     commonTest:{},
-    gridRowData:{}
+    gridRowData:{},
+    loanHistory: {},
+    allBooks:{}
+
+   
 
 }
 
@@ -40,7 +44,7 @@ export const commonReducer = function(
         case SET_PERSON:
             return {
                 ...state,
-                persons: action.payload
+                person: action.payload
             }
 
         case SET_GRID_DATA:
@@ -52,7 +56,18 @@ export const commonReducer = function(
             case SET_PERSON:
             return {
                 ...state,
-                persons: action.payload
+                person: action.payload
+            }
+
+        case SET_LOAN_CONTENT:
+            return {
+                ...state,
+                loanHistory: action.payload
+            }
+        case SET_ALL_BOOKS:
+            return{
+                ...state,
+                allBooks:action.payload
             }
 
     }

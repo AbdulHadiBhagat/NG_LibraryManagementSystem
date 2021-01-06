@@ -22,11 +22,10 @@ export class LoginComponent implements OnInit , OnDestroy{
   
   LoginSection = new FormGroup({
 
-  FirstName : new FormControl(''),
-  LastName : new FormControl(''),
-  EmailId : new FormControl(''),
+  // FirstName : new FormControl(''),
+  // LastName : new FormControl(''),
+  Email : new FormControl(''),
   Password : new FormControl(''),
-  
 });
 
   @select(["common", "person" ]) personType$:any;
@@ -64,13 +63,15 @@ export class LoginComponent implements OnInit , OnDestroy{
 showCommontest(){
   this.store.dispatch<any>(this.commonTest.getCommontest());
 }
-  constructor (private router: Router,private store:NgRedux<any>,private test:TestActions,  private action:CommonActions,
+  
+
+constructor (private router: Router,private store:NgRedux<any>,private test:TestActions,  private action:CommonActions,
    private commonTest:CommonActions)
    {
 
 
    }
-
+ type:any;
   ngOnInit(){
     this.selectedGridRowDataSubscriber=
     this.selectedGridRowData$.subscribe((data:any)=>{
@@ -88,8 +89,23 @@ showCommontest(){
       if(data)
       {
 console.log(data);
-      }
-    })
+
+this.type=data.type;
+console.log(this.type);
+
+switch(this.type){
+  case "A":
+  {
+    this.store.dispatch<any>(this.action.getLoanData("loan/"))
+    break;
+
+  }
+}
+
+this.store.dispatch<any>(this.action.getAllBooks("book/"))
+
+     }
+  })
 }
  
     public onLoginClick(){
@@ -99,19 +115,24 @@ console.log(data);
     // this.Id=this.LoginSection.controls['EmailId'].value;
     // console.log(this.Id);
     // this.store.dispatch<any>(this.action.login("person/", this.Id));
+    // this.router.navigate(['./home']);
+    this.Id=this.LoginSection.controls['Email'].value;
+    console.log(this.Id);
+    
+    this.store.dispatch<any>(this.action.login("person/", this.Id));
 
   }
 
   ngOnDestroy()
   {
-    // if(this.selectedGridRowDataSubscriber){
-    //   this.selectedGridRowDataSubscriber.unSubscribe();
-    // }
+    if(this.selectedGridRowDataSubscriber){
+      this.selectedGridRowDataSubscriber.unsubscribe();
+    }
 
-    // if(this.personSubscriber)
-    // {
-    //   this.personSubscriber.unSubscribe();
-    // }
+    if(this.personSubscriber)
+    {
+      this.personSubscriber.unsubscribe();
+    }
   }
 
   source=["id","name"];

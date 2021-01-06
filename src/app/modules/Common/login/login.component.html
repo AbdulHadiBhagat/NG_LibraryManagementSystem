@@ -5,7 +5,7 @@
      <h1>
          SIGN-IN FORM 
      </h1>
-     <label>
+     <!-- <label>
         First Name:
         <input type = "text" formControlName="FirstName">
      </label><br>
@@ -13,10 +13,11 @@
      <label>
      Last Name:
         <input type = "text" formControlName ="LastName"> 
-     </label><br>
+     </label>-->
+     <br> 
      <label>   
-     Email Id:
-        <input type = "text" formControlName ="EmailId">
+     Email:
+        <input type = "text" formControlName ="Email">
      </label><br>
         
      
@@ -24,8 +25,8 @@
      Password:
         <input type = "text" formControlName ="Password">
      </label><br>
-<label>
-        Books:
+
+        <!-- Books:
         <input type = "text" formControlName ="Password" placeholder='Search...' id='search-text-input'>
         <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
 </label><br>
@@ -36,11 +37,12 @@
 </label><br>
 <label> 
         <button id="popup" (click)="showCommontest()" type="submit"><i class="fa fa-search" (click)="showCommontest()">Commontest Popup</i></button>
-</label><br>
+</label> -->
+<br>
 <label>
     <button class="button" type="submit" (click)="onLoginClick()"> submit</button>
      </label><br>
-<label>
+<!-- <label>
 <div id="comp-render" *ngIf="booksPopupVisible">
     <app-books-popup></app-books-popup>
 </div>
@@ -49,5 +51,5 @@
 <div id="comp-render" *ngIf="personsPopupVisible">
     <app-persons-popup></app-persons-popup>
 </div>
-</label><br>
+</label><br> -->
 </form> 

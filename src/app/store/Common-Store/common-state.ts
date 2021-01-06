@@ -4,9 +4,12 @@ import { SysTblTsk } from "src/app/modules/SysTblTsk/SysTblTskModel";
 
 export interface CommonState {
    sysMenu:SysMenuModel;
-   persons:any;
+   person:any;
    sysTblTsk:any;
    commonTest:any;
    gridRowData:any;
+   loanHistory:any;
+   allBooks:any;
+   //personContent:any;
 
 }
