@@ -20,7 +20,9 @@ import {
   DxToolbarModule,
   DxContextMenuModule,
   DxTabsModule,
-  DxTabPanelModule
+  DxTabPanelModule,
+  DxTextBoxModule,
+  DxBoxModule
 } from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -122,7 +124,10 @@ import { LoanGridComponent } from './modules/loan-grid/loan-grid.component';
     DxContextMenuModule,
     DxDataGridModule,
     DxTabPanelModule,
+    DxTextBoxModule,
+    DxBoxModule,
     AppRoutingModule,
+
    
 
 

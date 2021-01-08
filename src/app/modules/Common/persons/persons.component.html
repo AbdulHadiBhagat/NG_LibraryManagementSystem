@@ -46,6 +46,7 @@ return $list;
 </script>
 </body>
 </div> --> 
+<!-- functionality work -->
 <article>
   <h1>FUNCTIONALITY PERFORM</h1>
   <h2><span>Select a function:</span></h2>
@@ -58,63 +59,84 @@ return $list;
 </article>
 
 
-
-<Detailform [formGroup]="PersonSection">
+<div class="container">
+<form [formGroup]="PersonSection">
  
 
-    <h1> PERSON'S FORM</h1>
+    <h1 style="font-weight: bold;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 30px !important; color: #2e2929;"> PERSON'S FORM</h1>
 
-   
-            <label>
-                Id:
-              <input  type="text" formControlName="Id"> 
-            </label><br>
-          <label>
-            Name:
-              <input type="text" formControlName="Name">
-            </label><br>
-          <label>
-             Address:
-              <input type="text" formControlName="Address">
-            </label><br>
-          <label>
-              Phone no:
-               <input type="text" formControlName="Phoneno">
-             </label><br>
-    
-          <label>
-            Version no:
-            <input readonly type="text" formControlName="Versionno">
-             </label><br>
-         
-          <label>
-              Type:
-               <input readonly type="text" formControlName="Type">
-             </label><br>
-     
-        <label>
-              Salary:
-               <input type="text" formControlName="Salary">
-             </label><br>
-          
+    <div class="dx-fieldset">
+      <div class="dx-field">
+        <div class="dx-field-label">ID</div>
+        <div class="dx-field-value" >
+            <dx-text-box style="width: 110%;" formControlName="Id"  placeholder="Enter ID..." aria-required="dx-field-value"></dx-text-box>
+        </div>
+      </div>
+            
+      <div class="dx-field">
+        <div class="dx-field-label">Name</div>
+        <div class="dx-field-value" >
+            <dx-text-box style="width: 110%;" formControlName="Name"  placeholder="Enter name..." aria-required="dx-field-value"></dx-text-box>
+        </div>
+      </div>
+            
+      <div class="dx-field">
+        <div class="dx-field-label">Address</div>
+        <div class="dx-field-value" >
+            <dx-text-box style="width: 110%;" formControlName="Address"  placeholder="Enter address..." aria-required="dx-field-value"></dx-text-box>
+        </div>
+      </div>
+            
+      <div class="dx-field">
+        <div class="dx-field-label">Phone No</div>
+        <div class="dx-field-value" >
+            <dx-text-box style="width: 110%;" formControlName="Phoneno"  placeholder="Enter phone no..." aria-required="dx-field-value"></dx-text-box>
+        </div>
+      </div>
+             
+      <div class="dx-field">
+        <div class="dx-field-label">Version No</div>
+        <div class="dx-field-value" >
+            <dx-text-box style="width: 110%;" formControlName="Versionno"  placeholder="Enter version no..." aria-required="dx-field-value"></dx-text-box>
+        </div>
+      </div>
+             
+      <div class="dx-field">
+        <div class="dx-field-label">Type</div>
+        <div class="dx-field-value" >
+            <dx-text-box style="width: 110%;" formControlName="Type"  placeholder="Enter type..." aria-required="dx-field-value"></dx-text-box>
+        </div>
+      </div>
+             
+      <div class="dx-field">
+        <div class="dx-field-label">Salary</div>
+        <div class="dx-field-value" >
+            <dx-text-box style="width: 110%;" formControlName="Salary"  placeholder="Enter salary..." aria-required="dx-field-value"></dx-text-box>
+        </div>
+      </div>
+             
           <div *ngIf = "type== 'L'" >
-         <label>
-              L_office no:
-               <input type="text" formControlName="L_officeno">
-             </label><br>
-     
+            <div class="dx-field">
+              <div class="dx-field-label">L_officeno</div>
+              <div class="dx-field-value" >
+                  <dx-text-box style="width: 110%;" formControlName="L_officeno"  placeholder="Enter L_officeno..." aria-required="dx-field-value"></dx-text-box>
+              </div>
             </div>
+          </div>
          
          
          <div *ngIf ="type=='C'">
-            <label>
-              D_desk no:
-               <input type="text" formControlName="D_deskno">
-             </label><br>
-     
-    </div> 
-          <!-- <button type="submit" style="margin:20px;">Update</button>    <button type="submit" style="margin:20px;">Delete</button> -->
+          <div class="dx-field">
+            <div class="dx-field-label">D_deskno</div>
+            <div class="dx-field-value" >
+                <dx-text-box style="width: 110%;" formControlName="D_deskno"  placeholder="Enter D_deskno..." aria-required="dx-field-value"></dx-text-box>
+            </div>
+          </div>
+          </div> 
+          <!-- <button type="submit" style="margin:20px;">Update</button>    
+            <button type="submit" style="margin:20px;">Delete</button> -->
     
-      
-            </Detailform>
+        </div>
+            </form>
+          </div>
     

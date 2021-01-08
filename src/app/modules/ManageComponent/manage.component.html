@@ -5,7 +5,7 @@
     <div id="lib-card" *ngFor="let item of slides; let i = index">
         <!-- <div *ngFor="let card of item; let cardIndex = index"> -->
             <!-- <div *ngFor="let item of slides | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"> -->
-    <app-person-history-card [person]="item">
+    <app-person-history-card [person]="item" (click)="test()">
     </app-person-history-card>
     
 </div>
