@@ -228,6 +228,11 @@ export class ManageComponent implements OnInit {
 
   }
 
+  test(){
+    console.log("HELLO");
+    this.router.navigateByUrl("home/manage/1/detail");
+  }
+
   ngOnInit(): void {
     this.totalDataSize=this.detailLibrarian.length;
     this.totalPage = this.totalDataSize / this.pageSize;
