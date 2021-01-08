@@ -25,7 +25,7 @@ tabContent: any;
       icon: "user", 
       content: "Person tab content",
       selector: "<LoginComponent>",
-      path:'BookCards',
+      path:'home/manage/1/detail',
   },
   { 
       id: 1,
@@ -33,22 +33,15 @@ tabContent: any;
       // icon: "comment", 
       content: "Check1 tab content",
       selector: 'app-person-history-card',
-      path:'./history',
+      path:'home/manage/1/onhold',
   },
   { 
       id: 2,
       text: "Check2", 
       // icon: "find", 
       content: "I am different tab",
-      path:'LoginComponent2',
-  },
-  { 
-    id: 3,
-    text: "Check3", 
-    // icon: "find", 
-    content: "Check3 tab content" ,
-    path:'LoginComponent3',
-}
+      path:'home/manage/1/loan',
+  }
 ];
 
 
@@ -63,6 +56,8 @@ tabContent: any;
     //  this.router.navigate(this.tabs[e.itemIndex].path);
     // this.router.navigate(e.itemData.path);
      console.log(e.itemData.path);
+     console.log(e,"EVENT");
+     this.router.navigateByUrl(e.itemData.path);
     // this.tabContent = this.tabs[e.itemIndex].selector;
 }
 
