@@ -62,6 +62,8 @@ tabContent: any;
 }
 
   ngOnInit(): void {
+
+    console.log("Hello");
   }
 
 }
