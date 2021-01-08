@@ -6,17 +6,17 @@
 
 
 
-    <dxi-column cellTemplate="diffCellTemplate"></dxi-column>
+    <dxi-column cellTemplate="diffCellTemplate"  *ngIf='visibility==true'></dxi-column>
 
     <div *dxTemplate="let d of 'diffCellTemplate'">
-        <dx-button *ngIf='visibility==true'
+        <dx-button 
                 icon="check"
                 type="success"
                 text="Accept"
                >
             </dx-button>
 
-            <dx-button *ngIf='visibility==true'
+            <dx-button 
             icon="close"
             type="fail"
             text="Decline"
