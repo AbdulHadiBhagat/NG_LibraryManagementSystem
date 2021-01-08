@@ -67,6 +67,7 @@ showCommontest(){
 
    p: any|persons;
   LoginSection:any;
+  type:any;
 
   ngOnInit(){
     this.LoginSection = this._fb.group({   
@@ -96,8 +97,23 @@ showCommontest(){
       if(data)
       {
 console.log(data);
-      }
-    })
+
+this.type=data.type;
+console.log(this.type);
+
+switch(this.type){
+  case "A":
+  {
+    this.store.dispatch<any>(this.action.getLoanData("loan/"))
+    break;
+
+  }
+}
+
+this.store.dispatch<any>(this.action.getAllBooks("book/"))
+
+     }
+  })
 }
  
     // public onLoginClick(value: any){
@@ -105,9 +121,14 @@ console.log(data);
       // this.LoginSection.get(value);
       // console.log(value);
     
+    this.router.navigateByUrl("home" );
+    // this.Id=this.LoginSection.controls['EmailId'].value;
+    // console.log(this.Id);
+    // this.store.dispatch<any>(this.action.login("person/", this.Id));
     // this.router.navigate(['./home']);
     this.Id=this.LoginSection.controls['Email'].value;
     console.log(this.Id);
+    
     this.store.dispatch<any>(this.action.login("person/", this.Id));
 
   }
@@ -115,12 +136,12 @@ console.log(data);
   ngOnDestroy()
   {
     if(this.selectedGridRowDataSubscriber){
-      this.selectedGridRowDataSubscriber.unSubscribe();
+      this.selectedGridRowDataSubscriber.unsubscribe();
     }
 
     if(this.personSubscriber)
     {
-      this.personSubscriber.unSubscribe();
+      this.personSubscriber.unsubscribe();
     }
   }
 

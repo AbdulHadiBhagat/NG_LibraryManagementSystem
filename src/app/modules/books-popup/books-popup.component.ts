@@ -6,6 +6,7 @@ DxSelectBoxModule,
 DxCheckBoxModule } from 'devextreme-angular';
 import { NgRedux, select } from '@angular-redux/store';
 import { CommonActions } from 'src/app/store/Common-Store/common.actions';
+import { book } from '../Book/book';
 
 @Component({
   selector: 'app-books-popup',
@@ -20,7 +21,7 @@ export class BooksPopupComponent implements OnInit, OnDestroy{
   
   @ViewChild('grid', { static: false }) dataGrid: any;
   popupVisible=false;
-  gridArray:persons[] = [];
+  gridArray:book[] = [];
   booksPopupVisible=false;
   applyFilterTypes: any;
     currentFilter: any;
@@ -53,9 +54,9 @@ action:any;
     this.action=action;
     this.booksPopupVisible=true;
     this.gridArray = [
-      {"id":1,"name":"Areeba","address":"123 Street","phone_no":1,"password":"ab123"},
-      {"id":2,"name": "Varisha", "address": "123 Street B", "phone_no": 3, "password":"bnmvc"},
-      {"id":3, "name": "Musfirah","address":"er43 street", "phone_no": 123456,"password":"poiuytr"}
+      {"book_id":1,"title":"Areeba","author":"123 Street","subject":"1","is_issued":1},
+      {"book_id":2,"title": "Varisha", "author": "123 Street B", "subject": "3", "is_issued":0},
+      {"book_id":3, "title": "Musfirah","author":"er43 street", "subject": "123456","is_issued":0}
     
     
     ];
