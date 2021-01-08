@@ -18,15 +18,14 @@
      <label>   
      Email:
         <input type = "text" formControlName ="Email">
-     </label><br>
-        
-     
+     </label>
+     <br>
      <label>
      Password:
         <input type = "text" formControlName ="Password">
      </label><br>
-<label>
-        <!-- Books:
+<!--<label>
+         Books:
         <input type = "text" formControlName ="Password" placeholder='Search...' id='search-text-input'>
         <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
 </label><br>
@@ -40,8 +39,9 @@
 </label> -->
 <br>
 <label>
-    <button class="button" type="submit" (click)="onLoginClick()"> submit</button>
-     </label><br>
+    <button id="btn" class="button" type="submit" (click)="onLoginClick()"> submit</button>
+     </label>
+     <br>
 <!-- <label>
 <div id="comp-render" *ngIf="booksPopupVisible">
     <app-books-popup></app-books-popup>
