@@ -1,5 +1,4 @@
 
-
 <dx-data-grid
     id="gridContainer"
     [dataSource]="gridData"
@@ -10,14 +9,14 @@
     <dxi-column cellTemplate="diffCellTemplate"></dxi-column>
 
     <div *dxTemplate="let d of 'diffCellTemplate'">
-        <dx-button
+        <dx-button *ngIf='visibility==true'
                 icon="check"
                 type="success"
                 text="Accept"
                >
             </dx-button>
 
-            <dx-button
+            <dx-button *ngIf='visibility==true'
             icon="close"
             type="fail"
             text="Decline"

@@ -11,6 +11,7 @@ import { PersonHistoryCardComponent } from './modules/Common/person-history-card
 import { NavbarComponent } from './modules/Common/navbar/navbar.component';
 import { ShowAllBooksComponent } from './modules/show-all-books/show-all-books.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { PersonTabComponent } from './modules/Common/person-tab/person-tab.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,7 +21,10 @@ const routes: Routes = [
      children:[
       { path: '', component:HomeComponentComponent},
       { path: 'home', component:HomeComponentComponent},
-      { path: 'manage', component:ManageComponent},
+      { path: 'manage', component:ManageComponent,
+          children:[
+              {path:'persons', component:PersonTabComponent},
+          ]},
       {path: 'books' , component:ShowAllBooksComponent},
       {path:'history', component:PersonHistoryCardComponent}
      ]

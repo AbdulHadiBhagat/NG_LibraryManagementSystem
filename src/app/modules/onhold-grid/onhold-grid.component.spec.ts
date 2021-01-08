@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoanGridComponent } from './loan-grid.component';
+import { LoanGridComponent } from './onhold-grid.component';
 
 describe('LoanGridComponent', () => {
   let component: LoanGridComponent;

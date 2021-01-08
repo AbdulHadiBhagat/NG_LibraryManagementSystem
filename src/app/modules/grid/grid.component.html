@@ -1,7 +1,42 @@
+
 <dx-data-grid
     id="gridContainer"
     [dataSource]="gridData"
-    [columns]="['L_ID', 'borrower_id', 'issuer_id', 'book_id', 'iss_date', 'receiver', 'ret_date', 'fine_paid']"
     [showBorders]="true">
+
+
+
+    <dxi-column cellTemplate="diffCellTemplate"></dxi-column>
+
+    <div *dxTemplate="let d of 'diffCellTemplate'">
+        <dx-button  *ngIf='visibility==true'
+                icon="check"
+                type="success"
+                text="Accept"
+               >
+            </dx-button>
+
+            <dx-button *ngIf='visibility==true'
+            icon="close"
+            type="fail"
+            text="Decline"
+           >
+        </dx-button>
+      </div>
+
+      <dxi-column caption=" Librarian ID" type="number" dataField="L_ID" >L_ID</dxi-column>
+      <dxi-column caption="Borrower ID" type="number" dataField="borrower_id">borrower_id</dxi-column>
+      <dxi-column caption="Issuer ID" type="number" dataField="issuer_id">issuer_id</dxi-column>
+      <dxi-column caption="Book" type="number" dataField="book_id" >book_id</dxi-column>
+      <dxi-column caption="Issued Date" type="date" dataField="iss_date" >iss_date</dxi-column>
+      <dxi-column caption="Receiver" type="number" dataField="receiver" >receiver</dxi-column>
+      <dxi-column caption="Returned Date" type="date" dataField="ret_date" >ret_date</dxi-column>
+      <dxi-column caption="Fine Paid" type="number" dataField="fine_paid" >fine_paid</dxi-column>
+
+
     <dxo-scrolling mode="virtual"></dxo-scrolling>
+
+
+    
 </dx-data-grid>
+
