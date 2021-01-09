@@ -1,1 +1,41 @@
-<p>book works!</p>
+<form [formGroup]="BookSection">
+ 
+
+    <h1> BOOK FORM</h1>
+
+            <label>
+                bookID:
+                  <input type="text" formControlName="bookID">
+             </label><br>
+
+              
+            <label>
+                bookTitle:
+                  <input type="text" formControlName="bookTitle">
+             </label><br>
+
+              
+            <label>
+                Author:
+                  <input type="text" formControlName="Author">
+             </label><br>
+
+             <label>
+                Subject:
+                  <input type="text" formControlName="Subject">
+             </label><br>
+            
+             <label>
+                IsIssued:
+                  <input type="text" formControlName="IsIssued">
+             </label><br>
+
+             <label>
+                FinePerDay:
+                  <input type="text" formControlName="FinePerDay">
+             </label><br>
+
+          <button type="submit" style="margin:20px;">Update</button>    <button type="submit" style="margin:20px;">Delete</button>
+    
+      
+            </form>
