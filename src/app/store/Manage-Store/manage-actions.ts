@@ -11,10 +11,10 @@ export const DEFAULT_URL = "localhost:8080/"
     providedIn: 'root'
   })
 
-  export class ManageActions
+export class ManageActions
   {
     dataService:any;
-    
+      
 
     constructor(dataService:DataService) {
         this.dataService = dataService;
