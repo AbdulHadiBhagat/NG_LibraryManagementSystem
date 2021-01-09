@@ -5,6 +5,9 @@ import { DataService } from '../../data.service'
 export const SET_PERSON = "setPerson";
 export const SET_COMMON_TEST ="setCommontest";
 export const SET_GRID_DATA="setGridData"
+export const SET_CONTENT="setContent"
+export const SET_LOAN_CONTENT="setLoanContent"
+export const SET_ALL_BOOKS="setAllBooks"
 
 export const DEFAULT_URL = "http://localhost:8080/"
 @Injectable({
@@ -22,25 +25,52 @@ export const DEFAULT_URL = "http://localhost:8080/"
     }
 
 
-    // getGridData()
-    // {
-    //     return(dispatch:any,getState:any)=>{
-    //         return this.booksPopup.getSelectedData("data").subscribe((data:any)=>{
-    //             return dispatch(this.setGridData(data));
-    //         })
+    getLoanData(url:any)
+    {
+        return(dispatch:any,getState:any)=>{
+            return this.dataService.getAll(DEFAULT_URL).subscribe((data:any)=>{
+               
+                return dispatch(this.setLoanContent(data.clientdata));
+            })
 
-    //     }
+        }
 
-    // }
+    }
+    setLoanContent(data:any)
+{
+    return{ type: SET_CONTENT, payload:data}
+}
+
+getAllBooks(url:any)
+    {
+        return(dispatch:any,getState:any)=>{
+            return this.dataService.getAll(DEFAULT_URL+url).subscribe((data:any)=>{
+               
+                return dispatch(this.setAllBooks(data));
+            })
+
+        }
+
+    }
+    setAllBooks(data:any)
+{
+    return{ type: SET_CONTENT, payload:data}
+}
+
+
 
     login(url:any,id:any){
         return (dispatch:any,getState:any) => {
             return this.dataService.getById(DEFAULT_URL+ url , id)
             .subscribe((data:any)=> {
-                return dispatch(this.setPerson(data));
+                return dispatch(this.setPerson(data.clientdata));
             })
         }
     }
+
+
+
+
 
     //dispatcher methods
 setPerson(data:any){

@@ -11,6 +11,7 @@ import { loan, Service } from '../Loan/loan';
 export class GridComponent implements OnInit {
 
   gridData:loan[];
+  visibility:boolean=false;
   
   constructor(service:Service) { this.gridData=service.getGridData()}
 

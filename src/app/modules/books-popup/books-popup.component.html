@@ -13,11 +13,11 @@
         id="gridContainer"
         [dataSource]="gridArray"
         [showBorders]="true"
-        keyExpr="id"
+        keyExpr="book_id"
     [hoverStateEnabled]="true"
     [selectedRowKeys]="[]"
     (onCellClick)="getSelectedData($event)"
-       [columns]="['id', 'name', 'password','address', 'phone_no']"
+       [columns]="['book_id', 'title', 'author','subject', 'is_issued']"
        > 
        <dxo-selection mode="single" ></dxo-selection>
       
@@ -32,14 +32,14 @@
        placeholder="Search..."></dxo-search-panel>
 
    <dxi-column 
-       dataField="id" 
+       dataField="book_id" 
        [width]="140" 
        caption="ID">
        <dxo-header-filter 
            [groupInterval]="10000"></dxo-header-filter>
    </dxi-column>
    <dxi-column 
-       dataField="name" 
+       dataField="title" 
        alignment="right" 
       
        [width]="120">
@@ -48,18 +48,18 @@
    </dxi-column>
 
    <dxi-column 
-   dataField="password" 
+   dataField="author" 
    alignment="right" 
    [width]="180"></dxi-column>
    <dxi-column 
-       dataField="address" 
+       dataField="subject" 
        alignment="right" 
        [width]="180"></dxi-column>
    
    
    <dxi-column 
-       dataField="phone_no" 
-       caption="Phone_No">
+       dataField="is_issued" 
+       caption="Is_issued">
        <dxo-header-filter [allowSearch]="true"></dxo-header-filter>
    </dxi-column>
         

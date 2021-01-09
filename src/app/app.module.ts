@@ -20,7 +20,9 @@ import {
   DxToolbarModule,
   DxContextMenuModule,
   DxTabsModule,
-  DxTabPanelModule
+  DxTabPanelModule,
+  DxTextBoxModule,
+  DxBoxModule
 } from 'devextreme-angular';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -64,7 +66,7 @@ import { PersonDetailComponent } from './modules/Common/person-detail/person-det
 import { BORROWEDBOOKSComponent } from './modules/borrowedbooks/borrowedbooks.component';
 import { LoansComponent } from './modules/loans/loans.component';
 import { OnholdsComponent } from './modules/onholds/onholds.component';
-import { LoanGridComponent } from './modules/loan-grid/loan-grid.component';
+import { onholdgridComponent } from './modules/onhold-grid/onhold-grid.component';
 //import { BorrowerDtoComponent } from './modules/Dtos/borrower-dto/borrower-dto.component';
 //import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
 //import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.component';
@@ -91,7 +93,7 @@ import { LoanGridComponent } from './modules/loan-grid/loan-grid.component';
     ShowAllBooksComponent,
     PaginationComponent,
     BooksPopupComponent,
-    LoanGridComponent,
+    onholdgridComponent,
     PersonsPopupComponent,
     PersonsComponent,
     PersonDetailComponent,
@@ -122,7 +124,10 @@ import { LoanGridComponent } from './modules/loan-grid/loan-grid.component';
     DxContextMenuModule,
     DxDataGridModule,
     DxTabPanelModule,
+    DxTextBoxModule,
+    DxBoxModule,
     AppRoutingModule,
+
    
 
 

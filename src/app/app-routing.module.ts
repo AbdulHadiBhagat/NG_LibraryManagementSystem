@@ -11,15 +11,27 @@ import { PersonHistoryCardComponent } from './modules/Common/person-history-card
 import { NavbarComponent } from './modules/Common/navbar/navbar.component';
 import { ShowAllBooksComponent } from './modules/show-all-books/show-all-books.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { PersonTabComponent } from './modules/Common/person-tab/person-tab.component';
+// import { LoanGridComponent } from './modules/loan-grid/loan-grid.component';
+import { GridComponent } from './modules/grid/grid.component';
+import { onholdgridComponent } from './modules/onhold-grid/onhold-grid.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   // { path: '', component: PersonsComponent},
-  {path:'history', component:PersonHistoryCardComponent},
+  // {path:'history', component:PersonHistoryCardComponent},
   { path: 'home', component: NavbarComponent,
      children:[
       { path: '', component:HomeComponentComponent},
+      { path: 'home', component:HomeComponentComponent},
       { path: 'manage', component:ManageComponent},
+      {path:'manage/:id',component:PersonTabComponent,
+      children:[
+          {path:'detail',component:PersonsComponent},
+          {path:'onhold',component:onholdgridComponent},
+          {path:'loan',component:GridComponent}
+              ]
+          },
       {path: 'books' , component:ShowAllBooksComponent},
       {path:'history', component:PersonHistoryCardComponent}
      ]
