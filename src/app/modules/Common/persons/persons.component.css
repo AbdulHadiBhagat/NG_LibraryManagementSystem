@@ -2,9 +2,9 @@
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px 20px;
-  width: 550px;
-  height: 470px;
-  margin-left: 10px;
+  width: 2000px;
+  height: 300px;
+  margin-left: 30px;
   margin-top: 20px;
 }
 #btn {
@@ -16,5 +16,49 @@
   margin: 4px 2px;
   cursor: pointer;
   box-shadow: 3px 3px 1px  #1c5c1e, 3px 3px 1px 1px rgba(0,0,0,1);
+}
+
+.dx-texteditor-input-container{
+  float:left;
+  /* margin-right: 10px; */
+  width:80px;
+}
+
+form.ng-pristine ng-valid ng-touched{
+  width:800px;
+}
+
+.dx-fieldset{
+  margin: 10px 40px;
+  width: 450px;
+}
+
+/* .container[_ngcontent-fqe-c353]{
+  padding: 20px 40px;
+}
+
+.container, .container-md, .container-sm {
+    max-width: 900px;
+} */
+
+.dx-field-label {
+  color: #333;
+  cursor: default;
+  padding: 8px 15px 9px 0;
+}
+
+#first{
+  display: inline-block;
+}
+#second{
+  display: inline-block;
+
+}
+#third{
+  display: inline-block;
+}
+#forth{
+  display: inline-block;
+
 }
         
