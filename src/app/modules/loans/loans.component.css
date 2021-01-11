@@ -1,0 +1,29 @@
+
+    
+.container{
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px 20px;
+        width: 550px;
+        height: 550px;
+        margin-left: 400px;
+        margin-top: 20px;
+    }
+    #btn {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        box-shadow: 3px 3px 1px  #1c5c1e, 3px 3px 1px 1px rgba(0,0,0,1);
+    }
+   
+
+    /* input[type=password] {
+    border: 4px solid;
+    border-radius: 4px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+} */

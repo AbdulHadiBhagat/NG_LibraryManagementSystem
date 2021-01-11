@@ -221,11 +221,33 @@ export class ManageComponent implements OnInit {
   forLibrarian(){
     this.store.dispatch<any>(this.action.getLibrarianList());
   }
+
+  url:string=""
+
+  public oncardlick(key:string){
+
+      // console.log(key,"KEY");
   
+      let test = this.url + '/' +  'persons';
+      this.router.navigateByUrl(test);
+
+    // this.router.navigateByUrl("persons");
+  }
+  
+
  
 
   constructor(private router: Router,private store:NgRedux<any>, private action:ManageActions) { 
 
+    this.url = window.location.pathname
+
+    console.log(this.url)
+
+  }
+
+  test(){
+    console.log("HELLO");
+    this.router.navigateByUrl("home/manage/1/detail");
   }
 
   ngOnInit(): void {

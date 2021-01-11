@@ -1,4 +1,4 @@
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl,FormGroup } from '@angular/forms';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DxPopupModule, DxButtonModule, DxTemplateModule } from 'devextreme-angular';
@@ -7,7 +7,8 @@ import { TestActions } from 'src/app/store/test-store/test.actions';
 import { select } from '@angular-redux/store';
 import { CommonActions } from 'src/app/store/Common-Store/common.actions';
 import { loan } from '../../Loan/loan';
-
+import { persons} from 'src/app/modules/Common/persons/persons';
+import { PersonsComponent } from '../persons/persons.component';
 
 @Component({
   selector: 'app-login',
@@ -20,13 +21,8 @@ export class LoginComponent implements OnInit , OnDestroy{
   @select(["commonTest","commonTests"]) commonTest$:any;
   
   
-  LoginSection = new FormGroup({
 
-  // FirstName : new FormControl(''),
-  // LastName : new FormControl(''),
-  Email : new FormControl(''),
-  Password : new FormControl(''),
-});
+  
 
   @select(["common", "person" ]) personType$:any;
   personSubscriber:any;
@@ -40,16 +36,16 @@ export class LoginComponent implements OnInit , OnDestroy{
 
 
   //books popup
-  booksPopupVisible = false;
-  showBooksPopup(){
-    this.booksPopupVisible = true;
-  }
+  // booksPopupVisible = false;
+  // showBooksPopup(){
+  //   this.booksPopupVisible = true;
+  // }
 
   //persons popup
-  personsPopupVisible = false;
-  showPersonsPopup(){
-    this.personsPopupVisible = true;
-  }
+  // personsPopupVisible = false;
+  // showPersonsPopup(){
+  //   this.personsPopupVisible = true;
+  // }
 
   showPopup() {
     // this.store.dispatch<any>(this.test.updateTestCases({
@@ -63,16 +59,28 @@ export class LoginComponent implements OnInit , OnDestroy{
 showCommontest(){
   this.store.dispatch<any>(this.commonTest.getCommontest());
 }
-  
-
-constructor (private router: Router,private store:NgRedux<any>,private test:TestActions,  private action:CommonActions,
+  constructor (private _fb: FormBuilder,private router: Router,private store:NgRedux<any>,private test:TestActions,  private action:CommonActions,
    private commonTest:CommonActions)
    {
 
-
    }
- type:any;
+
+   p: any|persons;
+  LoginSection:any;
+  type:any;
+
   ngOnInit(){
+    this.LoginSection = this._fb.group({   
+      Email: "",
+      Password: ""
+  }); 
+
+   // this.p =new PersonsComponent();
+    this.LoginSection = new FormGroup({
+      Email : this.p.Email,
+      Password : this.p.Password,
+    });
+
     this.selectedGridRowDataSubscriber=
     this.selectedGridRowData$.subscribe((data:any)=>{
       if(data)
@@ -108,8 +116,10 @@ this.store.dispatch<any>(this.action.getAllBooks())
   })
 }
  
-    public onLoginClick(){
-    
+    // public onLoginClick(value: any){
+      public onLoginClick(){
+      // this.LoginSection.get(value);
+      // console.log(value);
     
     //this.router.navigate(['./home']);
     this.router.navigateByUrl("home" );

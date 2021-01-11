@@ -5,7 +5,7 @@ import { FormControl,FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-onholds',
   templateUrl: './onholds.component.html',
-  styleUrls: ['./onholds.component.scss']
+  styleUrls: ['./onholds.component.css']
 })
 export class OnholdsComponent implements OnInit {
   @select(["manage", "personOnHold"]) personOnHold$:any;

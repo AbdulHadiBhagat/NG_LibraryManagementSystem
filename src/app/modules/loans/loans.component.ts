@@ -1,12 +1,12 @@
 import { select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormControl,FormGroup,FormBuilder } from '@angular/forms';
 
 
 @Component({
   selector: 'app-loans',
   templateUrl: './loans.component.html',
-  styleUrls: ['./loans.component.scss']
+  styleUrls: ['./loans.component.css']
 })
 export class LoansComponent implements OnInit {
   

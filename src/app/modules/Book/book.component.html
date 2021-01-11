@@ -1,1 +1,58 @@
-<p>book works!</p>
+<div class="container">
+  <form [formGroup]="BookSection" id="form">
+   
+  
+      <h1 style="font-weight: bold;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 30px !important; color: #2e2929;"> BOOK FORM</h1>
+  
+      <div class="dx-fieldset">
+        <div class="dx-field">
+          <div class="dx-field-label">bookID</div>
+          <div class="dx-field-value" >
+              <dx-text-box style="width: 110%;" formControlName="bookID"  placeholder="Enter bookID..." aria-required="dx-field-value"></dx-text-box>
+          </div>
+        </div>
+              
+      <div class="dx-field">
+          <div class="dx-field-label">bookTitle</div>
+          <div class="dx-field-value">
+              <dx-text-box style="width: 110%;" formControlName="bookTitle" placeholder="Enter bookTitle..." ></dx-text-box>
+          </div>
+      </div>
+    
+            <div class="dx-field">
+                <div class="dx-field-label">Author</div>
+                <div class="dx-field-value">
+                    <dx-text-box style="width: 110%;" formControlName="Author" placeholder="Enter Author..." ></dx-text-box>
+                </div>
+            </div>
+               
+  
+                      <div class="dx-field">
+                          <div class="dx-field-label">Subject</div>
+                          <div class="dx-field-value">
+                              <dx-text-box style="width: 110%;" formControlName="Subject"  placeholder="Enter Subject..." ></dx-text-box>
+                          </div>
+                      </div>
+              
+                      <div class="dx-field">
+                          <div class="dx-field-label">IsIssued</div>
+                          <div class="dx-field-value">
+                              <dx-text-box style="width: 110%;" formControlName="IsIssued"  placeholder="Enter IsIssued..." ></dx-text-box>
+                          </div>
+                      </div>
+             
+                      <div class="dx-field">
+                          <div class="dx-field-label">FinePerDay</div>
+                          <div class="dx-field-value">
+                              <dx-text-box style="width: 110%;" formControlName="FinePerDay"  placeholder="Enter FinePerDay..." ></dx-text-box>
+                          </div>
+                      </div>
+  
+  
+            <dx-button id="btn" type="submit" style="margin:30px;">Update</dx-button>    
+            <dx-button id="btn" type="submit" style="margin:30px; margin-left: 120px;">Delete</dx-button>
+      
+                    </div>
+              </form>
+            </div>
+  
