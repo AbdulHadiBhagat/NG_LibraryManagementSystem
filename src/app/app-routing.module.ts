@@ -15,10 +15,11 @@ import { BrowserModule } from '@angular/platform-browser';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   // { path: '', component: PersonsComponent},
-  {path:'history', component:PersonHistoryCardComponent},
+  // {path:'history', component:PersonHistoryCardComponent},
   { path: 'home', component: NavbarComponent,
      children:[
       { path: '', component:HomeComponentComponent},
+      { path: 'home', component:HomeComponentComponent},
       { path: 'manage', component:ManageComponent},
       {path: 'books' , component:ShowAllBooksComponent},
       {path:'history', component:PersonHistoryCardComponent}

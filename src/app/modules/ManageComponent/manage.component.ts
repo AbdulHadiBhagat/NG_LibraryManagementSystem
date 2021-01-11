@@ -1,6 +1,12 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { clerk } from '../Clerk/clerk';
 import { librarian } from '../Librarian/librarian';
+import { select } from '@angular-redux/store';
+import { NgRedux } from '@angular-redux/store';
+import { Router } from '@angular/router';
+import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-manage',
@@ -8,6 +14,14 @@ import { librarian } from '../Librarian/librarian';
   styleUrls: ['./manage.component.css']
 })
 export class ManageComponent implements OnInit {
+
+  @select(["manage","clerkList"]) clerkList$:any;
+  ClerkListSubscriber:any;
+  @select(["manage"," librarianList"])  librarianList$:any;
+  LibrarianListSubscriber:any;
+
+
+  type:any;
 
   activePage:number = 1;
   activePageTwo:number = 1;
@@ -199,10 +213,18 @@ export class ManageComponent implements OnInit {
     return R;
     // this.pageSize=R.length;
   }
+
+  forClerk(){
+    this.store.dispatch<any>(this.action.getClerkList());
+  }
+
+  forLibrarian(){
+    this.store.dispatch<any>(this.action.getLibrarianList());
+  }
   
  
 
-  constructor() { 
+  constructor(private router: Router,private store:NgRedux<any>, private action:ManageActions) { 
 
   }
 
@@ -212,6 +234,28 @@ export class ManageComponent implements OnInit {
     this.totalPageTwo = this.totalDataSize / this.pageSize;
     this.slides = this.chunk(this.detailLibrarian, this.pageSize );
     this.slidesTwo = this.chunkTwo(this.detailClerk, this.pageSize );
+    // this.type=this.store.getState().common.person.type
+this.forClerk();
+this.forLibrarian();
+
+
+//manage screen calls
+this.ClerkListSubscriber=
+this.clerkList$.subscribe((data:any)=>{
+  if(data)
+  {
+    console.log(data);
+  }
+}); 
+
+this.LibrarianListSubscriber=
+this.librarianList$.subscribe((data:any)=>{
+  if(data)
+  {
+    console.log(data);
+  }
+}); 
+
   }
 
 }

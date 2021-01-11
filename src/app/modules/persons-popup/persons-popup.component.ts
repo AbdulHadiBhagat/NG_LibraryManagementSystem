@@ -1,4 +1,4 @@
-import { NgRedux } from '@angular-redux/store';
+import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonActions } from 'src/app/store/Common-Store/common.actions';
 import { persons } from '../Common/persons/persons';
@@ -13,12 +13,13 @@ import { DxDataGridComponent,
   styleUrls: ['./persons-popup.component.scss']
 })
 export class PersonsPopupComponent implements OnInit {
-
+  
+  @ViewChild('grid', { static: false }) dataGrid: any;
   personsPopupVisible=false;
 
-  @ViewChild('grid', { static: false }) dataGrid: any;
+  gridArray:persons[] = [];
 
-  //gridArray:persons[]=[];
+
   applyFilterTypes: any;
     currentFilter: any;
     showFilterRow: boolean;
@@ -28,11 +29,12 @@ export class PersonsPopupComponent implements OnInit {
  
   constructor(private store:NgRedux<any>, private action:CommonActions) { 
     this.personsPopupVisible=true;
-    // this.gridArray = [
-    //   {"id":1,"name":"Areeba","address":"123 Street","password":"1","phone_no":1234},
+
+    this.gridArray = [
+      {"id":1,"name":"Areeba","address":"123 Street","password":"1","phone_no":1234},
     //   {"id":2,"name": "Varisha", "address": "123 Street B", "password": "3", "phone_no": 921456},
     //   {"id":3, "name": "Musfirah","address":"er43 street", "password": "123456","phone_no":09878}
-    // ];
+    ];
 
     this.showFilterRow = true;
     this.showHeaderFilter = true;
@@ -54,7 +56,7 @@ export class PersonsPopupComponent implements OnInit {
 
     
     console.log(e.data);
-    this.store.dispatch(this.action.setGridData(e.data));
+    this.store.dispatch(this.action.setPersonGridData(e.data));
      //console.log(this.selectedRowsData)
 
      this.personsPopupVisible=false;
@@ -63,6 +65,14 @@ export class PersonsPopupComponent implements OnInit {
     }
   
   ngOnInit(): void {
+    
   }
+
+  ngOnDestroy():void{
+   
+
+  }
+
+  
 
 }

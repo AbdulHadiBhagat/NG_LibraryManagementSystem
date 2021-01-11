@@ -14,7 +14,8 @@ import { book } from '../Book/book';
   styleUrls: ['./books-popup.component.scss']
 })
 export class BooksPopupComponent implements OnInit, OnDestroy{
-  
+@select(["common","bookGridData"]) bookGridData$:any;
+bookGridDataSubscriber:any;  
  
 
 
@@ -30,7 +31,6 @@ export class BooksPopupComponent implements OnInit, OnDestroy{
     selectedRowsData = [];
 
     name:any
-   
     store:any;
 action:any;
     
@@ -39,12 +39,11 @@ action:any;
 
     //  this.selectedRowsData = this.dataGrid.instance.getSelectedRowsData();
     console.log(e.data);
-    this.store.dispatch(this.action.setGridData(e.data));
+    this.store.dispatch(this.action.setBookGridData(e.data));
      //console.log(this.selectedRowsData)
 
      this.booksPopupVisible=false;
-     
-    
+
     }
   
   
@@ -80,12 +79,36 @@ action:any;
 }
 
 ngOnDestroy(){
+
+  if(this.bookGridDataSubscriber){
+    this.bookGridDataSubscriber.unsubscribe();
+  }
  
 }
 
   ngOnInit(): void {
-
+this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{
+  if(data)
+  {
+    console.log(data);
+        let model={"book_id":"","book_name":""};
+        this.setData(model,data,this.source,this.destination);
+  }
+})
    
   }
 
+  //gridDataVariables
+  source=["id","name"];
+  //FormControlVariables
+  destination=["book_id","book_name"];
+  setData(model:any,data:any,source:any,destination:any)
+  {
+
+    for (let index = 0; index < source.length; index++) {
+      model[destination[index]]=data[source[index]];
+      
+    }
+
+}
 }

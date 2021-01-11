@@ -10,6 +10,8 @@ export interface CommonState {
    gridRowData:any;
    loanHistory:any;
    allBooks:any;
+   bookGridData:any;
+   personGridData:any;
    //personContent:any;
 
 }

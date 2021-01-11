@@ -1,5 +1,7 @@
+import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
+import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
 
 @Component({
   selector: 'app-persons',
@@ -8,6 +10,9 @@ import { FormControl,FormGroup } from '@angular/forms';
 })
 export class PersonsComponent implements OnInit {
 
+  @select(["manage","personDetails"]) personDetails$:any;
+  personDetailsSubscriber:any;
+  
   selectedfun: string = '';
   selectChangeHandler (event: any) {
     //update the ui
@@ -35,8 +40,16 @@ type = "C";
 //readonly = "R";
 // router: any;
 
-constructor() { }
+constructor(private store:NgRedux<any>, private action:ManageActions) { }
 ngOnInit() {
+
+  this.store.dispatch<any>(this.action.getPersonDetails(this.store.getState().manage.personId));
+  this.personDetailsSubscriber=this.personDetails$.subscribe((data:any)=>{
+    if(data){
+      console.log(data)
+    }
+  })
+  
   }
 
   // public onUpdateClick(){
@@ -46,4 +59,6 @@ ngOnInit() {
   // public onDeleteClick(){
   //   this.router.navigate(['./person-detail']);
   // }
+
+
 }

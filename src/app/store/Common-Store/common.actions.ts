@@ -5,6 +5,8 @@ import { DataService } from '../../data.service'
 export const SET_PERSON = "setPerson";
 export const SET_COMMON_TEST ="setCommontest";
 export const SET_GRID_DATA="setGridData"
+export const SET_BOOK_GRID_DATA="setBookGridData"
+export const SET_PERSON_GRID_DATA="setPersonGridData"
 export const SET_CONTENT="setContent"
 export const SET_LOAN_CONTENT="setLoanContent"
 export const SET_ALL_BOOKS="setAllBooks"
@@ -76,8 +78,17 @@ getAllBooks()
 setPerson(data:any){
     return {type : SET_PERSON, payload : data}
 }
-    setGridData(data:any){
-        return{type:SET_GRID_DATA, payload: data}
+    
+
+setGridData(data:any){
+    return{type:SET_GRID_DATA, payload: data}
+}
+    setBookGridData(data:any){
+        return{type:SET_BOOK_GRID_DATA, payload: data}
+    }
+
+    setPersonGridData(data:any){
+        return{type:SET_PERSON_GRID_DATA, payload: data}
     }
     getCommontest(){
         return(dispatch:any,getState:any)=>{

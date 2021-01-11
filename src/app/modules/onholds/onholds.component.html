@@ -7,12 +7,14 @@
             <label>
                 bookName:
                   <input type="text" formControlName="bookName">
+                  <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
              </label><br>
 
               
             <label>
                 borrowerName:
                   <input type="text" formControlName="borrowerName">
+                  <button id="popup" (click)="showPersonsPopup()"><i class="fa fa-search">PersonsPopup</i></button>
              </label><br>
 
               
@@ -25,5 +27,15 @@
 
           <button type="submit" style="margin:20px;">Update</button>    <button type="submit" style="margin:20px;">Delete</button>
     
-      
+          <label>
+            <div id="comp-render" *ngIf="personsPopupVisible">
+                <app-persons-popup></app-persons-popup>
+            </div>
+            </label><br> -->
+
+        <label>
+<div id="comp-render" *ngIf="booksPopupVisible">
+    <app-books-popup></app-books-popup>
+</div>
+</label><br>
             </form>

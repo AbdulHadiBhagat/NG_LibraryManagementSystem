@@ -111,7 +111,12 @@ this.store.dispatch<any>(this.action.getAllBooks())
     public onLoginClick(){
     
     
-    this.router.navigate(['./home']);
+    //this.router.navigate(['./home']);
+    this.router.navigateByUrl("home" );
+    // this.Id=this.LoginSection.controls['EmailId'].value;
+    // console.log(this.Id);
+    // this.store.dispatch<any>(this.action.login("person/", this.Id));
+    // this.router.navigate(['./home']);
     this.Id=this.LoginSection.controls['Email'].value;
     console.log(this.Id);
     

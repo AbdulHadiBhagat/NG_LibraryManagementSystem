@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from 'src/app/modules/Common/login/login.component';
 import { Routes, RouterModule, Router } from '@angular/router';
+import { NgRedux } from '@angular-redux/store';
+import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
 
 @Component({
   selector: 'app-person-tab',
@@ -53,7 +55,7 @@ tabContent: any;
 
 
 
-  constructor(private router:Router) {
+  constructor(private router:Router, private store:NgRedux<any>, private action:ManageActions) {
     // this.router.navigate(this.tabs[0].path);
     console.log('path');
     // this.tabContent = this.tabs[0].selector;
@@ -64,6 +66,16 @@ tabContent: any;
     // this.router.navigate(e.itemData.path);
      console.log(e.itemData.path);
     // this.tabContent = this.tabs[e.itemIndex].selector;
+    console.log(e.itemIndex);
+    if(e.itemIndex==1)
+    {
+      this.store.dispatch<any>(this.action.getPersonOnHoldRequests("onhold/byperson/",this.store.getState().manage.personId));
+    }
+    else if(e.itemIndex==2){
+      this.store.dispatch<any>(this.action.getPersonLoanRequests("loan/byperson/",this.store.getState().manage.personId));
+
+    }
+
 }
 
   ngOnInit(): void {

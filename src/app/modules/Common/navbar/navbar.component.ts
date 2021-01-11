@@ -17,36 +17,48 @@ export class NavbarComponent implements OnInit {
   new NavItem("Books"),
   new NavItem("History"),
   new NavItem("Logout")];
+ 
+
+  url:string=""
+
+  constructor(private router: Router) {
+
+    this.url = window.location.pathname
+
+    console.log(this.url)
+   }
 
 
-  constructor(private router: Router) { }
-
-  onClick(key: any){
+  onClick(key: string){
 
     // console.log(key,"KEY");
 
-  switch (key) {
+    let test = this.url + '/' + key.toLowerCase();
+    this.router.navigateByUrl(test);
+  // switch (key:string) {
 
-    case 'Home' :
-      this.router.navigate(['home'] );
-      break;
+   
+
+  //   case 'Home' :
+  //     this.router.navigateByUrl(this.url +"/home" );
+  //     break;
     
-      case 'Manage' :
-        debugger;
-     this.router.navigate(['manage']);
-      break;
+  //     case 'Manage' :
+  //       debugger;
+  //    this.router.navigateByUrl(this.url + "/manage");
+  //     break;
 
-      case 'Books':
-      this.router.navigate(['books']);
-      break;
+  //     case 'Books':
+  //     this.router.navigateByUrl(this.url + "/books");
+  //     break;
 
-      case 'History':
-        this.router.navigate(['history']);
-      break;
+  //     case 'History':
+  //       this.router.navigateByUrl(this.url + "/history");
+  //     break;
   
-    default:
-      break;
-  }
+  //   default:
+  //     break;
+  // }
   }
 
 
