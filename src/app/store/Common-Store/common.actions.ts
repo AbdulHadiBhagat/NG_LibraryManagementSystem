@@ -30,8 +30,8 @@ export const DEFAULT_URL = "http://localhost:8080/"
     getLoanData()
     {
         return(dispatch:any,getState:any)=>{
-            return this.dataService.getAll(DEFAULT_URL+"loan/"+"topn"+"8").subscribe((data:any)=>{
-               
+            return this.dataService.getAll(DEFAULT_URL+"loan/"+"topn/"+"8").subscribe((data:any)=>{
+                console.log(data,"COMMON ACTIONS");
                 return dispatch(this.setLoanContent(data.clientdata));
             })
 
@@ -40,14 +40,14 @@ export const DEFAULT_URL = "http://localhost:8080/"
     }
     setLoanContent(data:any)
 {
-    return{ type: SET_CONTENT, payload:data}
+    return{ type: SET_LOAN_CONTENT, payload:data}
 }
 
 getAllBooks()
     {
         return(dispatch:any,getState:any)=>{
-            return this.dataService.getAll(DEFAULT_URL+"book/"+"topn"+"8").subscribe((data:any)=>{
-               
+            return this.dataService.getAll(DEFAULT_URL+"book/"+"topn/"+"8").subscribe((data:any)=>{
+               console.log(data,"COMMON ACTIONS");
                 return dispatch(this.setAllBooks(data.clientdata));
             })
 
@@ -56,7 +56,7 @@ getAllBooks()
     }
     setAllBooks(data:any)
 {
-    return{ type: SET_CONTENT, payload:data}
+    return{ type: SET_ALL_BOOKS, payload:data}
 }
 
 

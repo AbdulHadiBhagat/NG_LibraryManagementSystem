@@ -76,10 +76,10 @@ showCommontest(){
   }); 
 
    // this.p =new PersonsComponent();
-    this.LoginSection = new FormGroup({
-      Email : this.p.Email,
-      Password : this.p.Password,
-    });
+    // this.LoginSection = new FormGroup({
+    //   Email : this.p.Email,
+    //   Password : this.p.Password,
+    // });
 
     this.selectedGridRowDataSubscriber=
     this.selectedGridRowData$.subscribe((data:any)=>{

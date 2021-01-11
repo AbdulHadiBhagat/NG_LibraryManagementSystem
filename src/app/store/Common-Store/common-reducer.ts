@@ -67,6 +67,7 @@ export const commonReducer = function(
             }
 
         case SET_LOAN_CONTENT:
+            console.log(action.payload,"LOAN DATA")
             return {
                 ...state,
                 loanHistory: action.payload

@@ -1,6 +1,8 @@
 
 
 import { Component, Input, OnInit } from '@angular/core';
+import { select } from '@angular-redux/store';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-carasol-component',
@@ -8,7 +10,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./carasol-component.component.css'],
 })
 export class  CarasolComponentComponent implements OnInit {
-  
+  @select(["common" ,"loanHistory"]) loanHistory$:any;
+  loanHistorySubscriber:any;
+
+  @select(["common" ,"allBooks"]) allBooks$:any;
+  allBooksSubscriber:any;
   type:any="A";
   cards = [
     {
@@ -149,6 +155,26 @@ export class  CarasolComponentComponent implements OnInit {
   ngOnInit() {
     this.slides = this.chunk(this.cards, 4);
     this.slideshistory = this.chunkhistory(this.personHistory, 4);
+
+
+    this.loanHistorySubscriber=this.loanHistory$.subscribe((data:any)=>{
+      if(data){
+        console.log(data,"loanData");
+        
+      }
+    });
+
+
+    this.allBooksSubscriber=this.allBooks$.subscribe((data:any)=>{
+      if(data){
+        console.log(data,"booksData");
+
+      }
+    });
+  }
+
+  ngOnDestroy():void{
+    
   }
 }
 
