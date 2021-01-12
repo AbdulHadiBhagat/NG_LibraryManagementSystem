@@ -12,6 +12,8 @@ export interface CommonState {
    allBooks:any;
    bookGridData:any;
    personGridData:any;
+   showPersonPopup:any;
+   showBookPopup:any;
    //personContent:any;
 
 }

@@ -10,6 +10,8 @@ export const SET_PERSON_GRID_DATA = "setPersonGridData"
 export const SET_CONTENT = "setContent"
 export const SET_LOAN_CONTENT = "setLoanContent"
 export const SET_ALL_BOOKS = "setAllBooks"
+export const SET_SHOW_PERSON_POPUP="setShowPersonPopup"
+export const SET_SHOW_BOOK_POPUP="setShowBookPopup"
 
 export const DEFAULT_URL = "http://localhost:8080/"
 @Injectable({
@@ -98,5 +100,17 @@ export class CommonActions {
     updateCommontests(data: any) {
         return { type: SET_COMMON_TEST, payload: data }
     }
+
+    setShowPersonPopup(data:any)
+    {
+            return{ type: SET_SHOW_PERSON_POPUP, payload:data}
+
+    }
+
+    setShowBookPopup(data:any)
+    {
+        return{ type: SET_SHOW_BOOK_POPUP,payload:data}
+    }
+
 }
 
