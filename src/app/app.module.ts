@@ -107,6 +107,7 @@ import { onholdgridComponent } from './modules/onhold-grid/onhold-grid.component
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     NgReduxModule,
     HttpClientModule,
     HttpModule,

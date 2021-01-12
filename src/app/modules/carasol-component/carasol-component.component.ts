@@ -1,8 +1,7 @@
 
 
 import { Component, Input, OnInit } from '@angular/core';
-import { select } from '@angular-redux/store';
-import { ThrowStmt } from '@angular/compiler';
+import { select, NgRedux } from '@angular-redux/store';
 
 @Component({
   selector: 'app-carasol-component',
@@ -152,15 +151,22 @@ export class  CarasolComponentComponent implements OnInit {
     }
     return R;
   }
-  ngOnInit() {
-    this.slides = this.chunk(this.cards, 4);
-    this.slideshistory = this.chunkhistory(this.personHistory, 4);
+  constructor(private store:NgRedux<any>){
 
+  }
+  ngOnInit() {
+    
+    setTimeout(() => {
+      console.log("loanData",this.store.getState().common.loanHistory);
+    }, 3000);
 
     this.loanHistorySubscriber=this.loanHistory$.subscribe((data:any)=>{
+     
       if(data){
         console.log(data,"loanData");
-        
+        this.personHistory=data;
+        this.slideshistory = this.chunkhistory(this.personHistory, 4);
+        console.log(this.slideshistory,this.personHistory,"hello");
       }
     });
 
@@ -168,7 +174,8 @@ export class  CarasolComponentComponent implements OnInit {
     this.allBooksSubscriber=this.allBooks$.subscribe((data:any)=>{
       if(data){
         console.log(data,"booksData");
-
+        this.cards=data;
+        this.slides = this.chunk(this.cards, 4);
       }
     });
   }

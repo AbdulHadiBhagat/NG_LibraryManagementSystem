@@ -31,7 +31,7 @@
 <button class="plus-button">+</button> <br><br>
 <div class = "clerks">
     
-    <div id="clerk-card" *ngFor="let item of slidesTwo; let i = index">
+    <div  id="clerk-card" *ngFor="let item of slidesTwo; let i = index">
         <app-person-history-card [person]="item" (click)="oncardlick(item)">
     </app-person-history-card>
     </div>

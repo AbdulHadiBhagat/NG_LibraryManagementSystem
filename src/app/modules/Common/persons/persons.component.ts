@@ -13,10 +13,27 @@ export class PersonsComponent implements OnInit {
   @select(["manage","personDetails"]) personDetails$:any;
   personDetailsSubscriber:any;
   
+  data:any;
   selectedfun: string = '';
   selectChangeHandler (event: any) {
     //update the ui
     this.selectedfun = event.target.value;
+  }
+ 
+  initializedData(){
+    this.PersonSection = new FormGroup({
+      Id: new FormControl(this.data.sysSeq),
+      Name: new FormControl(this.data.pname),
+      Address: new FormControl(this.data.address),
+      Phoneno: new FormControl(this.data.phoneno),
+      Versionno: new FormControl(this.data.versionNo),
+      Type: new FormControl(this.data.type),
+      Salary: new FormControl(this.data.salary),
+      
+      L_officeno: new FormControl(this.data.lofficeno),
+      D_deskno: new FormControl(this.data.cdeskno)
+  
+  });
   }
 
   PersonSection = new FormGroup({
@@ -47,6 +64,8 @@ ngOnInit() {
   this.personDetailsSubscriber=this.personDetails$.subscribe((data:any)=>{
     if(data){
       console.log(data)
+      this.data=data;
+      this.initializedData();
     }
   })
   

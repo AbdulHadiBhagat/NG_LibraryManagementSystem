@@ -1,14 +1,15 @@
 <div class = "lib">
 <div class="Card-one">
-<div class="e-card">
+<div *ngIf="person" class="e-card">
     <div class="e-card-image">
-        <div class="e-card-title">{{person.name}} </div>
+        <div class="e-card-title">{{person.pname}} </div>
     </div>
     <div class="e-card-content"> 
         <ul>
-            <li>Office No. : {{person.Office_no}}</li>
+                <li>Office No. : {{person.cdeskno}}</li>
+            <li>Office No. : {{person.salary}}</li>
             <li>Address : {{person.address}} </li>
-            <li>Phone No. : {{person.phone_no}} </li>
+            <li>Phone No. : {{person.phoneno}} </li>
         </ul>
      </div>
 </div>

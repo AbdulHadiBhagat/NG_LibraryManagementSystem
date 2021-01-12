@@ -94,7 +94,7 @@ showCommontest(){
     }); 
   
     this.personSubscriber=this.personType$.subscribe((data:any)=>{
-      if(data)
+      if(data.sysSeq)
       {
 console.log(data);
 
@@ -111,7 +111,7 @@ switch(this.type){
 }
 
 this.store.dispatch<any>(this.action.getAllBooks())
-
+this.router.navigateByUrl("home" );
      }
   })
 }
@@ -122,7 +122,7 @@ this.store.dispatch<any>(this.action.getAllBooks())
       // console.log(value);
     
     //this.router.navigate(['./home']);
-    this.router.navigateByUrl("home" );
+    
     // this.Id=this.LoginSection.controls['EmailId'].value;
     // console.log(this.Id);
     // this.store.dispatch<any>(this.action.login("person/", this.Id));

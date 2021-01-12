@@ -5,7 +5,7 @@ const initialState : ManageState = {
 
     clerkList: [],
     librarianList:[],
-    personId:10,
+    personId:47,
     personDetails:{},
     personOnHold:{},
     personLoan:{}
@@ -25,6 +25,7 @@ export const manageReducer = function(
             }
 
             case SET_LIBRARIAN_LIST:
+                console.log(action.payload,"libraran list reducer");
                 return {
                     ...state,
                     librarianList: action.payload
