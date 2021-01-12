@@ -15,5 +15,6 @@ export interface CommonState {
    showPersonPopup:any;
    showBookPopup:any;
    //personContent:any;
+   
 
 }

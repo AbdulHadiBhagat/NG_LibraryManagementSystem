@@ -1,6 +1,7 @@
 import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
+import { CommonActions } from 'src/app/store/Common-Store/common.actions';
 import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
 
 @Component({
@@ -13,6 +14,10 @@ export class PersonsComponent implements OnInit {
   @select(["manage","personDetails"]) personDetails$:any;
   personDetailsSubscriber:any;
   
+
+  @select(["common","sysTblTsk"]) sysTblTsk$:any;
+  sysTblTskSubscriber:any;
+
   data:any;
   selectedfun: string = '';
   selectChangeHandler (event: any) {
@@ -57,7 +62,15 @@ type = "C";
 //readonly = "R";
 // router: any;
 
-constructor(private store:NgRedux<any>, private action:ManageActions) { }
+tableid=30;
+
+forTableid(){
+  this.store.dispatch<any>(this.commmon.getTableId(this.tableid));
+  console.log(this.tableid)
+}
+
+constructor(private store:NgRedux<any>, private action:ManageActions, private commmon:CommonActions) { }
+
 ngOnInit() {
 
   this.store.dispatch<any>(this.action.getPersonDetails(this.store.getState().manage.personId));
@@ -68,8 +81,20 @@ ngOnInit() {
       this.initializedData();
     }
   })
-  
+
+
+  this.forTableid();
+    
+
+  this.sysTblTskSubscriber=
+this.sysTblTsk$.subscribe((data:any)=>{
+if(data)
+{
+  console.log(data);
+}
+}); 
   }
+  
 
   // public onUpdateClick(){
   //   this.router.navigate(['./person-detail']);

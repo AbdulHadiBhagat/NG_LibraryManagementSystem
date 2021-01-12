@@ -1,10 +1,11 @@
 export interface SysTblTsk
 {
     tbl_ID:Number;
-    tsk_ID:Number;
+    tblName: String;
+    tklID:Number;
+    tklName:String;
     appSts:String;
     isEnbl:Number;
     sysTbleTsk_Sys_Seq:Number;
-    tbl_ID2:Number;
     
 }
