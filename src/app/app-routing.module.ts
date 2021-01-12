@@ -33,7 +33,7 @@ const routes: Routes = [
               ]
           },
       {path: 'books' , component:ShowAllBooksComponent},
-      {path:'history', component:PersonHistoryCardComponent}
+      {path:'history', component:GridComponent}
      ]
   },
 ];

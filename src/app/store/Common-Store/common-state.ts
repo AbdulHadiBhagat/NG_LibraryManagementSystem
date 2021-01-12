@@ -13,5 +13,6 @@ export interface CommonState {
    bookGridData:any;
    personGridData:any;
    //personContent:any;
+   
 
 }
