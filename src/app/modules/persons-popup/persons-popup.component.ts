@@ -13,7 +13,9 @@ import { DxDataGridComponent,
   styleUrls: ['./persons-popup.component.scss']
 })
 export class PersonsPopupComponent implements OnInit {
-  
+  @select(["common","showPersonPopup"]) showPersonPopup$:any;
+  showPersonPopupSubscriber:any;
+
   @ViewChild('grid', { static: false }) dataGrid: any;
   personsPopupVisible=false;
 
@@ -26,9 +28,13 @@ export class PersonsPopupComponent implements OnInit {
     showHeaderFilter: boolean;
     selectedRowsData = [];
  
+    popupOnHiding(){
+      console.log("a");
+      this.store.dispatch<any>(this.action.setShowPersonPopup(false));
+    }
  
   constructor(private store:NgRedux<any>, private action:CommonActions) { 
-    this.personsPopupVisible=true;
+    
 
     this.gridArray = [
       {"id":1,"name":"Areeba","address":"123 Street","password":"1","phone_no":1234},
@@ -58,19 +64,22 @@ export class PersonsPopupComponent implements OnInit {
     console.log(e.data);
     this.store.dispatch(this.action.setPersonGridData(e.data));
      //console.log(this.selectedRowsData)
-
-     this.personsPopupVisible=false;
+this.store.dispatch<any>(this.action.setShowPersonPopup(false));
+    
      
     
     }
   
   ngOnInit(): void {
+
+    this.showPersonPopupSubscriber=this.showPersonPopup$.subscribe((data:any)=>{
+      this.personsPopupVisible=data;
+    })
     
   }
 
   ngOnDestroy():void{
    
-
   }
 
   

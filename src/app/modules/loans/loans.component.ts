@@ -1,6 +1,8 @@
-import { select } from '@angular-redux/store';
+import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,FormBuilder } from '@angular/forms';
+import { CommonActions } from 'src/app/store/Common-Store/common.actions';
+import { loan } from '../Loan/loan';
 
 
 @Component({
@@ -16,21 +18,32 @@ export class LoansComponent implements OnInit {
   @select(["common","personGridData"]) personGridData$:any;
   personGridDataSubscriber:any;  
 
+  @select(["common","showPersonPopup"]) showPersonPopup$:any;
+  showPersonPopupSubscriber:any;
+
   //persons popup
   personsPopupVisible = false;
-  showBorrowerPopup(){
-    
+  destination:any;
+  model:loan=new Object() as loan;
 
+  
+  
+  showBorrowerPopup(){
+   
+    
+this.destination=this.borrowerDestination;
     this.personsPopupVisible = true;
+    this.store.dispatch<any>(this.action.setShowPersonPopup(true));
   }
 
-  showIssuerPopup(){
 
+  showIssuerPopup(){
+this.destination=this.issuerDestination;
     this.personsPopupVisible = true;
   }
 
   showReceiverPopup(){
-
+this.destination=this.receiverDestination;
     this.personsPopupVisible = true;
   }
 
@@ -38,6 +51,26 @@ export class LoansComponent implements OnInit {
   booksPopupVisible = false;
   showBooksPopup(){
     this.booksPopupVisible = true;
+  }
+
+  initializedData(){
+    this.LoanSection = new FormGroup({
+    
+      LoanId : new FormControl(this.model.LoanId),
+      borrowerID : new FormControl(this.model.borrowerID),
+      borrowerName: new FormControl(this.model.borrowerName),
+     issuerID: new FormControl(this.model.issuerID),
+      issuerName: new FormControl(this.model.issuerName),
+      receiverID: new FormControl(this.model.receiverID),
+      receiverName: new FormControl(this.model.receiverName),
+      bookID : new FormControl(this.model.bookID),
+      bookName: new FormControl(this.model.bookName),
+  
+      issdate: new FormControl(this.model.issdate),
+      retdate: new FormControl(this.model.retdate),
+      finepaid: new FormControl(this.model.finepaid),
+      versionNo: new FormControl(this.model.versionNo),
+  });
   }
 
 
@@ -64,9 +97,11 @@ export class LoansComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private store:NgRedux<any>, private action:CommonActions) { }
 
   ngOnInit(): void {
+  
+  
     this.personLoanSubscriber=this.personLoan$.subscribe((data:any)=>{
       if(data){
         console.log(data);
@@ -75,13 +110,22 @@ export class LoansComponent implements OnInit {
 
 
     this.personGridDataSubscriber=this.personGridData$.subscribe((data:any)=>{
-      if(data)
+      if(data.id)
       {
         console.log(data);
-            let model={"person_id":"","person_name":""};
-            this.setData(model,data,this.source,this.borrowerDestination);
+            //let model={"person_id":"","person_name":""};
+            
+          
+           this.setData(this.model,data,this.source,this.destination);
+           this.initializedData();
+          
       }
     })
+
+    this.showPersonPopupSubscriber=this.showPersonPopup$.subscribe((data:any)=>{
+      this.personsPopupVisible=data;
+    })
+    
   }
 
   ngOnDestroy():void{
@@ -91,7 +135,7 @@ export class LoansComponent implements OnInit {
   }
 
   source=["id","name"];
-  borrowerDestination=[" borrowerID","borrowerName"];
+  borrowerDestination=["borrowerID","borrowerName"];
   issuerDestination=["issuerID","issuerName"];
   receiverDestination=["receiverID","receiverName"];
 
