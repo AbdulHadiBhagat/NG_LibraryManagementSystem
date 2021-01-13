@@ -21,6 +21,10 @@ import { Injectable } from '@angular/core';
       return this.httpclient.get(url);
     }
 
+    post(url:any, obj:any){
+      return this.http.post(url,obj);
+    }
+
    
 
 

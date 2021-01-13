@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   new NavItem("Manage"),
   new NavItem("Books"),
   new NavItem("History"),
+  new NavItem("Create New"),
   new NavItem("Logout")];
  
 
