@@ -1,9 +1,18 @@
 
 .Card-one {
-    width: 300px;
+    width: 200px;
     margin-left: 20px;
 }   
 
 .e-card {
     background-color: rgb(203, 203, 206);
+}
+/* #book-title{
+    color: black;
+    background-color: black;
+} */
+
+.e-card-content{
+    background-color: black;
+    text-emphasis-color: blue;
 }
