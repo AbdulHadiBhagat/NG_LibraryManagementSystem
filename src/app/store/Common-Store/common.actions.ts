@@ -13,6 +13,8 @@ export const SET_ALL_BOOKS = "setAllBooks"
 export const SET_SHOW_PERSON_POPUP="setShowPersonPopup"
 export const SET_SHOW_BOOK_POPUP="setShowBookPopup"
 export const SET_TABLE_ID = "setTableID"
+export const SET_SHOW_ALL_BOOKS="setShowAllBooks"
+export const SET_SHOW_ALL_HISTORY="setShowAllHistory"
 
 export const DEFAULT_URL = "http://localhost:8080/"
 @Injectable({
@@ -127,5 +129,32 @@ export class CommonActions {
     }
 
 
+    getShowAllBooks()
+    {
+        return(dispatch:any, getState:any)=>{
+            return this.dataService.getAll(DEFAULT_URL+"book").subscribe((data:any)=>{
+                return dispatch(this.setShowAllBooks(data.clientdata));
+            })
+        }
+    }
+
+    setShowAllBooks(data:any)
+    {
+        return{type:SET_SHOW_ALL_BOOKS, payload:data}
+    }
+
+    getShowAllHistory()
+    {
+        return(dispatch:any, getState:any)=>{
+            return this.dataService.getAll(DEFAULT_URL+"loan").subscribe((data:any)=>{
+                return dispatch(this.setShowAllHistory(data.clientdata));
+            })
+        }
+    }
+
+    setShowAllHistory(data:any)
+    {
+        return{type:SET_SHOW_ALL_HISTORY, payload:data}
+    }
 }
 
