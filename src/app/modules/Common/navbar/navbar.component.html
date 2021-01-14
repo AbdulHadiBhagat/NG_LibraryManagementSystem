@@ -8,8 +8,11 @@
 
     <ul class="navbar-nav mr-auto">
       <li  *ngFor="let item of navItem" class="nav-item">
-        <a (click)="onClick(item.name)" class="nav-link">  {{item.name}}</a>
-  
+        <a (click)="onClick(item.name)" class="nav-link"  data-toggle="dropdown">  {{item.name}}
+        </a>
+        <ul class="dropdown-menu">
+          <!-- <li *ngIf="item.children"><a tabindex="-1" href="#">HTML</a></li> -->
+        </ul>
       </li>
 
 
