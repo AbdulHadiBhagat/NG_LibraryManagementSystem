@@ -2,39 +2,40 @@
 <form [formGroup]="LoanSection" id="form">
  
 
-    <h1> LOAN FORM</h1>
-
+    <!-- <h1> LOAN FORM</h1> -->
+    <h1 style="font-weight: bold;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 30px !important; color: #2e2929;"> LOAN FORM</h1>
    
-          <label>
+          <!-- <label>
             borrowerName:
               <input type="text" formControlName="borrowerName">
-              <button id="popup" (click)="showBorrowerPopup()"><i class="fa fa-search">BorrowerPopup</i></button>
-            </label><br>
+              
+            </label><br> -->
           
             
 
 
-
+<!-- 
             <label>
             issuerName:
               <input type="text" formControlName="issuerName">
-              <button id="popup" (click)="showIssuerPopup()"><i class="fa fa-search">IssuerPopup</i></button>
+             
 
-            </label><br>
+            </label><br> -->
         
-            <label>
+            <!-- <label>
                 receiverName:
                   <input type="text" formControlName="receiverName">
-                  <button id="popup" (click)="showReceiverPopup()"><i class="fa fa-search">ReceiverPopup</i></button>
-             </label><br>
+                  
+             </label><br> -->
 
-    <h1 style="font-weight: bold;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 30px !important; color: #2e2929;"> LOAN FORM</h1>
+    
 
     <div class="dx-fieldset">
       <div class="dx-field">
         <div class="dx-field-label">Borrower Name</div>
         <div class="dx-field-value" >
             <dx-text-box style="width: 110%;" formControlName="borrowerName"  placeholder="Enter borrower name..." aria-required="dx-field-value"></dx-text-box>
+            <button id="popup" (click)="showBorrowerPopup()"><i class="fa fa-search">BorrowerPopup</i></button>
         </div>
       </div>
             
@@ -42,6 +43,7 @@
         <div class="dx-field-label">Issuer Name</div>
         <div class="dx-field-value">
             <dx-text-box style="width: 110%;" formControlName="issuerName" placeholder="Enter issuer name..." ></dx-text-box>
+            <button id="popup" (click)="showIssuerPopup()"><i class="fa fa-search">IssuerPopup</i></button>
         </div>
     </div>
   
@@ -49,17 +51,18 @@
               <div class="dx-field-label">Receiver Name</div>
               <div class="dx-field-value">
                   <dx-text-box style="width: 110%;" formControlName="receiverName" placeholder="Enter receiver name..." ></dx-text-box>
-              </div>
+                  <button id="popup" (click)="showReceiverPopup()"><i class="fa fa-search">ReceiverPopup</i></button>
+                </div>
           </div>
              
-            <label>
+            <!-- <label>
                 bookName:
                   <input type="text" formControlName="bookName">
-                  <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
-             </label><br>
+                 
+             </label><br> -->
 
               
-            <label>
+            <!-- <label>
                 issdate:
                   <input type="text" formControlName="issdate">
              </label><br>
@@ -68,13 +71,15 @@
             <label>
                 retdate:
                   <input type="text" formControlName="retdate">
-             </label><br>
+             </label><br> -->
 
 
                     <div class="dx-field">
                         <div class="dx-field-label">Book Name</div>
                         <div class="dx-field-value">
                             <dx-text-box style="width: 110%;" formControlName="bookName"  placeholder="Enter book name..." ></dx-text-box>
+                        
+                            <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
                         </div>
                     </div>
             
@@ -119,7 +124,7 @@
             <div id="comp-render" *ngIf="personsPopupVisible">
                 <app-persons-popup></app-persons-popup>
             </div>
-            </label><br> -->
+            </label><br> 
 
         <label>
 <div id="comp-render" *ngIf="booksPopupVisible">
