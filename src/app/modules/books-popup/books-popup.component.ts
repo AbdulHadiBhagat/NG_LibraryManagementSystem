@@ -59,9 +59,9 @@ popupOnHiding(){
   { 
 
     this.gridArray = [
-      {"book_id":1,"title":"book1","author":"Rumi","subject":"Medicine","is_issued":1},
-      {"book_id":2,"title": "book2", "author": "Umera Ahmed", "subject": "Fiction", "is_issued":0},
-      {"book_id":3, "title": "book3","author":"Nimra Ahmed", "subject": "Fiction","is_issued":0}
+      {"book_id":1,"title":"Areeba","author":"123 Street","subject":"1","is_issued":1,"versionNo":1},
+      {"book_id":2,"title": "Varisha", "author": "123 Street B", "subject": "3", "is_issued":0,"versionNo":1},
+      {"book_id":3, "title": "Musfirah","author":"er43 street", "subject": "123456","is_issued":0,"versionNo":1}
     
     
     ];

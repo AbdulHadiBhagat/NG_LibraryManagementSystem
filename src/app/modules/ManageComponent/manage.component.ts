@@ -21,7 +21,7 @@ export class ManageComponent implements OnInit {
   LibrarianListSubscriber: any;
 
 
-  type: any;
+  type: any = "";
 
   activePage: number = 1;
   activePageTwo: number = 1;
@@ -230,7 +230,7 @@ export class ManageComponent implements OnInit {
     // console.log(key,"KEY");
 
     // let test = this.url + '/' +  'persons';
-    this.router.navigateByUrl("home/manage/1/detail");
+    this.router.navigateByUrl("home/manage/{personId}/detail");
 
     // this.router.navigateByUrl("persons");
   }
@@ -248,11 +248,13 @@ export class ManageComponent implements OnInit {
 
   test() {
     console.log("HELLO");
-    this.router.navigateByUrl("home/manage/1/detail");
+    this.router.navigateByUrl("home/manage/{personId}/detail");
   }
 
   ngOnInit(): void {
-
+    let person= this.store.getState().common.person;
+    this.type=person.type;
+    console.log(this.type)
 
     // this.type=this.store.getState().common.person.type
     this.forLibrarian();

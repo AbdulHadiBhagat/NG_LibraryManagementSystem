@@ -25,7 +25,12 @@ import { Injectable } from '@angular/core';
       return this.http.post(url,obj);
     }
 
-   
+    put(url:any, obj:any) {
+      return this.http.put(url, obj)
+    }
 
+    delete( url:any , id: any , versionNo:any) {
+      return this.http.delete(url + "/" + id + "?versionNo=" + versionNo )
+    }
 
 }

@@ -35,15 +35,38 @@ export class PersonsComponent implements OnInit {
       case 10:
         this.onAddClick();
         break;
+
+      case 30:
+        this.onUpdateClick();
+        break;
+
+     case 40:
+       this.onDelete();
+        break;
     }
   }
 
   onAddClick(){
     console.log(this.PersonSection.value,"helo")
     this.data=this.PersonSection.value;
-  
-
     this.store.dispatch<any>(this.action.addPerson("person", this.data ))
+  }
+
+
+  onUpdateClick(){
+    console.log(this.PersonSection.value,"helo")
+    this.data=this.PersonSection.value;
+    this.store.dispatch<any>(this.action.updatePerson("person", this.data ))
+  }
+
+
+  onDelete(){
+    this.data=this.PersonSection.value
+  // .delete(this.data.sysSeq)
+console.log(this.data.sysSeq)
+console.log(this.data.versionNo)
+  this.store.dispatch<any>(this.action.deletePerson("person", this.data.sysSeq , this.data.versionNo ))
+  // .subscribe();
   }
  
   initializedData(){
@@ -79,7 +102,18 @@ export class PersonsComponent implements OnInit {
 
 });
 
-type = "C";
+type = 'L';
+// disableCheck(){
+//   if(this.type == 'L'){
+
+//   }
+//   else if(){
+
+//   }
+//   else{
+
+//   }
+// }
 
 // private variable: boolean = false ;
 

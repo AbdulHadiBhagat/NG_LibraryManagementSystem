@@ -1,3 +1,10 @@
+<dx-select-box
+  [dataSource]="actions"
+  displayExpr="tklName"
+  valueExpr="tskID"
+  (onSelectionChanged)="onSelectionChanged($event)"></dx-select-box>
+  <p><span>Book: </span><b>{{actionperformed}}</b></p>
+
 <div class="container">
   <form [formGroup]="BookSection" id="form">
    
@@ -40,6 +47,13 @@
                               <dx-text-box style="width: 110%;" formControlName="IsIssued"  placeholder="Enter IsIssued..." ></dx-text-box>
                           </div>
                       </div>
+
+                      <div class="dx-field">
+                        <div class="dx-field-label">Version No</div>
+                        <div class="dx-field-value">
+                            <dx-text-box style="width: 110%;" formControlName="versionNo"  placeholder="Enter versionNo..." ></dx-text-box>
+                        </div>
+                    </div>
              
                       <div class="dx-field">
                           <div class="dx-field-label">FinePerDay</div>

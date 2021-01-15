@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookActions } from 'src/app/store/Book-store/book.actions';
+import { CommonActions } from 'src/app/store/Common-Store/common.actions';
 
 @Component({
   selector: 'app-book',
@@ -21,6 +22,66 @@ export class BookComponent implements OnInit {
   @select(["book","onHoldrequest"])onHoldRequests$:any;
   onHoldRequestsSubscriber:any;
 
+  @select(["manage","personDetails"]) personDetails$:any;
+  personDetailsSubscriber:any;
+
+  @select(["common","sysTblTsk"]) sysTblTsk$:any;
+  sysTblTskSubscriber:any;
+actions=[];
+  data:any;
+  selectedfun: string = '';
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedfun = event.target.value;
+  }
+
+  actionperformed:any;
+
+  onSelectionChanged(event : any){
+
+    this.actionperformed=event.selectedItem.tskID;
+    // console.log(event.selectedItem.tskID);
+
+    switch(this.actionperformed)
+    {
+      case 10:
+        this.onAddClick();
+        break;
+
+      case 30:
+        this.onUpdateClick();
+        break;
+
+     case 40:
+       this.onDelete();
+        break;
+    }
+  }
+
+  onAddClick(){
+    console.log(this.BookSection.value,"helo")
+    this.data=this.BookSection.value;
+    debugger;
+    this.store.dispatch<any>(this.action.addBook("book", this.data ))
+  }
+
+
+  onUpdateClick(){
+    console.log(this.BookSection.value,"helo")
+    this.data=this.BookSection.value;
+    this.store.dispatch<any>(this.action.updateBook("book", this.data ))
+  }
+
+
+  onDelete(){
+    this.data=this.BookSection.value
+  // .delete(this.data.sysSeq)
+console.log(this.data.bookID)
+console.log(this.data.versionNo)
+  this.store.dispatch<any>(this.action.deleteBook("book", this.data.bookID, this.data.versionNo ))
+  // .subscribe();
+  }
+
   
   BookSection = new FormGroup({
     bookID: new FormControl(''),
@@ -29,6 +90,7 @@ export class BookComponent implements OnInit {
     Subject: new FormControl(''),
     IsIssued: new FormControl(''),
     FinePerDay: new FormControl(''),
+    versionNo:new FormControl(''),
    
 });
 
@@ -43,9 +105,25 @@ forLoan(){
 forOnHoldRequesT(){
   this.store.dispatch<any>(this.action.getHoldRequests(this.store.getState().book.book_id));
 }
-  constructor(private router: Router,private store:NgRedux<any>, private action:BookActions) { }
+
+tableid=10;
+
+forTableid(){
+  this.store.dispatch<any>(this.common.getTableId(this.tableid));
+  console.log(this.tableid)
+}
+  constructor(private router: Router,private store:NgRedux<any>, private action:BookActions , private common:CommonActions) { }
 
   ngOnInit(): void {
+    this.forTableid();
+    this.sysTblTskSubscriber=
+  this.sysTblTsk$.subscribe((data:any)=>{
+  if(data)
+  {
+    console.log(data);
+    this.actions=data;
+  }
+  }); 
 
     this.forBookDetail();
     

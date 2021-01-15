@@ -61,6 +61,7 @@ updatePersonUpdate(data:any){
 return{type:SET_DELETE_PERSON , payload : data }
 }
 
+ 
 
 
 

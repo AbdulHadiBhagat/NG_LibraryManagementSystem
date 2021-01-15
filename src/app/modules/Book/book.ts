@@ -5,4 +5,5 @@ export interface book
             author: string;
            subject: string;
            is_issued: number;
+           versionNo : number;
         }

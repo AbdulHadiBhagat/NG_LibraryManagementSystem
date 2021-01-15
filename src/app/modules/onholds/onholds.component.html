@@ -1,3 +1,10 @@
+<dx-select-box
+  [dataSource]="actions"
+  displayExpr="tklName"
+  valueExpr="tskID"
+  (onSelectionChanged)="onSelectionChanged($event)"></dx-select-box>
+  <p><span>Hold Request: </span><b>{{actionperformed}}</b></p>
+
 <div class="container">
 <form [formGroup]="OnHoldSection">
  
@@ -8,7 +15,7 @@
       <div class="dx-field">
         <div class="dx-field-label">Book Name</div>
         <div class="dx-field-value" >
-            <dx-text-box style="width: 110%;" formControlName="bookName"  placeholder="Enter book name..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box [readOnly]="true" style="width: 110%;" formControlName="bookName"  placeholder="Enter book name..." aria-required="dx-field-value"></dx-text-box>
             <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
         </div>
     </div>
@@ -16,7 +23,7 @@
     <div class="dx-field">
       <div class="dx-field-label">Borrower Name</div>
       <div class="dx-field-value" >
-          <dx-text-box style="width: 110%;" formControlName="borrowerName"  placeholder="Enter borrower name..." aria-required="dx-field-value"></dx-text-box>
+          <dx-text-box [readOnly]="true" style="width: 110%;" formControlName="borrowerName"  placeholder="Enter borrower name..." aria-required="dx-field-value"></dx-text-box>
           <button id="popup" (click)="showPersonsPopup()"><i class="fa fa-search">PersonsPopup</i></button> 
         </div>
   </div>
@@ -28,17 +35,24 @@
             <dx-text-box style="width: 110%;" formControlName="retdate"  placeholder="Enter return date..." ></dx-text-box>
         </div>
     </div>
+
+    <div class="dx-field">
+      <div class="dx-field-label">Version Number</div>
+      <div class="dx-field-value" >
+          <dx-text-box style="width: 110%;" formControlName="versionNo"  placeholder="Enter Version Number..." aria-required="dx-field-value"></dx-text-box> 
+        </div>
+  </div>
              
 
 
-          <button id="btn" type="submit" style="margin:40px;">Update</button>    
-          <button id="btn" type="submit" style="margin:40px;margin-left: 120px;">Delete</button>
+          <!-- <button id="btn" type="submit" style="margin:40px;">Update</button>    
+          <button id="btn" type="submit" style="margin:40px;margin-left: 120px;">Delete</button> -->
     
           <label>
             <div id="comp-render" *ngIf="personsPopupVisible">
                 <app-persons-popup></app-persons-popup>
             </div>
-            </label><br> -->
+            </label><br>
 
         <label>
 <div id="comp-render" *ngIf="booksPopupVisible">
