@@ -23,7 +23,7 @@ export class ShowAllBooksComponent implements OnInit {
   //Pagination Variables
   activePage: number = 1;
   
-  pageSize: number = 3;
+  pageSize: number = 12;
   totalDataSize: number = -1;
   totalPage: number = -1;
   

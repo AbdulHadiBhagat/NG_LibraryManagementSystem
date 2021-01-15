@@ -15,6 +15,9 @@ import { PersonTabComponent } from './modules/Common/person-tab/person-tab.compo
 // import { LoanGridComponent } from './modules/loan-grid/loan-grid.component';
 import { GridComponent } from './modules/grid/grid.component';
 import { onholdgridComponent } from './modules/onhold-grid/onhold-grid.component';
+import { OnholdsComponent } from './modules/onholds/onholds.component';
+import { LoansComponent } from './modules/loans/loans.component';
+import { BookComponent } from './modules/Book/book.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -25,6 +28,7 @@ const routes: Routes = [
       { path: '', component:HomeComponentComponent},
       { path: 'home', component:HomeComponentComponent},
       { path: 'manage', component:ManageComponent},
+      
       {path:'manage/:id',component:PersonTabComponent,
       children:[
           {path:'detail',component:PersonsComponent},
@@ -32,8 +36,17 @@ const routes: Routes = [
           {path:'loan',component:GridComponent}
               ]
           },
+      {path:'book/:id',component:PersonTabComponent,
+      children:[
+        {path:'detail',component:BookComponent},
+        {path:'onhold',component:onholdgridComponent},
+        {path:'loan',component:GridComponent}
+            ]
+    },
       {path: 'books' , component:ShowAllBooksComponent},
-      {path:'history', component:GridComponent}
+      {path:'history', component:GridComponent},
+      {path: 'holdrequest',component:OnholdsComponent},
+      {path: 'laon',component:LoansComponent},
      ]
   },
 ];
