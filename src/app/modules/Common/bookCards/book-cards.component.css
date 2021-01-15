@@ -1,9 +1,22 @@
 
 .Card-one {
-    width: 300px;
+    width: 350px;
     margin-left: 20px;
+    background-color: cornflowerblue;
 }   
 
 .e-card {
-    background-color: rgb(203, 203, 206);
+    background-color: rgb(106, 106, 231);
+    height: 150px;
+}
+/* #book-title{
+    color: black;
+    background-color: black;
+} */
+
+.e-card-content{
+    background-color: rgb(233, 224, 224);
+    text-emphasis-color: blue;
+    font-size: large;
+    font-style: italic;
 }

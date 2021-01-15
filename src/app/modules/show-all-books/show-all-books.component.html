@@ -1,6 +1,23 @@
-
-<div *ngFor="let book of cards">
+<div>
+<h1>All Books</h1>
+<div id="book-cards" class="AllBooks"  *ngFor="let book of slides">
     
 <app-book-cards [item]="book" (click)="onClick(book)"></app-book-cards>
 </div>
+
+<div id="Pagination">  
+    <div class="float-right"> 
+        <p id="outOf">{{activePage}} of {{totalPage}}</p>
+         <div class="float-right"> 
+             <app-pagination 
+                [totalRecords]="cards.length" 
+                [recordsPerPage]="12" 
+                (onPageChange)="displayActivePage($event)">
+            </app-pagination> 
+        </div>     
+         
+    </div>  
+</div>  
+</div>
+
 <!-- <router-outlet></router-outlet> -->

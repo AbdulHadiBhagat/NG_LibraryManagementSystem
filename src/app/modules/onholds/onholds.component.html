@@ -1,3 +1,10 @@
+<dx-select-box
+  [dataSource]="actions"
+  displayExpr="tklName"
+  valueExpr="tskID"
+  (onSelectionChanged)="onSelectionChanged($event)"></dx-select-box>
+  <p><span>Hold Request: </span><b>{{actionperformed}}</b></p>
+
 <div class="container">
 <form [formGroup]="OnHoldSection">
  
@@ -28,11 +35,18 @@
             <dx-text-box style="width: 110%;" formControlName="retdate"  placeholder="Enter return date..." ></dx-text-box>
         </div>
     </div>
+
+    <div class="dx-field">
+      <div class="dx-field-label">Version Number</div>
+      <div class="dx-field-value" >
+          <dx-text-box style="width: 110%;" formControlName="versionNo"  placeholder="Enter Version Number..." aria-required="dx-field-value"></dx-text-box> 
+        </div>
+  </div>
              
 
 
-          <button id="btn" type="submit" style="margin:40px;">Update</button>    
-          <button id="btn" type="submit" style="margin:40px;margin-left: 120px;">Delete</button>
+          <!-- <button id="btn" type="submit" style="margin:40px;">Update</button>    
+          <button id="btn" type="submit" style="margin:40px;margin-left: 120px;">Delete</button> -->
     
           <label>
             <div id="comp-render" *ngIf="personsPopupVisible">

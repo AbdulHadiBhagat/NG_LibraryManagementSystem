@@ -10,7 +10,6 @@ import { NavItem } from './nav-item';
 })
 export class NavbarComponent implements OnInit {
 
-  
   navItem:NavItem[]=[
   new NavItem("Home"),
   new NavItem("Manage"),
@@ -24,7 +23,11 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) {
 
     this.url = window.location.pathname
-
+    let cN = new NavItem("Create New");
+    cN.children=[
+      'Hold Request',"Loan"
+    ]
+    this.navItem.push(cN);
     console.log(this.url)
    }
 

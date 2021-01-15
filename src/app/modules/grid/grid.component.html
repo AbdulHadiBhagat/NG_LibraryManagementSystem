@@ -1,6 +1,6 @@
 
-<dx-data-grid
-    id="gridContainer"
+<dx-data-grid class="grid"
+     id="gridContainer"
     [dataSource]="gridData"
     [showBorders]="true">
 
@@ -17,16 +17,21 @@
                >
             </dx-button>
       </div>
-    
-      <dxi-column caption=" Librarian ID" type="number" dataField="LoanId" >L_ID</dxi-column>
+
+      <dxi-column caption=" Librarian ID" type="number" dataField="LoanId" ></dxi-column>
       <dxi-column caption="Borrower ID" type="number" dataField="borrowerID">borrower_id</dxi-column>
       <dxi-column caption="Borrower Name" type="text" dataField="borrowerName">Borrower Name</dxi-column>
       <dxi-column caption="Issuer ID" type="number" dataField="issuerID">issuer_id</dxi-column>
-      <dxi-column caption="Book" type="number" dataField="book_id" >book_id</dxi-column>
-      <dxi-column caption="Issued Date" type="date" dataField="iss_date" >iss_date</dxi-column>
-      <dxi-column caption="Receiver" type="number" dataField="receiver" >receiver</dxi-column>
-      <dxi-column caption="Returned Date" type="date" dataField="ret_date" >ret_date</dxi-column>
-      <!-- <dxi-column caption="Fine Paid" type="number" dataField="fine_paid" >fine_paid</dxi-column> -->
+      <dxi-column caption="Issuer Name" type="text" dataField="issuerName">Issuer Name</dxi-column>
+      <dxi-column caption="Receiver ID" type="number" datField="receiverID">Receiver ID</dxi-column>
+      <dxi-column caption="Receiver Name" type="text" dataField="receiverName">Receiver Name</dxi-column>
+      <dxi-column caption="Book ID" type="number" dataField="bookID" >book_id</dxi-column>
+      <dxi-column caption="Book Name" type="text" dataField="bookName">Book Name</dxi-column>
+      <dxi-column caption="Issued Date" type="date" dataField="issdate" >iss_date</dxi-column>
+      <dxi-column caption="Returned Date" type="date" dataField="retdate" >ret_date</dxi-column>
+      <dxi-column caption="Fine Paid" type="number" dataField="finepaid" >fine_paid</dxi-column>
+      <dxi-column caption="VersionNo" type="number" dataField="versionNo" >versionNo</dxi-column>
+
 
 
     <dxo-scrolling mode="virtual"></dxo-scrolling>

@@ -5,7 +5,6 @@ export const SET_ADD_PERSON = "personAdd";
 export const SET_DELETE_PERSON = "personDelete";
 export const SET_UPDATE_PERSON = "personUpdate";
 
-
 export const DEFAULT_URL = "localhost:8080/"
 
 @Injectable({
@@ -62,6 +61,7 @@ updatePersonUpdate(data:any){
 return{type:SET_DELETE_PERSON , payload : data }
 }
 
+ 
 
 
 
@@ -86,5 +86,4 @@ return{type:SET_DELETE_PERSON , payload : data }
     //         return{type:SET_COMMON_TEST , payload : data }
     //     }
 
-
-}
+  }

@@ -50,12 +50,13 @@ return $list;
 <article>
   <h1>FUNCTIONALITY PERFORM</h1>
   <h2><span>Select a function:</span></h2>
-  <select (change)="selectChangeHandler($event)">
-      <option value="ADDED">ADD</option>
-      <option value="UPDATED">UPDATE</option>
-      <option value="DELETED">DELETE</option>
-  </select>
-  <p><span>PERSON: </span><b>{{selectedfun}}</b></p>
+
+  <dx-select-box
+  [dataSource]="actions"
+  displayExpr="tklName"
+  valueExpr="tskID"
+  (onSelectionChanged)="onSelectionChanged($event)"></dx-select-box>
+  <p><span>PERSON: </span><b>{{actionperformed}}</b></p>
 </article>
 
 
@@ -69,14 +70,14 @@ return $list;
       <div class="dx-field">
         <div class="dx-field-label">ID</div>
         <div class="dx-field-value" >
-            <dx-text-box style="width: 110%;" formControlName="Id"  placeholder="Enter ID..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box style="width: 110%;" formControlName="sysSeq"  placeholder="Enter ID..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
             
       <div class="dx-field">
         <div class="dx-field-label">Name</div>
         <div class="dx-field-value" >
-            <dx-text-box style="width: 110%;" formControlName="Name"  placeholder="Enter name..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box style="width: 110%;" formControlName="pname"  placeholder="Enter name..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
     </div>
@@ -84,15 +85,14 @@ return $list;
       <div class="dx-field">
         <div class="dx-field-label">Address</div>
         <div class="dx-field-value" >
-            <dx-text-box style="width: 110%;" formControlName="Address"  placeholder="Enter address..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box style="width: 110%;" formControlName="address"  placeholder="Enter address..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
             
       <div class="dx-field" >
         <div class="dx-field-label">Phone No</div>
         <div class="dx-field-value" >
-          <div >
-            <dx-text-box  style="width: 110%;" formControlName="Phoneno"  placeholder="Enter phone no..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box style="width: 110%;" formControlName="phoneno"  placeholder="Enter phone no..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
       </div>
@@ -102,14 +102,14 @@ return $list;
       <div class="dx-field">
         <div class="dx-field-label">Version No</div>
         <div class="dx-field-value" >
-            <dx-text-box [disabled]="true"  style="width: 110%;" formControlName="Versionno"  placeholder="Enter version no..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box [disabled]="true"  style="width: 110%;" formControlName="versionno"  placeholder="Enter version no..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
              
       <div class="dx-field">
         <div class="dx-field-label">Type</div>
         <div class="dx-field-value" >
-            <dx-text-box style="width: 110%;" formControlName="Type"  placeholder="Enter type..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box style="width: 110%;" formControlName="type"  placeholder="Enter type..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@ return $list;
       <div class="dx-field">
         <div class="dx-field-label">Salary</div>
         <div class="dx-field-value" >
-            <dx-text-box [disabled]="type === 'B'" style="width: 110%;" formControlName="Salary"  placeholder="Enter salary..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box [disabled]="type === 'B'" style="width: 110%;" formControlName="salary"  placeholder="Enter salary..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
              
@@ -125,7 +125,7 @@ return $list;
             <div class="dx-field">
               <div class="dx-field-label">L_officeno</div>
               <div class="dx-field-value" >
-                  <!-- <dx-text-box [disabled]="type == 'B' || type == 'L'" style="width: 110%;" formControlName="L_officeno"  placeholder="Enter L_officeno..." aria-required="dx-field-value"></dx-text-box> -->
+                  <!-- <dx-text-box [disabled]="type == 'B' || type == 'L'" style="width: 110%;" formControlName="lofficeno"  placeholder="Enter L_officeno..." aria-required="dx-field-value"></dx-text-box> -->
               </div>
             </div>
           </div>
@@ -135,12 +135,12 @@ return $list;
           <div class="dx-field">
             <div class="dx-field-label">D_deskno</div>
             <div class="dx-field-value" >
-                <!-- <dx-text-box [disabled]="type == 'B' || type == 'C'" style="width: 110%;" formControlName="D_deskno"  placeholder="Enter D_deskno..." aria-required="dx-field-value"></dx-text-box> -->
+                <!-- <dx-text-box [disabled]="type == 'B' || type == 'C'" style="width: 110%;" formControlName="cdeskno"  placeholder="Enter D_deskno..." aria-required="dx-field-value"></dx-text-box> -->
             </div>
           </div>
           </div> 
-          <!-- <button type="submit" style="margin:20px;">Update</button>    
-            <button type="submit" style="margin:20px;">Delete</button> -->
+          <!-- <button type="submit" style="margin:20px;" (click)="onAddClick()">Add</button>     -->
+        
     
         </div>
             </form>

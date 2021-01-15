@@ -2,6 +2,7 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carasol-component',
@@ -151,11 +152,11 @@ export class  CarasolComponentComponent implements OnInit {
     }
     return R;
   }
-  constructor(private store:NgRedux<any>){
+  constructor(private store:NgRedux<any>,private router:Router){
 
   }
   ngOnInit() {
-    
+    this.store.dispatch<any>(this.store.getState().common.person);
     setTimeout(() => {
       console.log("loanData",this.store.getState().common.loanHistory);
     }, 3000);
@@ -178,6 +179,16 @@ export class  CarasolComponentComponent implements OnInit {
         this.slides = this.chunk(this.cards, 4);
       }
     });
+  }
+
+  onBookCardClick(data:any){
+    console.log(data);
+    this.router.navigateByUrl("home/book/1/detail");
+  }
+
+  onPersonHistoryCardClick(data:any){
+    console.log(data);
+    this.router.navigateByUrl("home/laon");
   }
 
   ngOnDestroy():void{

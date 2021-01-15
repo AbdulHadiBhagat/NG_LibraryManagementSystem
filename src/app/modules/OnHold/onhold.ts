@@ -6,7 +6,8 @@ export interface onhold
     REQ_ID : number;
     borrower_id: number;
     book_id: number;
-    req_date: Date;   
+    req_date: Date; 
+    versionNo:number;  
     // select : ButtonCheckboxDirective;
 
 }
@@ -16,6 +17,7 @@ let gridData:onhold[]=[{
     "borrower_id": 32415,
     "book_id": 7658,
     "req_date":  new Date("2019-01-16"),
+    "versionNo": 1,
 
   },
 {
@@ -23,6 +25,7 @@ let gridData:onhold[]=[{
     "borrower_id": 32421,
     "book_id": 7626,
     "req_date":  new Date("2019-02-16"),
+    "versionNo": 1,
 
 }]
 

@@ -13,8 +13,6 @@ export class PersonsComponent implements OnInit {
 
   @select(["manage","personDetails"]) personDetails$:any;
   personDetailsSubscriber:any;
-  
-
   @select(["common","sysTblTsk"]) sysTblTsk$:any;
   sysTblTskSubscriber:any;
 
@@ -24,34 +22,83 @@ export class PersonsComponent implements OnInit {
     //update the ui
     this.selectedfun = event.target.value;
   }
+
+  actionperformed:any;
+
+  onSelectionChanged(event : any){
+
+    this.actionperformed=event.selectedItem.tskID;
+    // console.log(event.selectedItem.tskID);
+
+    switch(this.actionperformed)
+    {
+      case 10:
+        this.onAddClick();
+        break;
+
+      case 30:
+        this.onUpdateClick();
+        break;
+
+     case 40:
+       this.onDelete();
+        break;
+    }
+  }
+
+  onAddClick(){
+    console.log(this.PersonSection.value,"helo")
+    this.data=this.PersonSection.value;
+    this.store.dispatch<any>(this.action.addPerson("person", this.data ))
+  }
+
+
+  onUpdateClick(){
+    console.log(this.PersonSection.value,"helo")
+    this.data=this.PersonSection.value;
+    this.store.dispatch<any>(this.action.updatePerson("person", this.data ))
+  }
+
+
+  onDelete(){
+    this.data=this.PersonSection.value
+  // .delete(this.data.sysSeq)
+console.log(this.data.sysSeq)
+console.log(this.data.versionNo)
+  this.store.dispatch<any>(this.action.deletePerson("person", this.data.sysSeq , this.data.versionNo ))
+  // .subscribe();
+  }
  
   initializedData(){
     this.PersonSection = new FormGroup({
-      Id: new FormControl(this.data.sysSeq),
-      Name: new FormControl(this.data.pname),
-      Address: new FormControl(this.data.address),
-      Phoneno: new FormControl(this.data.phoneno),
-      Versionno: new FormControl(this.data.versionNo),
-      Type: new FormControl(this.data.type),
-      Salary: new FormControl(this.data.salary),
+      sysSeq: new FormControl(this.data.sysSeq),
+      pname: new FormControl(this.data.pname),
+      address: new FormControl(this.data.address),
+      phoneno: new FormControl(this.data.phoneno),
+      versionNo: new FormControl(this.data.versionNo),
+      type: new FormControl(this.data.type),
+      salary: new FormControl(this.data.salary),
       
-      L_officeno: new FormControl(this.data.lofficeno),
-      D_deskno: new FormControl(this.data.cdeskno)
+      lofficeno: new FormControl(this.data.lofficeno),
+      cdeskno: new FormControl(this.data.cdeskno)
   
   });
   }
 
+  actions=[];
+
+
   PersonSection = new FormGroup({
-    Id: new FormControl(''),
-    Name: new FormControl(''),
-    Address: new FormControl(''),
-    Phoneno: new FormControl(''),
-    versionno: new FormControl(''),
-    Type: new FormControl(''),
-    Salary: new FormControl(''),
+    sysSeq: new FormControl(''),
+    pname: new FormControl(''),
+    address: new FormControl(''),
+    phoneno: new FormControl(''),
+    versionNo: new FormControl(''),
+    type: new FormControl(''),
+    salary: new FormControl(''),
     
-    L_officeno: new FormControl(''),
-    D_deskno: new FormControl('')
+    lofficeno: new FormControl(''),
+    cdeskno: new FormControl('')
 
 });
 
@@ -95,13 +142,12 @@ ngOnInit() {
 
 
   this.forTableid();
-    
-
   this.sysTblTskSubscriber=
 this.sysTblTsk$.subscribe((data:any)=>{
 if(data)
 {
   console.log(data);
+  this.actions=data;
 }
 }); 
   }

@@ -1,6 +1,7 @@
 import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,FormBuilder } from '@angular/forms';
+import { BookActions } from 'src/app/store/Book-store/book.actions';
 import { CommonActions } from 'src/app/store/Common-Store/common.actions';
 import { loan } from '../Loan/loan';
 
@@ -20,6 +21,65 @@ export class LoansComponent implements OnInit {
 
   @select(["common","showPersonPopup"]) showPersonPopup$:any;
   showPersonPopupSubscriber:any;
+
+  @select(["book","loans"]) loans$:any;
+  loansSubscriber:any;
+
+  @select(["common","sysTblTsk"]) sysTblTsk$:any;
+  sysTblTskSubscriber:any;
+actions=[];
+  data:any;
+  selectedfun: string = '';
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedfun = event.target.value;
+  }
+
+  actionperformed:any;
+
+  onSelectionChanged(event : any){
+
+    this.actionperformed=event.selectedItem.tskID;
+    // console.log(event.selectedItem.tskID);
+
+    switch(this.actionperformed)
+    {
+      case 10:
+        this.onAddClick();
+        break;
+
+      case 30:
+        this.onUpdateClick();
+        break;
+
+     case 40:
+       this.onDelete();
+        break;
+    }
+  }
+
+  onAddClick(){
+    console.log(this.LoanSection.value,"helo")
+    this.data=this.LoanSection.value;
+    this.store.dispatch<any>(this.book.addLoan("loan", this.data ))
+  }
+
+
+  onUpdateClick(){
+    console.log(this.LoanSection.value,"helo")
+    this.data=this.LoanSection.value;
+    this.store.dispatch<any>(this.book.updateLoan("loan", this.data ))
+  }
+
+
+  onDelete(){
+    this.data=this.LoanSection.value
+  // .delete(this.data.sysSeq)
+console.log(this.data.LoanId)
+console.log(this.data.versionNo)
+  this.store.dispatch<any>(this.book.deleteLoan("loan", this.data.LoanId , this.data.versionNo ))
+  // .subscribe();
+  }
 
   //persons popup
   personsPopupVisible = false;
@@ -95,13 +155,27 @@ this.destination=this.receiverDestination;
 });
 
 
+tableid=50;
 
+ forTableid(){
+  this.store.dispatch<any>(this.action.getTableId(this.tableid));
+  console.log(this.tableid)
+}
 
-  constructor(private store:NgRedux<any>, private action:CommonActions) { }
+  constructor(private store:NgRedux<any>, private action:CommonActions , private book:BookActions) { }
 
   ngOnInit(): void {
   
-  
+    this.forTableid();
+    this.sysTblTskSubscriber=
+  this.sysTblTsk$.subscribe((data:any)=>{
+  if(data)
+  {
+    console.log(data);
+    this.actions=data;
+  }
+  })
+
     this.personLoanSubscriber=this.personLoan$.subscribe((data:any)=>{
       if(data){
         console.log(data);

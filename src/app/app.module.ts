@@ -39,7 +39,7 @@ import { CarasolComponentComponent } from './modules/carasol-component/carasol-c
 import { ManageComponent } from './modules/ManageComponent/manage.component';
 
 // import { LoginComponent } from './modules/Common/login/login.component';
-import { Service } from './modules/Loan/loan';
+
 import { DxDataGridModule } from 'devextreme-angular';
 import { ShowAllBooksComponent } from './modules/show-all-books/show-all-books.component';
 import { Route, Router, RouterModule, Routes } from '@angular/router';
@@ -67,6 +67,7 @@ import { BORROWEDBOOKSComponent } from './modules/borrowedbooks/borrowedbooks.co
 import { LoansComponent } from './modules/loans/loans.component';
 import { OnholdsComponent } from './modules/onholds/onholds.component';
 import { onholdgridComponent } from './modules/onhold-grid/onhold-grid.component';
+import { Service } from './modules/Dtos/loan-dto/loan-dto';
 //import { BorrowerDtoComponent } from './modules/Dtos/borrower-dto/borrower-dto.component';
 //import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
 //import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.component';
