@@ -53,9 +53,9 @@ action:any;
     this.action=action;
     this.booksPopupVisible=true;
     this.gridArray = [
-      {"book_id":1,"title":"Areeba","author":"123 Street","subject":"1","is_issued":1},
-      {"book_id":2,"title": "Varisha", "author": "123 Street B", "subject": "3", "is_issued":0},
-      {"book_id":3, "title": "Musfirah","author":"er43 street", "subject": "123456","is_issued":0}
+      {"book_id":1,"title":"Areeba","author":"123 Street","subject":"1","is_issued":1,"versionNo":1},
+      {"book_id":2,"title": "Varisha", "author": "123 Street B", "subject": "3", "is_issued":0,"versionNo":1},
+      {"book_id":3, "title": "Musfirah","author":"er43 street", "subject": "123456","is_issued":0,"versionNo":1}
     
     
     ];

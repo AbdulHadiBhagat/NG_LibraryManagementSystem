@@ -104,4 +104,28 @@ setAddPerson(data:any){
     return { type: SET_PERSON_DETAILS, payload: data }
 }
 
+updatePerson(url:any, obj:any){
+    return(dispatch:any,getState:any)=>{
+        return this.dataService.put(DEFAULT_URL + url , obj )
+        .subscribe((data:any)=>{
+            return dispatch(this.setUpdatePerson(data));
+        } )  }
+}
+
+
+setUpdatePerson(data:any){
+return { type: SET_PERSON_DETAILS, payload: data }
+}
+
+
+deletePerson(url:any,id:any , versionNo:any){
+    return(dispatch:any,getState:any)=>{
+        return this.dataService.delete(DEFAULT_URL + url,id ,versionNo)
+        .subscribe((data:any)=>{
+            // return dispatch(this.setdeletePerson(data));
+        } )  }
+        
+}
+
+
 }

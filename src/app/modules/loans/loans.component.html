@@ -1,3 +1,11 @@
+<dx-select-box
+  [dataSource]="actions"
+  displayExpr="tklName"
+  valueExpr="tskID"
+  (onSelectionChanged)="onSelectionChanged($event)"></dx-select-box>
+  <p><span>Loans: </span><b>{{actionperformed}}</b></p>
+
+
 <div class="container">
 <form [formGroup]="LoanSection" id="form">
  

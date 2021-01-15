@@ -5,4 +5,5 @@ export interface persons
         address: string;
         password: string;
         phone_no: number;
+        type: any;
     }

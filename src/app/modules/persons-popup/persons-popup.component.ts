@@ -37,7 +37,7 @@ export class PersonsPopupComponent implements OnInit {
     
 
     this.gridArray = [
-      {"id":1,"name":"Areeba","address":"123 Street","password":"1","phone_no":1234},
+      {"id":1,"name":"Areeba","address":"123 Street","password":"1","phone_no":1234,"type": 'L'},
     //   {"id":2,"name": "Varisha", "address": "123 Street B", "password": "3", "phone_no": 921456},
     //   {"id":3, "name": "Musfirah","address":"er43 street", "password": "123456","phone_no":09878}
     ];

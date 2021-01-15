@@ -155,7 +155,7 @@ export class  CarasolComponentComponent implements OnInit {
 
   }
   ngOnInit() {
-    
+    this.store.dispatch<any>(this.store.getState().common.person);
     setTimeout(() => {
       console.log("loanData",this.store.getState().common.loanHistory);
     }, 3000);
