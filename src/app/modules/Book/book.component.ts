@@ -95,7 +95,7 @@ console.log(this.data.versionNo)
 });
 
 forBookDetail(){
-  this.store.dispatch<any>(this.action.getBookDetail(this.store.getState().book.book_id));
+  this.store.dispatch<any>(this.action.getBookDetail(this.store.getState().common.bookDetailId));
 }
 
 forLoan(){
