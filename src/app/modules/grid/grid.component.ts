@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { loan, Service } from '../Loan/loan';
 
 
@@ -11,9 +12,14 @@ import { loan, Service } from '../Loan/loan';
 export class GridComponent implements OnInit {
 
   gridData:loan[];
+
   visibility:boolean=false;
+  router: string;
   
-  constructor(service:Service) { this.gridData=service.getGridData()}
+  constructor(service:Service,private _router: Router) { 
+    this.gridData=service.getGridData();
+    this.router = _router.url;
+  }
 
   ngOnInit(): void {
   }

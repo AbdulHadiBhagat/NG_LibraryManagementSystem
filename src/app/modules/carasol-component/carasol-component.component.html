@@ -86,17 +86,19 @@
                   <!-- <img src="src\assets\sample.jpg"> -->
 
                     <div class="e-card-title">
-                     {{personHistory.Name}} 
+                      {{personHistory.borrowerName}} 
                   </div>
                 
                 <div class="e-card-content"> 
-                  <h4 style="font-size: 15px !important; color: #d11717;">{{personHistory.FineDue}}</h4>
+                  <!-- <h4 style="font-size: 15px !important; color: #d11717;">{{personHistory.FineDue}}</h4> -->
 
-                  <h4 style="font-size: 15px !important; color: #2e2929;">{{personHistory.FinePaid}}</h4>
+                  <!-- <h4 style="font-size: 15px !important; color: #2e2929;">Fine Paid: {{personHistory.finepaid}}</h4> -->
 
-                <h4 style="font-weight: bold;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 20px !important; color: #2e2929;">{{personHistory.bookName}}</h4>
-
-                <h4 style="font-size: 12px !important; color: #d3caca;">{{personHistory.ret_date}}</h4>
+                <h4 style="font-weight: bold;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 
+                sans-serif;font-size: 20px !important; color: #2e2929;">{{personHistory.bookName}}</h4>
+                <h4 style="font-size: 12px !important; color: #d3caca;">{{personHistory.issdate}}</h4>
+                <h4 style="font-size: 12px !important; color: #d3caca;">{{personHistory.retdate}}</h4>
+                <h4 style="font-size: 12px !important; color: #d3caca;">{{personHistory.receiverName}}</h4>
                 <!-- <li>Office No. : {{person.Office_no}}</li>
                 <li>Address : {{person.address}} </li>
                 <li>Phone No. : {{person.phone_no}} </li> -->

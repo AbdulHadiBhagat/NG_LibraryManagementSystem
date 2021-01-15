@@ -6,24 +6,18 @@
 
 
 
-    <dxi-column cellTemplate="diffCellTemplate"   *ngIf='visibility==true'></dxi-column>
+    <!-- <dxi-column cellTemplate="diffCellTemplate"   *ngIf="visibility=true"></dxi-column> -->
+    <dxi-column cellTemplate="diffCellTemplate" *ngIf="router != '/home/history'"></dxi-column>
 
     <div *dxTemplate="let d of 'diffCellTemplate'">
         <dx-button 
                 icon="check"
                 type="success"
-                text="Accept"
+                text="Receive"
                >
             </dx-button>
-
-            <dx-button 
-            icon="close"
-            type="fail"
-            text="Decline"
-           >
-        </dx-button>
       </div>
-
+    
       <dxi-column caption=" Librarian ID" type="number" dataField="LoanId" >L_ID</dxi-column>
       <dxi-column caption="Borrower ID" type="number" dataField="borrowerID">borrower_id</dxi-column>
       <dxi-column caption="Borrower Name" type="text" dataField="borrowerName">Borrower Name</dxi-column>
@@ -32,7 +26,7 @@
       <dxi-column caption="Issued Date" type="date" dataField="iss_date" >iss_date</dxi-column>
       <dxi-column caption="Receiver" type="number" dataField="receiver" >receiver</dxi-column>
       <dxi-column caption="Returned Date" type="date" dataField="ret_date" >ret_date</dxi-column>
-      <dxi-column caption="Fine Paid" type="number" dataField="fine_paid" >fine_paid</dxi-column>
+      <!-- <dxi-column caption="Fine Paid" type="number" dataField="fine_paid" >fine_paid</dxi-column> -->
 
 
     <dxo-scrolling mode="virtual"></dxo-scrolling>

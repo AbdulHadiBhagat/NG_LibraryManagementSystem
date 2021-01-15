@@ -55,7 +55,18 @@ export class PersonsComponent implements OnInit {
 
 });
 
-type = "C";
+type = 'L';
+// disableCheck(){
+//   if(this.type == 'L'){
+
+//   }
+//   else if(){
+
+//   }
+//   else{
+
+//   }
+// }
 
 // private variable: boolean = false ;
 

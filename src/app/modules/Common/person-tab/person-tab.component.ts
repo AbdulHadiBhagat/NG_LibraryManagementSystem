@@ -3,6 +3,7 @@ import { LoginComponent } from 'src/app/modules/Common/login/login.component';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
 import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
+import DevExpress from 'devextreme';
 
 @Component({
   selector: 'app-person-tab',
@@ -10,6 +11,8 @@ import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
   styleUrls: ['./person-tab.component.css']
 })
 export class PersonTabComponent implements OnInit {
+
+  
 
   // tabs = [
   //   { 
@@ -31,22 +34,29 @@ tabContent: any;
   },
   { 
       id: 1,
-      text: "Check1", 
-      // icon: "comment", 
+      text: "OnHold History", 
+      icon: "comment", 
       content: "Check1 tab content",
       selector: 'app-person-history-card',
       path:'home/manage/1/onhold',
   },
   { 
       id: 2,
-      text: "Check2", 
-      // icon: "find", 
+      text: "Loan History", 
+      icon: "comment", 
       content: "I am different tab",
       path:'home/manage/1/loan',
   }
 ];
 
+// checkingTabs(){
+//   if(){
 
+//   }
+//   else{
+
+//   }
+// }
 
   constructor(private router:Router, private store:NgRedux<any>, private action:ManageActions) {
     // this.router.navigate(this.tabs[0].path);
@@ -70,8 +80,25 @@ tabContent: any;
       this.store.dispatch<any>(this.action.getPersonLoanRequests("loan/byperson/",this.store.getState().manage.personId));
 
     }
+    // validation
+// var viewModel = {
+//   selectedIndex: ko.observable(0),
+//   items: [
+//       { title: "tab 1", text: "ON" },
+//       { title: "tab 2", text: "OFF" }
+//   ],
+//   validateAndSubmit: function (e:any) {
+//       var result = DevExpress.validationEngine.validateGroup($("#sampleGroup").dxValidationGroup("instance"));
+//       if (!result.isValid) {
+//           viewModel.selectedIndex(viewModel.selectedIndex() - 1);
+//       }
+//   }
+// }
+// ko.applyBindings(viewModel);
 
 }
+
+
 
   ngOnInit(): void {
 
