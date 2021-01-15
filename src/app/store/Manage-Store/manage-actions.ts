@@ -6,6 +6,7 @@ export const SET_LIBRARIAN_LIST = "LibrarianList";
 export const SET_PERSON_DETAILS = "setPersonDetails";
 export const SET_PERSON_ONHOLD_REQUESTS = "setPersonOnHoldRequests";
 export const SET_PERSON_LOAN_REQUESTS = "setPersonLoanRequests";
+export const SET_ACCEPT_ONHOLD_REQUEST="setAcceptOnHoldRequest"
 
 
 
@@ -102,6 +103,21 @@ export class ManageActions {
 
 setAddPerson(data:any){
     return { type: SET_PERSON_DETAILS, payload: data }
+}
+
+postAcceptOnHoldReqeuest(url:any,id:any,obj:any)
+{
+    return(dispatch:any,getState:any)=>{
+        return this.dataService.post(DEFAULT_URL + url+id , obj )
+        .subscribe((data:any)=>{
+            return dispatch(this.setAcceptOnHoldRequest(data.clientdata));
+        } )  }
+
+}
+
+setAcceptOnHoldRequest(data:any)
+{
+    return { type: SET_ACCEPT_ONHOLD_REQUEST, payload:data}
 }
 
 updatePerson(url:any, obj:any){

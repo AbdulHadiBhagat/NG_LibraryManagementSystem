@@ -13,7 +13,7 @@ export interface CommonState {
    bookGridData:any;
    personGridData:any;
    showPersonPopup:any;
-   showBookPopup:any;
+   showBooksPopup:any;
    showAllBooks:any;
    showAllHistory:any;
    bookDetailId:any;

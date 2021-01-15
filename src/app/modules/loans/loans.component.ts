@@ -19,9 +19,14 @@ export class LoansComponent implements OnInit {
   @select(["common","personGridData"]) personGridData$:any;
   personGridDataSubscriber:any;  
 
+  @select(["common","bookGridData"]) bookGridData$:any;
+  bookGridDataSubscriber:any;  
+
   @select(["common","showPersonPopup"]) showPersonPopup$:any;
   showPersonPopupSubscriber:any;
 
+  @select(["common","showBooksPopup"]) showBooksPopup$:any;
+  showBooksPopupSubscriber:any;
   @select(["book","loans"]) loans$:any;
   loansSubscriber:any;
 
@@ -100,17 +105,22 @@ this.destination=this.borrowerDestination;
   showIssuerPopup(){
 this.destination=this.issuerDestination;
     this.personsPopupVisible = true;
+    this.store.dispatch<any>(this.action.setShowPersonPopup(true));
   }
 
   showReceiverPopup(){
 this.destination=this.receiverDestination;
     this.personsPopupVisible = true;
+    this.store.dispatch<any>(this.action.setShowPersonPopup(true));
   }
 
   //books popup
   booksPopupVisible = false;
   showBooksPopup(){
+    this.destination=this.bookDestination;
     this.booksPopupVisible = true;
+    this.store.dispatch<any>(this.action.setShowBooksPopup(true));
+
   }
 
   initializedData(){
@@ -186,20 +196,36 @@ tableid=50;
     this.personGridDataSubscriber=this.personGridData$.subscribe((data:any)=>{
       if(data.id)
       {
-        console.log(data);
+        console.log(data+"l");
             //let model={"person_id":"","person_name":""};
             
           
-           this.setData(this.model,data,this.source,this.destination);
+           this.setData(this.model,data,this.personSource,this.destination);
+           this.initializedData();
+          
+      }
+    })
+    this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{
+      if(data.book_id)
+      {
+        console.log(data+"h");
+            //let model={"person_id":"","person_name":""};
+            
+          debugger;
+           this.setData(this.model,data,this.bookSource,this.destination);
            this.initializedData();
           
       }
     })
 
+
     this.showPersonPopupSubscriber=this.showPersonPopup$.subscribe((data:any)=>{
       this.personsPopupVisible=data;
     })
     
+    this.showBooksPopupSubscriber=this.showBooksPopup$.subscribe((data:any)=>{
+      this.booksPopupVisible=data;
+    })
   }
 
   ngOnDestroy():void{
@@ -208,10 +234,13 @@ tableid=50;
     }
   }
 
-  source=["id","name"];
+  personSource=["id","name"];
   borrowerDestination=["borrowerID","borrowerName"];
   issuerDestination=["issuerID","issuerName"];
   receiverDestination=["receiverID","receiverName"];
+
+  bookSource=["book_id", "title"]
+  bookDestination=["bookID","bookName"]
 
 
   setData(model:any,data:any,source:any,destination:any)
