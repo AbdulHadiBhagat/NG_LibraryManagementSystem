@@ -6,6 +6,6 @@ export interface onholddto
     borrowerID : number;
     bookName: string;
     borrowerName: string;
-    retdate: Date;
+    reqdate: Date;
 
 }

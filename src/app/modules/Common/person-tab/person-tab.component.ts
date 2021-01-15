@@ -64,7 +64,7 @@ tabContent: any;
     console.log(e.itemIndex);
     if(e.itemIndex==1)
     {
-      this.store.dispatch<any>(this.action.getPersonOnHoldRequests("onhold/byperson/",this.store.getState().manage.personId));
+      this.store.dispatch<any>(this.action.getPersonOnHoldRequests("onhold/holdbyperson/",this.store.getState().manage.personId));
     }
     else if(e.itemIndex==2){
       this.store.dispatch<any>(this.action.getPersonLoanRequests("loan/byperson/",this.store.getState().manage.personId));

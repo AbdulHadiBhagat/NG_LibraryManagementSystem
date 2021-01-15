@@ -1,6 +1,6 @@
 import { CommonState } from 'src/app/store/Common-Store/common-state'
 import { SysTblTsk } from 'src/app/modules/SysTblTsk/SysTblTskModel';
-import { SET_TABLE_ID,SET_ALL_BOOKS, SET_BOOK_GRID_DATA, SET_LOAN_CONTENT, SET_PERSON, SET_PERSON_GRID_DATA, SET_CONTENT, SET_SHOW_PERSON_POPUP, SET_SHOW_BOOK_POPUP, SET_SHOW_ALL_BOOKS, SET_SHOW_ALL_HISTORY } from './common.actions';
+import { SET_TABLE_ID,SET_ALL_BOOKS, SET_BOOK_GRID_DATA, SET_LOAN_CONTENT, SET_PERSON, SET_PERSON_GRID_DATA, SET_CONTENT, SET_SHOW_PERSON_POPUP, SET_SHOW_BOOKS_POPUP, SET_SHOW_ALL_BOOKS, SET_SHOW_ALL_HISTORY } from './common.actions';
 import { SET_GRID_DATA } from './common.actions'
 
 
@@ -32,7 +32,7 @@ const initialState: CommonState = {
     bookGridData: {},
     personGridData: {},
     showPersonPopup:false,
-    showBookPopup:false,
+    showBooksPopup:false,
     showAllBooks:{},
     showAllHistory:[]
 
@@ -86,10 +86,10 @@ export const commonReducer = function (
                 showPersonPopup: action.payload
 
             }
-        case SET_SHOW_BOOK_POPUP:
+        case SET_SHOW_BOOKS_POPUP:
             return{
                 ...state,
-                showBookPopup:action.payload
+                showBooksPopup:action.payload
 
             }
 

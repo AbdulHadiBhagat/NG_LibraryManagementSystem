@@ -5,6 +5,7 @@
         title="Information"
         [dragEnabled]="false"
         [closeOnOutsideClick]="true"
+        (onHiding)="popupOnHiding()"
         [(visible)]="booksPopupVisible">
     <div>
         
@@ -49,6 +50,7 @@
 
    <dxi-column 
    dataField="author" 
+   caption="Author"
    alignment="right" 
    [width]="180"></dxi-column>
    <dxi-column 
@@ -95,7 +97,7 @@
    <dxo-paging [pageSize]="1"></dxo-paging>
         <dxo-pager 
             [showPageSizeSelector]="true"
-            [allowedPageSizes]="[5, 10, 20]"
+            [allowedPageSizes]="[2, 4, 6]"
             [showInfo]="true">
         </dxo-pager>
         

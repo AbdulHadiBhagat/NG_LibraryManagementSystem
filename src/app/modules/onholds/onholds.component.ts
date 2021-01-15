@@ -1,6 +1,9 @@
-import { select } from '@angular-redux/store';
+import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
+import { CommonActions } from 'src/app/store/Common-Store/common.actions';
+import { onholddto } from '../Dtos/on-hold-dto/on-hold';
+import { onhold } from '../OnHold/onhold';
 
 @Component({
   selector: 'app-onholds',
@@ -15,20 +18,50 @@ export class OnholdsComponent implements OnInit {
   @select(["common","personGridData"]) personGridData$:any;
   personGridDataSubscriber:any;  
 
+  @select(["common","bookGridData"]) bookGridData$:any;
+  bookGridDataSubscriber:any;
 
+  destination:any;
   //persons popup
   personsPopupVisible = false;
   showPersonsPopup(){
+
+    this.destination=this.borrowerDestination;
     this.personsPopupVisible = true;
+    this.store.dispatch<any>(this.action.setShowPersonPopup(true));
+
   }
 
   //books popup
   booksPopupVisible = false;
   showBooksPopup(){
+
+    this.destination=this.bookDestination;
     this.booksPopupVisible = true;
+    this.store.dispatch<any>(this.action.setShowBooksPopup(true));
   }
 
+  model:onholddto=new Object() as onholddto;
   
+  initializedData(){
+    this.OnHoldSection=new FormGroup({
+      
+    reqID : new FormControl(this.model.reqID),
+    bookID : new FormControl(this.model.bookID),
+    borrowerID : new FormControl(this.model.borrowerID),
+     bookName : new FormControl(this.model.bookName),
+     borrowerName : new FormControl(this.model.borrowerName),
+     reqdate: new FormControl(this.model.reqdate),
+      
+
+
+    })
+  }
+
+
+
+
+
   OnHoldSection = new FormGroup({
 
     reqID : new FormControl(''),
@@ -36,11 +69,11 @@ export class OnholdsComponent implements OnInit {
    borrowerID : new FormControl(''),
     bookName : new FormControl(''),
     borrowerName : new FormControl(''),
-    retdate: new FormControl(''),
+    reqdate: new FormControl(''),
      
  
  });
-  constructor() { }
+  constructor(private store:NgRedux<any>, private action:CommonActions) { }
 
   ngOnInit(): void {
     this.personOnHoldSubscriber=this.personOnHold$.subscribe((data:any)=>{
@@ -50,11 +83,21 @@ export class OnholdsComponent implements OnInit {
     });
 
     this.personGridDataSubscriber=this.personGridData$.subscribe((data:any)=>{
-      if(data)
+      if(data.id)
       {
-        console.log(data);
-            let model={"person_id":"","person_name":""};
-            this.setData(model,data,this.source,this.borrowerDestination);
+        console.log(data+"a");
+           // let model={"person_id":"","person_name":""};
+            this.setData(this.model,data,this.personSource,this.destination);
+            this.initializedData();
+      }
+    })
+
+    this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{
+      if(data.book_id){
+        console.log(data+"k");
+        this.setData(this.model,data,this.bookSource,this.destination);
+            this.initializedData();
+
       }
     })
 
@@ -69,10 +112,13 @@ export class OnholdsComponent implements OnInit {
 
   }
 
-  source=["id","name"];
+  personSource=["id","name"];
   borrowerDestination=[" borrowerID","borrowerName"];
   issuerDestination=[];
   receiverDestination=[];
+
+  bookSource=["book_id","title"]
+  bookDestination=["bookID","bookName"]
 
 
   setData(model:any,data:any,source:any,destination:any)

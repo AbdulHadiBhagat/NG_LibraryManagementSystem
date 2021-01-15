@@ -11,7 +11,7 @@ export const SET_CONTENT = "setContent"
 export const SET_LOAN_CONTENT = "setLoanContent"
 export const SET_ALL_BOOKS = "setAllBooks"
 export const SET_SHOW_PERSON_POPUP="setShowPersonPopup"
-export const SET_SHOW_BOOK_POPUP="setShowBookPopup"
+export const SET_SHOW_BOOKS_POPUP="setShowBooksPopup"
 export const SET_TABLE_ID = "setTableID"
 export const SET_SHOW_ALL_BOOKS="setShowAllBooks"
 export const SET_SHOW_ALL_HISTORY="setShowAllHistory"
@@ -110,9 +110,9 @@ export class CommonActions {
 
     }
 
-    setShowBookPopup(data:any)
+    setShowBooksPopup(data:any)
     {
-        return{ type: SET_SHOW_BOOK_POPUP,payload:data}
+        return{ type: SET_SHOW_BOOKS_POPUP,payload:data}
     }
     getTableId(id:any) {
         return (dispatch: any, getState: any) => {
