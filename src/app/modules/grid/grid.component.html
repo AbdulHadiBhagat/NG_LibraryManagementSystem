@@ -6,22 +6,16 @@
 
 
 
-    <dxi-column cellTemplate="diffCellTemplate"   *ngIf='visibility==true'></dxi-column>
+    <!-- <dxi-column cellTemplate="diffCellTemplate"   *ngIf="visibility=true"></dxi-column> -->
+    <dxi-column cellTemplate="diffCellTemplate" *ngIf="router != '/home/history'"></dxi-column>
 
     <div *dxTemplate="let d of 'diffCellTemplate'">
         <dx-button 
                 icon="check"
                 type="success"
-                text="Accept"
+                text="Receive"
                >
             </dx-button>
-
-            <dx-button 
-            icon="close"
-            type="fail"
-            text="Decline"
-           >
-        </dx-button>
       </div>
 
       <dxi-column caption=" Librarian ID" type="number" dataField="LoanId" ></dxi-column>

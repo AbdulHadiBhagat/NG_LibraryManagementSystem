@@ -102,7 +102,18 @@ console.log(this.data.versionNo)
 
 });
 
-type = "C";
+type = 'L';
+// disableCheck(){
+//   if(this.type == 'L'){
+
+//   }
+//   else if(){
+
+//   }
+//   else{
+
+//   }
+// }
 
 // private variable: boolean = false ;
 

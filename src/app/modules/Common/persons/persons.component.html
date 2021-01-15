@@ -89,18 +89,20 @@ return $list;
         </div>
       </div>
             
-      <div class="dx-field">
+      <div class="dx-field" >
         <div class="dx-field-label">Phone No</div>
         <div class="dx-field-value" >
             <dx-text-box style="width: 110%;" formControlName="phoneno"  placeholder="Enter phone no..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
+      </div>
+
     </div>
-    <div class="dx-fieldset" id="third">
+    <div class="dx-fieldset" id="third" >
       <div class="dx-field">
         <div class="dx-field-label">Version No</div>
         <div class="dx-field-value" >
-            <dx-text-box style="width: 110%;" formControlName="versionNo"  placeholder="Enter version no..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box [disabled]="true"  style="width: 110%;" formControlName="versionno"  placeholder="Enter version no..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
              
@@ -115,15 +117,15 @@ return $list;
       <div class="dx-field">
         <div class="dx-field-label">Salary</div>
         <div class="dx-field-value" >
-            <dx-text-box style="width: 110%;" formControlName="salary"  placeholder="Enter salary..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box [disabled]="type === 'B'" style="width: 110%;" formControlName="salary"  placeholder="Enter salary..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
              
-          <div *ngIf = "type== 'L'" >
+          <div *ngIf = "type== 'L'">
             <div class="dx-field">
               <div class="dx-field-label">L_officeno</div>
               <div class="dx-field-value" >
-                  <dx-text-box style="width: 110%;" formControlName="lofficeno"  placeholder="Enter L_officeno..." aria-required="dx-field-value"></dx-text-box>
+                  <!-- <dx-text-box [disabled]="type == 'B' || type == 'L'" style="width: 110%;" formControlName="lofficeno"  placeholder="Enter L_officeno..." aria-required="dx-field-value"></dx-text-box> -->
               </div>
             </div>
           </div>
@@ -133,7 +135,7 @@ return $list;
           <div class="dx-field">
             <div class="dx-field-label">D_deskno</div>
             <div class="dx-field-value" >
-                <dx-text-box style="width: 110%;" formControlName="cdeskno"  placeholder="Enter D_deskno..." aria-required="dx-field-value"></dx-text-box>
+                <!-- <dx-text-box [disabled]="type == 'B' || type == 'C'" style="width: 110%;" formControlName="cdeskno"  placeholder="Enter D_deskno..." aria-required="dx-field-value"></dx-text-box> -->
             </div>
           </div>
           </div> 

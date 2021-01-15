@@ -230,7 +230,7 @@ export class ManageComponent implements OnInit {
     // console.log(key,"KEY");
 
     // let test = this.url + '/' +  'persons';
-    this.router.navigateByUrl("home/manage/1/detail");
+    this.router.navigateByUrl("home/manage/{personId}/detail");
 
     // this.router.navigateByUrl("persons");
   }
@@ -248,7 +248,7 @@ export class ManageComponent implements OnInit {
 
   test() {
     console.log("HELLO");
-    this.router.navigateByUrl("home/manage/1/detail");
+    this.router.navigateByUrl("home/manage/{personId}/detail");
   }
 
   ngOnInit(): void {
