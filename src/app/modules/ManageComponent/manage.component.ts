@@ -21,7 +21,7 @@ export class ManageComponent implements OnInit {
   LibrarianListSubscriber: any;
 
 
-  type: any;
+  type: any = "";
 
   activePage: number = 1;
   activePageTwo: number = 1;
@@ -252,7 +252,9 @@ export class ManageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    let person= this.store.getState().common.person;
+    this.type=person.type;
+    console.log(this.type)
 
     // this.type=this.store.getState().common.person.type
     this.forLibrarian();

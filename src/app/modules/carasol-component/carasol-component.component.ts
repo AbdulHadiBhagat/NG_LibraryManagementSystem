@@ -15,7 +15,7 @@ export class  CarasolComponentComponent implements OnInit {
 
   @select(["common" ,"allBooks"]) allBooks$:any;
   allBooksSubscriber:any;
-  type:any="A";
+  type:any="";
   cards = [
     {
       title: 'A Course In Geometry',
@@ -156,7 +156,10 @@ export class  CarasolComponentComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.store.dispatch<any>(this.store.getState().common.person);
+  let person= this.store.getState().common.person;
+  this.type=person.type;
+  console.log(this.type)
+
     setTimeout(() => {
       console.log("loanData",this.store.getState().common.loanHistory);
     }, 3000);
