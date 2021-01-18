@@ -16,14 +16,25 @@
                 text="Accept"
                >
             </dx-button>
-
-            <dx-button 
+          </div>
+          
+            <!-- <dx-button 
             icon="close"
             type="fail"
             text="Decline"
            >
-        </dx-button>
-      </div>
+        </dx-button> -->
+        <dxi-column cellTemplate="diffCellTemplate2"  *ngIf='visibility==true'></dxi-column>
+        <div *dxTemplate="let d of 'diffCellTemplate2'">
+          <dx-button 
+            icon="close"
+            type="fail"
+            text="Decline"
+           >
+              </dx-button>
+            </div>
+            
+
 
       <dxi-column caption=" Requested ID" type="number" dataField="reqID" >REQ_ID</dxi-column>
       <dxi-column caption="BorrowerID" type="number" dataField="borrowerID">borrower_id</dxi-column>
