@@ -211,7 +211,7 @@ tableid=50;
         console.log(data+"h");
             //let model={"person_id":"","person_name":""};
             
-          debugger;
+          
            this.setData(this.model,data,this.bookSource,this.destination);
            this.initializedData();
           

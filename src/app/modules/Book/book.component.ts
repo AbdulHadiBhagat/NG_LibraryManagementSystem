@@ -58,7 +58,7 @@ export class BookComponent implements OnInit {
   onAddClick(){
     console.log(this.BookSection.value,"helo")
     this.data=this.BookSection.value;
-    debugger;
+    
     this.store.dispatch<any>(this.action.addBook("book", this.data ))
   }
 

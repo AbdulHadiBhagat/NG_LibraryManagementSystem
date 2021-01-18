@@ -123,7 +123,7 @@ export class PersonsComponent implements OnInit {
   tableid = 30;
 
   forTableid() {
-    debugger;
+    
     this.store.dispatch<any>(this.commmon.getTableId(this.tableid));
     console.log(this.tableid)
   }
@@ -131,7 +131,7 @@ export class PersonsComponent implements OnInit {
   constructor(private store: NgRedux<any>, private action: ManageActions, private commmon: CommonActions) { }
 
   ngOnInit() {
-    debugger;
+    
     this.store.dispatch<any>(this.action.getPersonDetails(this.store.getState().manage.personId));
     this.subscribePersonDetail();
 

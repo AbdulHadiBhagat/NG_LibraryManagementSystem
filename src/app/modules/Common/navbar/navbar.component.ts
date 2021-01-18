@@ -47,7 +47,7 @@ export class NavbarComponent implements OnInit {
   //     break;
     
   //     case 'Manage' :
-  //       debugger;
+  //       
   //    this.router.navigateByUrl(this.url + "/manage");
   //     break;
 
