@@ -128,6 +128,7 @@ export class CommonActions {
 
     }
     setTableId(data: any) {
+        debugger;
         return { type: SET_TABLE_ID, payload: data }
     }
 

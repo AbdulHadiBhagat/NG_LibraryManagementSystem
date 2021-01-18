@@ -93,6 +93,7 @@ export const commonReducer = function (
             }
 
             case SET_TABLE_ID:
+                debugger;
                 return {
                     ...state,
                     sysTblTsk: action.payload
