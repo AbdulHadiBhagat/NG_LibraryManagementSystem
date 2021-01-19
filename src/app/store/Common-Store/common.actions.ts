@@ -15,6 +15,7 @@ export const SET_SHOW_BOOKS_POPUP="setShowBooksPopup"
 export const SET_TABLE_ID = "setTableID"
 export const SET_SHOW_ALL_BOOKS="setShowAllBooks"
 export const SET_SHOW_ALL_HISTORY="setShowAllHistory"
+export const SET_PERSONS_BY_TYPE="setPersonsByType"
 
 export const DEFAULT_URL = "http://localhost:8080/"
 @Injectable({
@@ -155,6 +156,18 @@ export class CommonActions {
     setShowAllHistory(data:any)
     {
         return{type:SET_SHOW_ALL_HISTORY, payload:data}
+    }
+
+    getPersonsByType(){
+        return(dispatch:any, getState:any)=>{
+            return this.dataService.getAll(DEFAULT_URL+"person").subscribe((data:any)=>{
+                return dispatch(this.setPersonsByType(data.clientdata));
+            })
+        }
+    }
+
+    setPersonsByType(data:any){
+        return{type:SET_PERSONS_BY_TYPE,payload:data}
     }
 }
 

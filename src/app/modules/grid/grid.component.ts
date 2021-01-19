@@ -20,16 +20,10 @@ export class GridComponent implements OnInit {
   visibility:boolean=false;
   router: string;
   
-<<<<<<< HEAD
-  constructor(private store:NgRedux<any>,private action:CommonActions) { //this.gridData=service.getGridData()
-=======
-  constructor(service:Service, private store:NgRedux<any>,private action:CommonActions,private _router: Router) { //this.gridData=service.getGridData()
-    this.gridData=service.getGridData();
+  constructor(private store:NgRedux<any>,private action:CommonActions,private _router: Router) { //this.gridData=service.getGridData()
+    
     this.router = _router.url;
-    this.showAllHistorySubscriber=this.showAllHistory$.subscribe((data:any)=>{
-      if(data){
-        console.log(data)
->>>>>>> a0b28de71ca1ca9a2b24f3ca22689b4a17d3b7f0
+   
     
   }
 

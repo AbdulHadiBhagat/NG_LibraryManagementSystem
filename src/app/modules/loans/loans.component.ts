@@ -95,21 +95,25 @@ console.log(this.data.versionNo)
   
   showBorrowerPopup(){
    
-    
-this.destination=this.borrowerDestination;
+    this.store.dispatch<any>(this.action.getPersonsByType())
+    this.destination=this.borrowerDestination;
     this.personsPopupVisible = true;
     this.store.dispatch<any>(this.action.setShowPersonPopup(true));
   }
 
 
   showIssuerPopup(){
-this.destination=this.issuerDestination;
+    
+    this.store.dispatch<any>(this.action.getPersonsByType())
+    this.destination=this.issuerDestination;
     this.personsPopupVisible = true;
     this.store.dispatch<any>(this.action.setShowPersonPopup(true));
   }
 
   showReceiverPopup(){
-this.destination=this.receiverDestination;
+    
+    this.store.dispatch<any>(this.action.getPersonsByType())
+    this.destination=this.receiverDestination;
     this.personsPopupVisible = true;
     this.store.dispatch<any>(this.action.setShowPersonPopup(true));
   }

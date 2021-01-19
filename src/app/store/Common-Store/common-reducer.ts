@@ -1,7 +1,8 @@
 import { CommonState } from 'src/app/store/Common-Store/common-state'
 import { SysTblTsk } from 'src/app/modules/SysTblTsk/SysTblTskModel';
-import { SET_TABLE_ID,SET_ALL_BOOKS, SET_BOOK_GRID_DATA, SET_LOAN_CONTENT, SET_PERSON, SET_PERSON_GRID_DATA, SET_CONTENT, SET_SHOW_PERSON_POPUP, SET_SHOW_BOOKS_POPUP, SET_SHOW_ALL_BOOKS, SET_SHOW_ALL_HISTORY } from './common.actions';
+import { SET_TABLE_ID,SET_ALL_BOOKS, SET_BOOK_GRID_DATA, SET_LOAN_CONTENT, SET_PERSON, SET_PERSON_GRID_DATA, SET_CONTENT, SET_SHOW_PERSON_POPUP, SET_SHOW_BOOKS_POPUP, SET_SHOW_ALL_BOOKS, SET_SHOW_ALL_HISTORY, SET_PERSONS_BY_TYPE } from './common.actions';
 import { SET_GRID_DATA } from './common.actions'
+import { State } from '@ngrx/store';
 
 
 const initialState: CommonState = {
@@ -34,7 +35,8 @@ const initialState: CommonState = {
     showPersonPopup:false,
     showBooksPopup:false,
     showAllBooks:{},
-    showAllHistory:[]
+    showAllHistory:[],
+    personsByType:{}
 
 
 
@@ -107,6 +109,11 @@ export const commonReducer = function (
                 return{
                     ...state,
                     showAllHistory:action.payload
+                }
+            case SET_PERSONS_BY_TYPE:
+               return {
+                    ...state,
+                    personsByType:action.payload
                 }
 
     }

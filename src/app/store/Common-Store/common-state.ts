@@ -17,6 +17,7 @@ export interface CommonState {
    showAllBooks:any;
    showAllHistory:any;
    //personContent:any;
+   personsByType:any;
    
 
 }
