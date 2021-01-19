@@ -188,7 +188,7 @@ export class ManageComponent implements OnInit {
   slides: any = [[]];
   slidesTwo: any = [[]];
   chunk(arr: string | any[], chunkSize: number) {
-    // debugger;
+    // 
     let R = [];
     let start = (this.activePage - 1) * this.pageSize;
     let end = start + this.pageSize;
@@ -202,7 +202,7 @@ export class ManageComponent implements OnInit {
   }
 
   chunkTwo(arr: string | any[], chunkSize: number) {
-    // debugger;
+    // 
     let R = [];
     let start = (this.activePageTwo - 1) * this.pageSize;
     let end = start + this.pageSize;

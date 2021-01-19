@@ -2,7 +2,8 @@
 <dx-data-grid class="grid"
      id="gridContainer"
     [dataSource]="gridData"
-    [showBorders]="true">
+    [showBorders]="true"
+    (onCellClick)="receiveBook($event)">
 
 
 

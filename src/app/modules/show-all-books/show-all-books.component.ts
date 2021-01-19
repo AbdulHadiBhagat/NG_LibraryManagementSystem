@@ -41,7 +41,7 @@ export class ShowAllBooksComponent implements OnInit {
   slides: any = [[]];
 
   chunk(arr: string | any[], chunkSize: number) {
-    // debugger;
+    // 
     let R = [];
     let start = (this.activePage - 1) * this.pageSize;
     let end = start + this.pageSize;

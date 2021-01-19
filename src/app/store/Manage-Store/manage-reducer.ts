@@ -46,7 +46,7 @@ export const manageReducer = function(
         case SET_PERSON_LOAN_REQUESTS:
             return{
                 ...state,
-                personOnHold: action.payload
+                personLoan: action.payload
             }
         case SET_ACCEPT_ONHOLD_REQUEST:
             return{

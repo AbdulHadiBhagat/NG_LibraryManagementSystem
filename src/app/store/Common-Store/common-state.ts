@@ -16,6 +16,9 @@ export interface CommonState {
    showBooksPopup:any;
    showAllBooks:any;
    showAllHistory:any;
+   bookDetailId:any;
+   personDetailId:any;
+   onHoldId:any,
    //personContent:any;
    personsByType:any;
    

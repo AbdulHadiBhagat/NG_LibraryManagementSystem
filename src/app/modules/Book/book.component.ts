@@ -22,12 +22,9 @@ export class BookComponent implements OnInit {
   @select(["book","onHoldrequest"])onHoldRequests$:any;
   onHoldRequestsSubscriber:any;
 
-  @select(["manage","personDetails"]) personDetails$:any;
-  personDetailsSubscriber:any;
-
   @select(["common","sysTblTsk"]) sysTblTsk$:any;
   sysTblTskSubscriber:any;
-actions=[];
+  actions=[];
   data:any;
   selectedfun: string = '';
   selectChangeHandler (event: any) {
@@ -61,7 +58,7 @@ actions=[];
   onAddClick(){
     console.log(this.BookSection.value,"helo")
     this.data=this.BookSection.value;
-    debugger;
+    
     this.store.dispatch<any>(this.action.addBook("book", this.data ))
   }
 
@@ -76,9 +73,9 @@ actions=[];
   onDelete(){
     this.data=this.BookSection.value
   // .delete(this.data.sysSeq)
-console.log(this.data.bookID)
-console.log(this.data.versionNo)
-  this.store.dispatch<any>(this.action.deleteBook("book", this.data.bookID, this.data.versionNo ))
+    console.log(this.data.bookID)
+    console.log(this.data.versionNo)
+    this.store.dispatch<any>(this.action.deleteBook("book", this.data.bookID, this.data.versionNo ))
   // .subscribe();
   }
 
@@ -95,7 +92,7 @@ console.log(this.data.versionNo)
 });
 
 forBookDetail(){
-  this.store.dispatch<any>(this.action.getBookDetail(this.store.getState().book.book_id));
+  this.store.dispatch<any>(this.action.getBookDetail(this.store.getState().common.bookDetailId));
 }
 
 forLoan(){
@@ -118,7 +115,7 @@ forTableid(){
     this.forTableid();
     this.sysTblTskSubscriber=
   this.sysTblTsk$.subscribe((data:any)=>{
-  if(data)
+  if(data.length > 0)
   {
     console.log(data);
     this.actions=data;
@@ -130,7 +127,7 @@ forTableid(){
 
     this.BookDetailSubscriber=
 this.book_detail$.subscribe((data:any)=>{
-  if(data)
+  if(data.bookID)
   {
     console.log(data);
   }

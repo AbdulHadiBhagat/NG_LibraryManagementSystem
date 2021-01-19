@@ -4,18 +4,22 @@ import { DataService } from '../../data.service'
 
 export const SET_PERSON = "setPerson";
 export const SET_COMMON_TEST = "setCommontest";
-export const SET_GRID_DATA = "setGridData"
-export const SET_BOOK_GRID_DATA = "setBookGridData"
-export const SET_PERSON_GRID_DATA = "setPersonGridData"
-export const SET_CONTENT = "setContent"
+export const SET_GRID_DATA = "setGridData";
+export const SET_BOOK_GRID_DATA = "setBookGridData";
+export const SET_PERSON_GRID_DATA = "setPersonGridData";
+export const SET_CONTENT = "setContent";
 export const SET_LOAN_CONTENT = "setLoanContent"
 export const SET_ALL_BOOKS = "setAllBooks"
-export const SET_SHOW_PERSON_POPUP="setShowPersonPopup"
 export const SET_SHOW_BOOKS_POPUP="setShowBooksPopup"
+export const SET_SHOW_PERSON_POPUP = "setShowPersonPopup"
 export const SET_TABLE_ID = "setTableID"
 export const SET_SHOW_ALL_BOOKS="setShowAllBooks"
 export const SET_SHOW_ALL_HISTORY="setShowAllHistory"
+export const SET_BOOK_DETAIL_ID="setBookDetailId";
+export const SET_PERSON_DETAIL_ID="setPersonDetailId";
+export const SET_ON_HOLD_ID="setPnHoldId";
 export const SET_PERSONS_BY_TYPE="setPersonsByType"
+
 
 export const DEFAULT_URL = "http://localhost:8080/"
 @Injectable({
@@ -167,7 +171,19 @@ export class CommonActions {
     }
 
     setPersonsByType(data:any){
-        return{type:SET_PERSONS_BY_TYPE,payload:data}
+        return{type:SET_PERSONS_BY_TYPE,payload:data}}
+
+    setBookDetailId(data:any)
+    {
+        return{type:SET_BOOK_DETAIL_ID, payload:data}
+    }
+    setPersonDetailId(data:any)
+    {
+        return{type:SET_PERSON_DETAIL_ID, payload:data}
+    }
+    setOnHoldId (data:any)
+    {
+        return{type:SET_ON_HOLD_ID, payload:data}
     }
 }
 
