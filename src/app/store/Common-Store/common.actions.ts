@@ -162,9 +162,9 @@ export class CommonActions {
         return{type:SET_SHOW_ALL_HISTORY, payload:data}
     }
 
-    getPersonsByType(){
+    getPersonsByType(url:any){
         return(dispatch:any, getState:any)=>{
-            return this.dataService.getAll(DEFAULT_URL+"person").subscribe((data:any)=>{
+            return this.dataService.getAll(DEFAULT_URL+"person/"+url).subscribe((data:any)=>{
                 return dispatch(this.setPersonsByType(data.clientdata));
             })
         }

@@ -17,6 +17,9 @@ export class BooksPopupComponent implements OnInit, OnDestroy{
 
   @select(["common","showBooksPopup"]) showBooksPopup$:any;
   showBooksPopupSubscriber:any;
+
+  @select(["common","showAllBooks"]) showAllBooks$:any;
+  showAllBooksSubscriber:any;
 // @select(["common","bookGridData"]) bookGridData$:any;
 // bookGridDataSubscriber:any;  
  
@@ -58,13 +61,13 @@ popupOnHiding(){
   constructor(private store:NgRedux<any>, private action:CommonActions) 
   { 
 
-    this.gridArray = [
-      {"book_id":1,"title":"Areeba","author":"123 Street","subject":"1","is_issued":1,"versionNo":1},
-      {"book_id":2,"title": "Varisha", "author": "123 Street B", "subject": "3", "is_issued":0,"versionNo":1},
-      {"book_id":3, "title": "Musfirah","author":"er43 street", "subject": "123456","is_issued":0,"versionNo":1}
+    // this.gridArray = [
+    //   {"book_id":1,"title":"Areeba","author":"123 Street","subject":"1","is_issued":1,"versionNo":1},
+    //   {"book_id":2,"title": "Varisha", "author": "123 Street B", "subject": "3", "is_issued":0,"versionNo":1},
+    //   {"book_id":3, "title": "Musfirah","author":"er43 street", "subject": "123456","is_issued":0,"versionNo":1}
     
     
-    ];
+    // ];
 
     this.showFilterRow = true;
     this.showHeaderFilter = true;
@@ -95,6 +98,13 @@ ngOnDestroy(){
   ngOnInit(): void {
     this.showBooksPopupSubscriber=this.showBooksPopup$.subscribe((data:any)=>{
       this.booksPopupVisible=data;
+    })
+
+    this.showAllBooksSubscriber=this.showAllBooks$.subscribe((data:any)=>{
+      if(data){
+        console.log(data,"booksPopupData")
+        this.gridArray=data;
+      }
     })
     
 // this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{

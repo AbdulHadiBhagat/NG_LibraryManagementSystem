@@ -95,32 +95,33 @@ console.log(this.data.versionNo)
   
   showBorrowerPopup(){
    
-    this.store.dispatch<any>(this.action.getPersonsByType())
+    this.store.dispatch<any>(this.action.getPersonsByType("byperson/B"));
     this.destination=this.borrowerDestination;
     this.personsPopupVisible = true;
     this.store.dispatch<any>(this.action.setShowPersonPopup(true));
   }
 
 
-  showIssuerPopup(){
+  // showIssuerPopup(){
     
-    this.store.dispatch<any>(this.action.getPersonsByType())
-    this.destination=this.issuerDestination;
-    this.personsPopupVisible = true;
-    this.store.dispatch<any>(this.action.setShowPersonPopup(true));
-  }
+   
+  //   this.destination=this.issuerDestination;
+  //   this.personsPopupVisible = true;
+  //   this.store.dispatch<any>(this.action.setShowPersonPopup(true));
+  // }
 
-  showReceiverPopup(){
+  // showReceiverPopup(){
     
-    this.store.dispatch<any>(this.action.getPersonsByType())
-    this.destination=this.receiverDestination;
-    this.personsPopupVisible = true;
-    this.store.dispatch<any>(this.action.setShowPersonPopup(true));
-  }
+  //   this.destination=this.receiverDestination;
+  //   this.personsPopupVisible = true;
+  //   this.store.dispatch<any>(this.action.setShowPersonPopup(true));
+  // }
 
   //books popup
   booksPopupVisible = false;
   showBooksPopup(){
+
+    this.store.dispatch<any>(this.action.getShowAllBooks());
     this.destination=this.bookDestination;
     this.booksPopupVisible = true;
     this.store.dispatch<any>(this.action.setShowBooksPopup(true));
@@ -198,19 +199,20 @@ tableid=50;
 
 
     this.personGridDataSubscriber=this.personGridData$.subscribe((data:any)=>{
-      if(data.id)
+      if(data.sysSeq)
       {
         console.log(data+"l");
             //let model={"person_id":"","person_name":""};
             
           
            this.setData(this.model,data,this.personSource,this.destination);
+           
            this.initializedData();
           
       }
     })
     this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{
-      if(data.book_id)
+      if(data.bookID)
       {
         console.log(data+"h");
             //let model={"person_id":"","person_name":""};
@@ -238,12 +240,12 @@ tableid=50;
     }
   }
 
-  personSource=["id","name"];
+  personSource=["sysSeq","pname"];
   borrowerDestination=["borrowerID","borrowerName"];
-  issuerDestination=["issuerID","issuerName"];
-  receiverDestination=["receiverID","receiverName"];
+  // issuerDestination=["issuerID","issuerName"];
+  // receiverDestination=["receiverID","receiverName"];
 
-  bookSource=["book_id", "title"]
+  bookSource=["bookID", "bookTitle"]
   bookDestination=["bookID","bookName"]
 
 

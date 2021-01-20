@@ -9,17 +9,17 @@ title="Information"
 (onHiding)="popupOnHiding()">
 <div>
 
-<p>hiii</p>
+
 <dx-data-grid 
 #grid
 id="gridContainer"
 [dataSource]="gridArray"
 [showBorders]="true"
-keyExpr="id"
+keyExpr="sysSeq"
 [hoverStateEnabled]="true"
 [selectedRowKeys]="[]"
 (onCellClick)="getSelectedData($event)"
-[columns]="['id', 'name', 'address','password', 'phone_no']"
+[columns]="['id', 'pname', 'address','password', 'phone_no']"
 >
 
 <dxo-selection mode="single" ></dxo-selection>
@@ -37,7 +37,7 @@ keyExpr="id"
 
 
        <dxi-column 
-       dataField="id" 
+       dataField="sysSeq" 
        [width]="140" 
        caption="ID">
        <dxo-header-filter 
@@ -45,7 +45,7 @@ keyExpr="id"
    </dxi-column>
    
    <dxi-column 
-   dataField="name" 
+   dataField="pname" 
    alignment="right" 
   
    [width]="120">
@@ -67,7 +67,7 @@ alignment="right"
        
        
        <dxi-column 
-       dataField="phone_no" 
+       dataField="phoneno" 
        caption="Phone No.">
        <dxo-header-filter [allowSearch]="true"></dxo-header-filter>
    </dxi-column>

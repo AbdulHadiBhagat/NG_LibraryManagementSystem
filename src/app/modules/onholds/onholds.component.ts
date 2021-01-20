@@ -88,6 +88,7 @@ console.log(this.data.versionNo)
   personsPopupVisible = false;
   showPersonsPopup(){
 
+    this.store.dispatch<any>(this.common.getPersonsByType("byperson/B"));
     this.destination=this.borrowerDestination;
     this.personsPopupVisible = true;
     this.store.dispatch<any>(this.common.setShowPersonPopup(true));
@@ -98,6 +99,7 @@ console.log(this.data.versionNo)
   booksPopupVisible = false;
   showBooksPopup(){
 
+    this.store.dispatch<any>(this.common.getShowAllBooks());
     this.destination=this.bookDestination;
     this.booksPopupVisible = true;
     this.store.dispatch<any>(this.common.setShowBooksPopup(true));
@@ -152,7 +154,7 @@ reqdate: new FormControl(''),
     });
 
     this.personGridDataSubscriber=this.personGridData$.subscribe((data:any)=>{
-      if(data.id)
+      if(data.sysSeq)
       {
         console.log(data+"a");
            // let model={"person_id":"","person_name":""};
@@ -162,7 +164,7 @@ reqdate: new FormControl(''),
     })
 
     this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{
-      if(data.book_id){
+      if(data.bookID){
         console.log(data+"k");
         this.setData(this.model,data,this.bookSource,this.destination);
             this.initializedData();
@@ -189,12 +191,11 @@ reqdate: new FormControl(''),
 
   }
 
-  personSource=["id","name"];
+  personSource=["sysSeq","pname"];
   borrowerDestination=[" borrowerID","borrowerName"];
-  issuerDestination=[];
-  receiverDestination=[];
+  
 
-  bookSource=["book_id","title"]
+  bookSource=["bookID","bookTitle"]
   bookDestination=["bookID","bookName"]
 
 

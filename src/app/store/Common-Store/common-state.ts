@@ -22,5 +22,6 @@ export interface CommonState {
    //personContent:any;
    personsByType:any;
    
+   
 
 }
