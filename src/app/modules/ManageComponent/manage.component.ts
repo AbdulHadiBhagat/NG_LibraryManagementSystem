@@ -252,6 +252,8 @@ export class ManageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    console.log(this.store.getState().common,"getStateM") 
     let person= this.store.getState().common.person;
     this.type=person.type;
     console.log(this.type)

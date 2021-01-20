@@ -101,7 +101,7 @@ tabContent: any;
 
 
   ngOnInit(): void {
-
+    console.log(this.store.getState().common,"getStateTab") 
     console.log("Hello");
   }
 

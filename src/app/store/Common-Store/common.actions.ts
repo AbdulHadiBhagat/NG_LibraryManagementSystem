@@ -70,6 +70,7 @@ export class CommonActions {
         return (dispatch: any, getState: any) => {
             return this.dataService.getById(DEFAULT_URL + url, id)
                 .subscribe((data: any) => {
+                    console.log(data.clientdata,"login")
                     return dispatch(this.setPerson(data.clientdata));
                 })
         }
