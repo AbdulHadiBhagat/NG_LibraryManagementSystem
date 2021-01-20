@@ -1,7 +1,8 @@
 import { CommonState } from 'src/app/store/Common-Store/common-state'
 import { SysTblTsk } from 'src/app/modules/SysTblTsk/SysTblTskModel';
-import { SET_TABLE_ID,SET_ALL_BOOKS, SET_BOOK_GRID_DATA, SET_LOAN_CONTENT, SET_PERSON, SET_PERSON_GRID_DATA, SET_CONTENT, SET_SHOW_PERSON_POPUP, SET_SHOW_BOOK_POPUP, SET_SHOW_ALL_BOOKS, SET_SHOW_ALL_HISTORY } from './common.actions';
+import { SET_TABLE_ID,SET_ALL_BOOKS, SET_BOOK_GRID_DATA, SET_LOAN_CONTENT, SET_PERSON, SET_PERSON_GRID_DATA, SET_CONTENT, SET_SHOW_PERSON_POPUP, SET_SHOW_BOOKS_POPUP, SET_SHOW_ALL_BOOKS, SET_SHOW_ALL_HISTORY, SET_BOOK_DETAIL_ID, SET_ON_HOLD_ID, SET_PERSON_DETAIL_ID , SET_PERSONS_BY_TYPE } from './common.actions';
 import { SET_GRID_DATA } from './common.actions'
+import { State } from '@ngrx/store';
 
 
 const initialState: CommonState = {
@@ -32,13 +33,13 @@ const initialState: CommonState = {
     bookGridData: {},
     personGridData: {},
     showPersonPopup:false,
-    showBookPopup:false,
+    showBooksPopup:false,
     showAllBooks:{},
-    showAllHistory:[]
-
-
-
-
+    showAllHistory:[],
+    bookDetailId:-1,
+    personDetailId:-1,
+    onHoldId:-1,
+    personsByType:{}
 }
 
 export const commonReducer = function (
@@ -86,10 +87,10 @@ export const commonReducer = function (
                 showPersonPopup: action.payload
 
             }
-        case SET_SHOW_BOOK_POPUP:
+        case SET_SHOW_BOOKS_POPUP:
             return{
                 ...state,
-                showBookPopup:action.payload
+                showBooksPopup:action.payload
 
             }
 
@@ -107,6 +108,29 @@ export const commonReducer = function (
                 return{
                     ...state,
                     showAllHistory:action.payload
+                }
+            case SET_PERSONS_BY_TYPE:
+               return {
+                    ...state,
+                    personsByType:action.payload
+                }
+
+                case SET_BOOK_DETAIL_ID:
+                return{
+                    ...state,
+                    bookDetailId:action.payload
+                }
+
+                case SET_PERSON_DETAIL_ID:
+                return{
+                    ...state,
+                    personDetailId:action.payload
+                }
+
+                case SET_ON_HOLD_ID:
+                return{
+                    ...state,
+                    onHoldId:action.payload
                 }
 
     }

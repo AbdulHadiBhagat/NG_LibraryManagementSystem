@@ -14,8 +14,14 @@ import { book } from '../Book/book';
   styleUrls: ['./books-popup.component.scss']
 })
 export class BooksPopupComponent implements OnInit, OnDestroy{
-@select(["common","bookGridData"]) bookGridData$:any;
-bookGridDataSubscriber:any;  
+
+  @select(["common","showBooksPopup"]) showBooksPopup$:any;
+  showBooksPopupSubscriber:any;
+
+  @select(["common","showAllBooks"]) showAllBooks$:any;
+  showAllBooksSubscriber:any;
+// @select(["common","bookGridData"]) bookGridData$:any;
+// bookGridDataSubscriber:any;  
  
 
 
@@ -31,9 +37,13 @@ bookGridDataSubscriber:any;
     selectedRowsData = [];
 
     name:any
-    store:any;
-action:any;
+  
     
+popupOnHiding(){
+  console.log("a");
+  this.store.dispatch<any>(this.action.setShowBooksPopup(false));
+  
+}
     
     getSelectedData(e:any) {
 
@@ -42,23 +52,22 @@ action:any;
     this.store.dispatch(this.action.setBookGridData(e.data));
      //console.log(this.selectedRowsData)
 
-     this.booksPopupVisible=false;
+     this.store.dispatch<any>(this.action.setShowBooksPopup(false));
+     
 
     }
   
   
-  constructor(store:NgRedux<any>, action:CommonActions) 
+  constructor(private store:NgRedux<any>, private action:CommonActions) 
   { 
-    this.store=store;
-    this.action=action;
-    this.booksPopupVisible=true;
-    this.gridArray = [
-      {"book_id":1,"title":"Areeba","author":"123 Street","subject":"1","is_issued":1,"versionNo":1},
-      {"book_id":2,"title": "Varisha", "author": "123 Street B", "subject": "3", "is_issued":0,"versionNo":1},
-      {"book_id":3, "title": "Musfirah","author":"er43 street", "subject": "123456","is_issued":0,"versionNo":1}
+
+    // this.gridArray = [
+    //   {"book_id":1,"title":"Areeba","author":"123 Street","subject":"1","is_issued":1,"versionNo":1},
+    //   {"book_id":2,"title": "Varisha", "author": "123 Street B", "subject": "3", "is_issued":0,"versionNo":1},
+    //   {"book_id":3, "title": "Musfirah","author":"er43 street", "subject": "123456","is_issued":0,"versionNo":1}
     
     
-    ];
+    // ];
 
     this.showFilterRow = true;
     this.showHeaderFilter = true;
@@ -80,35 +89,46 @@ action:any;
 
 ngOnDestroy(){
 
-  if(this.bookGridDataSubscriber){
-    this.bookGridDataSubscriber.unsubscribe();
-  }
+  // if(this.bookGridDataSubscriber){
+  //   this.bookGridDataSubscriber.unsubscribe();
+  // }
  
 }
 
   ngOnInit(): void {
-this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{
-  if(data)
-  {
-    console.log(data);
-        let model={"book_id":"","book_name":""};
-        this.setData(model,data,this.source,this.destination);
-  }
-})
+    this.showBooksPopupSubscriber=this.showBooksPopup$.subscribe((data:any)=>{
+      this.booksPopupVisible=data;
+    })
+
+    this.showAllBooksSubscriber=this.showAllBooks$.subscribe((data:any)=>{
+      if(data){
+        console.log(data,"booksPopupData")
+        this.gridArray=data;
+      }
+    })
+    
+// this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{
+//   if(data)
+//   {
+//     console.log(data);
+//       //  let model={"book_id":"","book_name":""};
+//         //this.setData(model,data,this.source,this.destination);
+//   }
+// })
    
   }
 
   //gridDataVariables
-  source=["id","name"];
-  //FormControlVariables
-  destination=["book_id","book_name"];
-  setData(model:any,data:any,source:any,destination:any)
-  {
+  // source=["id","name"];
+  // //FormControlVariables
+  // destination=["book_id","book_name"];
+  // setData(model:any,data:any,source:any,destination:any)
+  // {
 
-    for (let index = 0; index < source.length; index++) {
-      model[destination[index]]=data[source[index]];
+  //   for (let index = 0; index < source.length; index++) {
+  //     model[destination[index]]=data[source[index]];
       
-    }
+  //   }
 
-}
+//}
 }

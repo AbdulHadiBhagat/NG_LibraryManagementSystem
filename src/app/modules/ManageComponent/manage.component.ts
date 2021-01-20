@@ -22,7 +22,7 @@ export class ManageComponent implements OnInit {
   
 
 
-  type: any;
+  type: any = "";
 
   activePage: number = 1;
   activePageTwo: number = 1;
@@ -189,7 +189,7 @@ export class ManageComponent implements OnInit {
   slides: any = [[]];
   slidesTwo: any = [[]];
   chunk(arr: string | any[], chunkSize: number) {
-    // debugger;
+    // 
     let R = [];
     let start = (this.activePage - 1) * this.pageSize;
     let end = start + this.pageSize;
@@ -203,7 +203,7 @@ export class ManageComponent implements OnInit {
   }
 
   chunkTwo(arr: string | any[], chunkSize: number) {
-    // debugger;
+    // 
     let R = [];
     let start = (this.activePageTwo - 1) * this.pageSize;
     let end = start + this.pageSize;
@@ -266,7 +266,9 @@ printingMethod(){
   }
 
   ngOnInit(): void {
-
+    let person= this.store.getState().common.person;
+    this.type=person.type;
+    console.log(this.type)
 
     // this.type=this.store.getState().common.person.type
     this.forLibrarian();

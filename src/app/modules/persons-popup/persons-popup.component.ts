@@ -16,6 +16,9 @@ export class PersonsPopupComponent implements OnInit {
   @select(["common","showPersonPopup"]) showPersonPopup$:any;
   showPersonPopupSubscriber:any;
 
+  @select(["common","personsByType"]) personsByType$:any;
+  personsByTypeSubscriber:any;
+
   @ViewChild('grid', { static: false }) dataGrid: any;
   personsPopupVisible=false;
 
@@ -37,7 +40,7 @@ export class PersonsPopupComponent implements OnInit {
     
 
     this.gridArray = [
-      {"id":1,"name":"Areeba","address":"123 Street","password":"1","phone_no":1234,"type": 'L'},
+      //{//"id":1,"name":"Areeba","address":"123 Street","password":"1","phone_no":1234,"type": 'L'},
     //   {"id":2,"name": "Varisha", "address": "123 Street B", "password": "3", "phone_no": 921456},
     //   {"id":3, "name": "Musfirah","address":"er43 street", "password": "123456","phone_no":09878}
     ];
@@ -74,6 +77,13 @@ this.store.dispatch<any>(this.action.setShowPersonPopup(false));
 
     this.showPersonPopupSubscriber=this.showPersonPopup$.subscribe((data:any)=>{
       this.personsPopupVisible=data;
+    })
+
+    this.personsByTypeSubscriber=this.personsByType$.subscribe((data:any)=>{
+      if (data){
+        console.log(data,"personsPopupData");
+        this.gridArray=data;
+      }
     })
     
   }

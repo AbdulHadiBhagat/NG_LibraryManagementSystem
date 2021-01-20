@@ -2,7 +2,8 @@
 <dx-data-grid
     id="gridContainer"
     [dataSource]="gridData"
-    [showBorders]="true">
+    [showBorders]="true"
+    (onCellClick)="acceptRequest($event)">
 
 
 
@@ -15,19 +16,33 @@
                 text="Accept"
                >
             </dx-button>
-
-            <dx-button 
+          </div>
+          
+            <!-- <dx-button 
             icon="close"
             type="fail"
             text="Decline"
            >
-        </dx-button>
-      </div>
+        </dx-button> -->
+        <dxi-column cellTemplate="diffCellTemplate2"  *ngIf='visibility==true'></dxi-column>
+        <div *dxTemplate="let d of 'diffCellTemplate2'">
+          <dx-button 
+            icon="close"
+            type="fail"
+            text="Decline"
+           >
+              </dx-button>
+            </div>
+            
 
-      <dxi-column caption=" Requested ID" type="number" dataField="REQ_ID" >REQ_ID</dxi-column>
-      <dxi-column caption="BorrowerID" type="number" dataField="borrower_id">borrower_id</dxi-column>
-      <dxi-column caption="Book" type="number" dataField="book_id" >book_id</dxi-column>
-      <dxi-column caption="Requested Date" type="date" dataField="req_date" >date</dxi-column>
+
+      <dxi-column caption=" Requested ID" type="number" dataField="reqID" >REQ_ID</dxi-column>
+      <dxi-column caption="BorrowerID" type="number" dataField="borrowerID">borrower_id</dxi-column>
+      <dxi-column caption="Borrower Name" type="text" dataField="borrowerName" >borrower_name</dxi-column>
+      <dxi-column caption="Book Id" type="number" dataField="bookID" >book_id</dxi-column>
+      <dxi-column caption="Book Name" type="text" dataField="bookName" >book_name</dxi-column>
+      
+      <dxi-column caption="Requested Date" type="date" dataField="reqdate" >date</dxi-column>
 
 
     <dxo-scrolling mode="virtual"></dxo-scrolling>

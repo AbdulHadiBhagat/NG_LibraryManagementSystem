@@ -6,5 +6,6 @@ export interface ManageState{
     personDetails:any;
     personOnHold:any;
     personLoan:any;
-
+    acceptOnHoldRequest:any;
+ 
 }

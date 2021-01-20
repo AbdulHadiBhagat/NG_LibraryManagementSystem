@@ -3,6 +3,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
 import { Router } from '@angular/router';
+import { CommonActions } from 'src/app/store/Common-Store/common.actions';
 
 @Component({
   selector: 'app-carasol-component',
@@ -15,7 +16,8 @@ export class  CarasolComponentComponent implements OnInit {
 
   @select(["common" ,"allBooks"]) allBooks$:any;
   allBooksSubscriber:any;
-  type:any="A";
+
+  type:any="";
   cards = [
     {
       title: 'A Course In Geometry',
@@ -89,59 +91,7 @@ export class  CarasolComponentComponent implements OnInit {
       FinePaid: ' Rs 15',
       bookName: 'The Enigma of Reason',
       ret_date: '20/1/20 ',
-
-    },
-    {
-      Name : 'Varisha Ajaz',
-      FineDue : 'None',
-      FinePaid: ' Rs 15',
-      bookName: 'Everyday Greatness',
-      ret_date: '20/1/20 ',
-      
-    },
-    {
-      Name : 'Amna Siddiqui',
-      FineDue : 'None',
-      FinePaid: ' Rs 0',
-      bookName: 'The C++ Programming Language',
-      ret_date: '20/1/20 ',
-
-     
-    },
-    {
-      Name : 'Abdul Hadi',
-      FineDue : 'Rs 25',
-      FinePaid: ' Rs 25',
-      bookName: 'A Course In Geometry',
-      ret_date: '20/1/20 ',
-
-
-    },
-    {
-      Name : 'Asad Sheikh',
-      FineDue : 'Rs 50',
-      FinePaid: ' Rs 30',
-      bookName: 'Najam ilyas',
-      ret_date: '20/1/20 ',
-
-    },
-    {
-      Name : 'Kubra Khan',
-      FineDue : 'Rs 100',
-      FinePaid: ' Rs 0',
-      bookName: 'Mind Make Societies',
-      ret_date: '20/1/20 ',
-
-    },
-    {
-      Name : 'Maaz Bin Riaz',
-      FineDue : 'Rs 0',
-      FinePaid: ' Rs 15',
-      bookName: 'The Stars In The Night Sky',
-      ret_date: '20/1/20 ',
-
-    },
-  
+    }
   ];
 
   slideshistory: any = [[]];
@@ -152,11 +102,14 @@ export class  CarasolComponentComponent implements OnInit {
     }
     return R;
   }
-  constructor(private store:NgRedux<any>,private router:Router){
+  constructor(private store:NgRedux<any>,private router:Router , private action:CommonActions){
 
   }
   ngOnInit() {
-    this.store.dispatch<any>(this.store.getState().common.person);
+  let person= this.store.getState().common.person;
+  this.type=person.type;
+  console.log(this.type)
+
     setTimeout(() => {
       console.log("loanData",this.store.getState().common.loanHistory);
     }, 3000);
@@ -184,11 +137,13 @@ export class  CarasolComponentComponent implements OnInit {
   onBookCardClick(data:any){
     console.log(data);
     this.router.navigateByUrl("home/book/1/detail");
+this.store.dispatch<any>(this.action.setBookDetailId(data.bookID))
   }
 
   onPersonHistoryCardClick(data:any){
     console.log(data);
     this.router.navigateByUrl("home/laon");
+    this.store.dispatch<any>(this.action.setPersonDetailId(data.loanId))
   }
 
   booksSeeMore(){

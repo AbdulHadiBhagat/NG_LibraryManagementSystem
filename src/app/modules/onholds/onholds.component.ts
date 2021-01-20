@@ -1,8 +1,10 @@
 import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
-import { BookActions } from 'src/app/store/Book-store/book.actions';
 import { CommonActions } from 'src/app/store/Common-Store/common.actions';
+import { onholddto } from '../Dtos/on-hold-dto/on-hold';
+import { onhold } from '../OnHold/onhold';
+import { BookActions } from 'src/app/store/Book-store/book.actions';
 import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
 
 @Component({
@@ -17,6 +19,8 @@ export class OnholdsComponent implements OnInit {
   @select(["common","personGridData"]) personGridData$:any;
   personGridDataSubscriber:any;  
 
+  @select(["common","bookGridData"]) bookGridData$:any;
+  bookGridDataSubscriber:any;
   @select(["book","book_detail"])book_detail$:any;
   book_detailSubscriber:any;
 
@@ -79,19 +83,49 @@ console.log(this.data.versionNo)
   // .subscribe();
   }
 
+  destination:any;
   //persons popup
   personsPopupVisible = false;
   showPersonsPopup(){
+
+    this.store.dispatch<any>(this.common.getPersonsByType("byperson/B"));
+    this.destination=this.borrowerDestination;
     this.personsPopupVisible = true;
+    this.store.dispatch<any>(this.common.setShowPersonPopup(true));
+
   }
 
   //books popup
   booksPopupVisible = false;
   showBooksPopup(){
+
+    this.store.dispatch<any>(this.common.getShowAllBooks());
+    this.destination=this.bookDestination;
     this.booksPopupVisible = true;
+    this.store.dispatch<any>(this.common.setShowBooksPopup(true));
   }
 
+  model:onholddto=new Object() as onholddto;
   
+  initializedData(){
+    this.OnHoldSection=new FormGroup({
+      
+    reqID : new FormControl(this.model.reqID),
+    bookID : new FormControl(this.model.bookID),
+    borrowerID : new FormControl(this.model.borrowerID),
+     bookName : new FormControl(this.model.bookName),
+     borrowerName : new FormControl(this.model.borrowerName),
+     reqdate: new FormControl(this.model.reqdate),
+      
+
+
+    })
+  }
+
+
+
+
+
   OnHoldSection = new FormGroup({
 
     reqID : new FormControl(''),
@@ -99,7 +133,7 @@ console.log(this.data.versionNo)
    borrowerID : new FormControl(''),
     bookName : new FormControl(''),
     borrowerName : new FormControl(''),
-    retdate: new FormControl(''),
+reqdate: new FormControl(''),
     versionNo: new FormControl(''),
  
  });
@@ -107,10 +141,10 @@ console.log(this.data.versionNo)
  tableid=40;
 
  forTableid(){
-  this.store.dispatch<any>(this.commmon.getTableId(this.tableid));
+  this.store.dispatch<any>(this.common.getTableId(this.tableid));
   console.log(this.tableid)
 }
-  constructor(private store:NgRedux<any>, private action:ManageActions, private commmon:CommonActions, private book:BookActions) { }
+  constructor(private store:NgRedux<any>, private action:ManageActions, private common:CommonActions, private book:BookActions) { }
 
   ngOnInit(): void {
     this.personOnHoldSubscriber=this.personOnHold$.subscribe((data:any)=>{
@@ -120,11 +154,21 @@ console.log(this.data.versionNo)
     });
 
     this.personGridDataSubscriber=this.personGridData$.subscribe((data:any)=>{
-      if(data)
+      if(data.sysSeq)
       {
-        console.log(data);
-            let model={"person_id":"","person_name":""};
-            this.setData(model,data,this.source,this.borrowerDestination);
+        console.log(data+"a");
+           // let model={"person_id":"","person_name":""};
+            this.setData(this.model,data,this.personSource,this.destination);
+            this.initializedData();
+      }
+    })
+
+    this.bookGridDataSubscriber=this.bookGridData$.subscribe((data:any)=>{
+      if(data.bookID){
+        console.log(data+"k");
+        this.setData(this.model,data,this.bookSource,this.destination);
+            this.initializedData();
+
       }
     })
 
@@ -147,10 +191,12 @@ console.log(this.data.versionNo)
 
   }
 
-  source=["id","name"];
+  personSource=["sysSeq","pname"];
   borrowerDestination=[" borrowerID","borrowerName"];
-  issuerDestination=[];
-  receiverDestination=[];
+  
+
+  bookSource=["bookID","bookTitle"]
+  bookDestination=["bookID","bookName"]
 
 
   setData(model:any,data:any,source:any,destination:any)

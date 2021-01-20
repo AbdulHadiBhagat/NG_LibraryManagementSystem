@@ -10,32 +10,9 @@
 <form [formGroup]="LoanSection" id="form">
  
 
-    <!-- <h1> LOAN FORM</h1> -->
-    <h1 style="font-weight: bold;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 30px !important; color: #2e2929;"> LOAN FORM</h1>
    
-          <!-- <label>
-            borrowerName:
-              <input type="text" formControlName="borrowerName">
-              
-            </label><br> -->
-          
-            
-
-
-<!-- 
-            <label>
-            issuerName:
-              <input type="text" formControlName="issuerName">
-             
-
-            </label><br> -->
-        
-            <!-- <label>
-                receiverName:
-                  <input type="text" formControlName="receiverName">
-                  
-             </label><br> -->
-
+<h1 style="font-weight: bold;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 30px !important; color: #2e2929;"> LOAN FORM</h1>
+   
     
 
     <div class="dx-fieldset">
@@ -64,31 +41,15 @@
         </div>
     </div>
   
-          <div class="dx-field">
-              <div class="dx-field-label">Receiver Name</div>
+     <div class="dx-field">
+            <div class="dx-field-label">Receiver Name</div>
               <div class="dx-field-value">
                   <dx-text-box [disabled]="true"style="width: 110%;" formControlName="receiverName" placeholder="Enter receiver name..." ></dx-text-box>
                   <button id="popup" (click)="showReceiverPopup()"><i class="fa fa-search">ReceiverPopup</i></button>
                 </div>
           </div>
              
-            <!-- <label>
-                bookName:
-                  <input type="text" formControlName="bookName">
-                 
-             </label><br> -->
-
-              
-            <!-- <label>
-                issdate:
-                  <input type="text" formControlName="issdate">
-             </label><br>
-
-              
-            <label>
-                retdate:
-                  <input type="text" formControlName="retdate">
-             </label><br> -->
+          
 
 
                     
@@ -100,30 +61,30 @@
                         </div>
                     </div>
            
-                    <div class="dx-field">
-                        <div class="dx-field-label">Return Date</div>
-                        <div class="dx-field-value">
-                            <dx-text-box style="width: 110%;" formControlName="retdate"  placeholder="Enter return date..." ></dx-text-box>
-                        </div>
-                    </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Return Date</div>
+                <div class="dx-field-value">
+                     <dx-text-box style="width: 110%;" formControlName="retdate"  placeholder="Enter return date..." ></dx-text-box>
+                </div>
+        </div>
              
 
-                    <div class="dx-field">
-                        <div class="dx-field-label">Fine Paid</div>
-                        <div class="dx-field-value">
-                            <dx-text-box style="width: 110%;" formControlName="finepaid" placeholder="Enter fine paid..." ></dx-text-box>
-                        </div>
-                    </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Fine Paid</div>
+                <div class="dx-field-value">
+                    <dx-text-box style="width: 110%;" formControlName="finepaid" placeholder="Enter fine paid..." ></dx-text-box>
+                </div>
+        </div>
              
 
                
             
-                    <div class="dx-field">
-                        <div class="dx-field-label">Version Number</div>
-                        <div class="dx-field-value">
+             <div class="dx-field">
+                <div class="dx-field-label">Version Number</div>
+                    <div class="dx-field-value">
                             <dx-text-box style="width: 110%;" formControlName="versionNo"  placeholder="Enter version number..." ></dx-text-box>
-                        </div>
                     </div>
+             </div>
              
 
 

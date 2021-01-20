@@ -78,7 +78,7 @@ dropdownMethod(e:any){
   //     break;
     
   //     case 'Manage' :
-  //       debugger;
+  //       
   //    this.router.navigateByUrl(this.url + "/manage");
   //     break;
 

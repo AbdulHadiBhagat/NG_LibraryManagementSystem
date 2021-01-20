@@ -5,6 +5,7 @@
         title="Information"
         [dragEnabled]="false"
         [closeOnOutsideClick]="true"
+        (onHiding)="popupOnHiding()"
         [(visible)]="booksPopupVisible">
     <div>
         
@@ -13,11 +14,11 @@
         id="gridContainer"
         [dataSource]="gridArray"
         [showBorders]="true"
-        keyExpr="book_id"
+        keyExpr="bookID"
     [hoverStateEnabled]="true"
     [selectedRowKeys]="[]"
     (onCellClick)="getSelectedData($event)"
-       [columns]="['book_id', 'title', 'author','subject', 'is_issued']"
+       [columns]="['bookID', 'bookTitle', 'author','subject', 'isIssued']"
        > 
        <dxo-selection mode="single" ></dxo-selection>
       
@@ -32,14 +33,14 @@
        placeholder="Search..."></dxo-search-panel>
 
    <dxi-column 
-       dataField="book_id" 
+       dataField="bookID" 
        [width]="140" 
        caption="ID">
        <dxo-header-filter 
            [groupInterval]="10000"></dxo-header-filter>
    </dxi-column>
    <dxi-column 
-       dataField="title" 
+       dataField="bookTitle" 
        alignment="right" 
       
        [width]="120">
@@ -49,6 +50,7 @@
 
    <dxi-column 
    dataField="author" 
+   caption="Author"
    alignment="right" 
    [width]="180"></dxi-column>
    <dxi-column 
@@ -58,7 +60,7 @@
    
    
    <dxi-column 
-       dataField="is_issued" 
+       dataField="isIssued" 
        caption="Is_issued">
        <dxo-header-filter [allowSearch]="true"></dxo-header-filter>
    </dxi-column>
@@ -95,7 +97,7 @@
    <dxo-paging [pageSize]="1"></dxo-paging>
         <dxo-pager 
             [showPageSizeSelector]="true"
-            [allowedPageSizes]="[5, 10, 20]"
+            [allowedPageSizes]="[2, 4, 6]"
             [showInfo]="true">
         </dxo-pager>
         

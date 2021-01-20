@@ -120,7 +120,7 @@
 <!-- button -->
   <div>
 
-    <button class="Button1" (click)="historySeeMore()">See More </button>
+    <button class="Button1" *ngIf='type=="A"' (click)="historySeeMore()">See More </button>
   
   </div>
 
