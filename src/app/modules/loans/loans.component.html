@@ -42,15 +42,24 @@
       <div class="dx-field">
         <div class="dx-field-label">Borrower Name</div>
         <div class="dx-field-value" >
-            <dx-text-box style="width: 110%;" formControlName="borrowerName"  placeholder="Enter borrower name..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box  style="width: 110%;" formControlName="borrowerName"  placeholder="Enter borrower name..." aria-required="dx-field-value"></dx-text-box>
             <button id="popup" (click)="showBorrowerPopup()"><i class="fa fa-search">BorrowerPopup</i></button>
         </div>
       </div>
+
+      <div class="dx-field">
+        <div class="dx-field-label">Book Name</div>
+        <div class="dx-field-value">
+            <dx-text-box style="width: 110%;" formControlName="bookName"  placeholder="Enter book name..." ></dx-text-box>
+        
+            <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
+        </div>
+    </div>
             
     <div class="dx-field">
         <div class="dx-field-label">Issuer Name</div>
         <div class="dx-field-value">
-            <dx-text-box style="width: 110%;" formControlName="issuerName" placeholder="Enter issuer name..." ></dx-text-box>
+            <dx-text-box [readOnly]="true" style="width: 110%;" formControlName="issuerName" placeholder="Enter issuer name..." ></dx-text-box>
             <button id="popup" (click)="showIssuerPopup()"><i class="fa fa-search">IssuerPopup</i></button>
         </div>
     </div>
@@ -58,7 +67,7 @@
           <div class="dx-field">
               <div class="dx-field-label">Receiver Name</div>
               <div class="dx-field-value">
-                  <dx-text-box style="width: 110%;" formControlName="receiverName" placeholder="Enter receiver name..." ></dx-text-box>
+                  <dx-text-box [disabled]="true"style="width: 110%;" formControlName="receiverName" placeholder="Enter receiver name..." ></dx-text-box>
                   <button id="popup" (click)="showReceiverPopup()"><i class="fa fa-search">ReceiverPopup</i></button>
                 </div>
           </div>
@@ -82,19 +91,12 @@
              </label><br> -->
 
 
-                    <div class="dx-field">
-                        <div class="dx-field-label">Book Name</div>
-                        <div class="dx-field-value">
-                            <dx-text-box style="width: 110%;" formControlName="bookName"  placeholder="Enter book name..." ></dx-text-box>
-                        
-                            <button id="popup" (click)="showBooksPopup()"><i class="fa fa-search">BooksPopup</i></button>
-                        </div>
-                    </div>
+                    
             
                     <div class="dx-field">
                         <div class="dx-field-label">Issue Date</div>
                         <div class="dx-field-value">
-                            <dx-text-box style="width: 110%;" formControlName="issdate"  placeholder="Enter issue date..." ></dx-text-box>
+                            <dx-text-box [disabled]="true" style="width: 110%;" formControlName="issdate"  placeholder="Enter issue date..." ></dx-text-box>
                         </div>
                     </div>
            

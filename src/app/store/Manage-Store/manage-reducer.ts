@@ -1,4 +1,4 @@
-import { SET_CLERK_LIST, SET_LIBRARIAN_LIST, SET_PERSON_DETAILS, SET_PERSON_LOAN_REQUESTS, SET_PERSON_ONHOLD_REQUESTS } from "./manage-actions";
+import { SET_CLERK_LIST, SET_LIBRARIAN_LIST, SET_PERSON_DETAILS, SET_PERSON_ID, SET_PERSON_LOAN_REQUESTS, SET_PERSON_ONHOLD_REQUESTS } from "./manage-actions";
 import { ManageState } from "./manage-state";
 
 const initialState : ManageState = {
@@ -47,6 +47,12 @@ export const manageReducer = function(
                 ...state,
                 personOnHold: action.payload
             }
+
+        case SET_PERSON_ID:
+            return{
+                ...state,
+                personId: action.payload
+            }    
 
     }
 

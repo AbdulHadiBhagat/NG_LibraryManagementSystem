@@ -117,7 +117,7 @@ this.router.navigateByUrl("home" );
 }
  
     // public onLoginClick(value: any){
-      public onLoginClick(){
+public onLoginClick(){
       // this.LoginSection.get(value);
       // console.log(value);
     

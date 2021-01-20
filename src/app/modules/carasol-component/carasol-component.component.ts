@@ -191,6 +191,14 @@ export class  CarasolComponentComponent implements OnInit {
     this.router.navigateByUrl("home/laon");
   }
 
+  booksSeeMore(){
+    this.router.navigateByUrl("home/books");
+  }
+
+  historySeeMore(){
+    this.router.navigateByUrl("home/history");
+  }
+
   ngOnDestroy():void{
     
   }

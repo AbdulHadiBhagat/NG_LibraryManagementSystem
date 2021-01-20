@@ -58,7 +58,9 @@ return $list;
   (onSelectionChanged)="onSelectionChanged($event)"></dx-select-box>
   <p><span>PERSON: </span><b>{{actionperformed}}</b></p>
 </article>
-
+<!-- <div *ngIf="router == '/home/manage/0/detail'" >
+  {{check()}}
+</div> -->
 
 <div class="container">
 <form [formGroup]="PersonSection">
@@ -97,12 +99,12 @@ return $list;
       </div>
       </div>
 
-    </div>
+    
     <div class="dx-fieldset" id="third" >
       <div class="dx-field">
         <div class="dx-field-label">Version No</div>
         <div class="dx-field-value" >
-            <dx-text-box [disabled]="true"  style="width: 110%;" formControlName="versionno"  placeholder="Enter version no..." aria-required="dx-field-value"></dx-text-box>
+            <dx-text-box [disabled]="true"  style="width: 110%;" formControlName="versionNo"  placeholder="Enter version no..." aria-required="dx-field-value"></dx-text-box>
         </div>
       </div>
              

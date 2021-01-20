@@ -6,7 +6,7 @@ export const SET_LIBRARIAN_LIST = "LibrarianList";
 export const SET_PERSON_DETAILS = "setPersonDetails";
 export const SET_PERSON_ONHOLD_REQUESTS = "setPersonOnHoldRequests";
 export const SET_PERSON_LOAN_REQUESTS = "setPersonLoanRequests";
-
+export const SET_PERSON_ID="setPersonId";
 
 
 export const DEFAULT_URL = "http://localhost:8080/"
@@ -127,5 +127,8 @@ deletePerson(url:any,id:any , versionNo:any){
         
 }
 
+setPersonId(data: any) {
+    return { type: SET_PERSON_ID, payload: data }
 
+}
 }
