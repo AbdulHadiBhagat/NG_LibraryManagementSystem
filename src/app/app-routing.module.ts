@@ -28,21 +28,20 @@ const routes: Routes = [
       { path: '', component:HomeComponentComponent},
       { path: 'home', component:HomeComponentComponent},
       { path: 'manage', component:ManageComponent},
-      
-      {path:'manage/:id',component:PersonTabComponent,
-      children:[
-          {path:'detail',component:PersonsComponent},
-          {path:'onhold',component:onholdgridComponent},
-          {path:'loan',component:GridComponent}
-              ]
+      { path:'manage/:id',component:PersonTabComponent,
+          children:[
+                {path:'detail',component:PersonsComponent},
+                {path:'onhold',component:onholdgridComponent},
+                {path:'loan',component:GridComponent}
+                    ]
           },
       {path:'book/:id',component:PersonTabComponent,
-      children:[
-        {path:'detail',component:BookComponent},
-        {path:'onhold',component:onholdgridComponent},
-        {path:'loan',component:GridComponent}
-            ]
-    },
+          children:[
+            {path:'detail',component:BookComponent},
+            {path:'onhold',component:onholdgridComponent},
+            {path:'loan',component:GridComponent}
+                    ]
+          },
       {path: 'books' , component:ShowAllBooksComponent},
       {path:'history', component:GridComponent},
       {path: 'holdrequest',component:OnholdsComponent},

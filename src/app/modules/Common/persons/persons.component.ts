@@ -1,6 +1,7 @@
 import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl,FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonActions } from 'src/app/store/Common-Store/common.actions';
 import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
 
@@ -102,7 +103,7 @@ export class PersonsComponent implements OnInit {
 
   });
 
-  type = 'L';
+  // type = 'L';
   // disableCheck(){
   //   if(this.type == 'L'){
 
@@ -122,23 +123,51 @@ export class PersonsComponent implements OnInit {
 
   tableid = 30;
 
-  forTableid() {
-    
-    this.store.dispatch<any>(this.commmon.getTableId(this.tableid));
-    console.log(this.tableid)
+forTableid(){
+  this.store.dispatch<any>(this.commmon.getTableId(this.tableid));
+  console.log(this.tableid)
+}
+// type:any;
+type='C';
+  router: string;
+
+constructor(private store:NgRedux<any>, private action:ManageActions, private commmon:CommonActions,private _router: Router) { 
+  this.router = _router.url;
+
+  // this.type = this.data.type;
+}
+// if(){
+
+// }
+
+ngOnInit() {
+  // console.log(this.data.type); 
+  console.log(this.router);
+  if(this.router != '/home/manage/0/detail'){
+    this.check();
   }
+  this.personDetailsSubscriber=this.personDetails$.subscribe((data:any)=>{
+    if(data){
+      console.log(data);
+      // console.log(this.data.type);
+      this.data=data;
+      this.initializedData();
 
-  constructor(private store: NgRedux<any>, private action: ManageActions, private commmon: CommonActions) { }
+    }
 
-  ngOnInit() {
-    
-    this.store.dispatch<any>(this.action.getPersonDetails(this.store.getState().manage.personId));
-    this.subscribePersonDetail();
-
+  })
 
     this.forTableid();
     this.getActions();
 
+  this.forTableid();
+  this.sysTblTskSubscriber=this.sysTblTsk$.subscribe((data:any)=>{
+if(data)
+{
+  console.log(data);
+  this.actions=data;
+}
+}); 
   }
 
   private subscribePersonDetail() {
@@ -173,6 +202,10 @@ export class PersonsComponent implements OnInit {
   // public onDeleteClick(){
   //   this.router.navigate(['./person-detail']);
   // }
+  check(){
+    console.log("check");
+    this.store.dispatch<any>(this.action.getPersonDetails(this.store.getState().manage.personId));
 
+  }
 
 }

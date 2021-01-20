@@ -78,7 +78,18 @@ export class BookComponent implements OnInit {
     this.store.dispatch<any>(this.action.deleteBook("book", this.data.bookID, this.data.versionNo ))
   // .subscribe();
   }
-
+  initializedData(){
+    this.BookSection = new FormGroup({
+      bookID: new FormControl(this.data.bookID),
+      bookTitle: new FormControl(this.data.bookTitle),
+      Author: new FormControl(this.data.Author),
+      Subject: new FormControl(this.data.Subject),
+      IsIssued: new FormControl(this.data.IsIssued),
+      FinePerDay: new FormControl(this.data.FinePerDay),
+      versionNo: new FormControl(this.data.versionNo)
+  
+  });
+  }
   
   BookSection = new FormGroup({
     bookID: new FormControl(''),
@@ -125,11 +136,11 @@ forTableid(){
     this.forBookDetail();
     
 
-    this.BookDetailSubscriber=
-this.book_detail$.subscribe((data:any)=>{
-  if(data.bookID)
+    this.BookDetailSubscriber=this.book_detail$.subscribe((data:any)=>{
+  if(data)
   {
     console.log(data);
+    this.initializedData();
   }
 }); 
 

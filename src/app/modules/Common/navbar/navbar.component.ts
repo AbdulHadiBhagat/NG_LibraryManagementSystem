@@ -15,21 +15,52 @@ export class NavbarComponent implements OnInit {
   new NavItem("Manage"),
   new NavItem("Books"),
   new NavItem("History"),
-  new NavItem("Logout")];
- 
+  new NavItem("Logout"),
+  new NavItem("")];
 
   url:string=""
-
+  dropdown:any = [];
   constructor(private router: Router) {
 
     this.url = window.location.pathname
+//musfi dropdown
     let cN = new NavItem("Create New");
     cN.children=[
-      'Hold Request',"Loan"
+      "Hold Request","Loan"
     ]
-    this.navItem.push(cN);
+    // this.navItem.push(cN);
+//musfi dropdown
+
+this.dropdown = this.getDropdown();
+
     console.log(this.url)
-   }
+}
+
+getDropdown() {
+  
+  return [
+    { id: '1', name: 'Create New' },
+    { id: '2', name: 'Hold Request', path:'/home/holdrequest' },
+    { id: '3', name: 'Loan', path:'home/laon' }
+  ];
+  
+}
+
+dropdownMethod(e:any){
+  
+  // console.log(e.target.value);
+  // console.log(e.target);
+
+  if(e.target.value==2){
+    this.router.navigateByUrl('/home/holdrequest');
+  }
+  else if(e.target.value==3){
+    this.router.navigateByUrl('home/laon');
+  }
+  
+// this.router.navigateByUrl(e.target.path);
+}
+
 
 
   onClick(key: string){

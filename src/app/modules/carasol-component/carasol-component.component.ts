@@ -147,6 +147,14 @@ this.store.dispatch<any>(this.action.setBookDetailId(data.bookID))
     this.store.dispatch<any>(this.action.setPersonDetailId(data.loanId))
   }
 
+  booksSeeMore(){
+    this.router.navigateByUrl("home/books");
+  }
+
+  historySeeMore(){
+    this.router.navigateByUrl("home/history");
+  }
+
   ngOnDestroy():void{
     
   }

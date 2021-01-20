@@ -10,7 +10,16 @@
       <li  *ngFor="let item of navItem" class="nav-item">
         <a (click)="onClick(item.name)" class="nav-link"  data-toggle="dropdown">  {{item.name}}
         </a>
-        <div class="dropdown-content">
+          <select (change)="dropdownMethod($event)" *ngIf="item.name==''">
+            <option  *ngFor="let dd of dropdown; let i = index" [value]="dropdown[i].id">
+              <div  >
+                {{dropdown[i].name}}
+              </div>
+            </option>
+          </select>
+        
+        <!-- musfi dropdown -->
+        <!-- <div class="dropdown-content">
           <a *ngIf="item.children" >
             <ul>
               <li *ngFor="let childItem of item.children" >
@@ -18,7 +27,9 @@
               </li> 
             </ul>
           </a>
-        </div>
+        </div> -->
+        <!-- musfi dropdown -->
+
       </li>
     </ul>
   </div>

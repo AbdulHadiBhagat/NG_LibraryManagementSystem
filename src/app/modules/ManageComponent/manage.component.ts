@@ -19,6 +19,7 @@ export class ManageComponent implements OnInit {
   ClerkListSubscriber: any;
   @select(["manage", "librarianList"]) librarianList$: any;
   LibrarianListSubscriber: any;
+  
 
 
   type: any = "";
@@ -224,16 +225,29 @@ export class ManageComponent implements OnInit {
   }
 
   url: string = ""
+  actionperformed:any;
 
-  public oncardlick(key: string) {
+  public oncardlick(event: any) {
 
+    // this.actionperformed=event.selectedItem.sysSeq;
+    console.log(this.actionperformed);
     // console.log(key,"KEY");
 
     // let test = this.url + '/' +  'persons';
-    this.router.navigateByUrl("home/manage/{personId}/detail");
-
+    console.log(event);
+    this.store.dispatch<any>(this.action.setPersonId(this.actionperformed));
+    this.router.navigateByUrl("home/manage/1/detail");
     // this.router.navigateByUrl("persons");
   }
+
+plusBtn(){
+  this.router.navigateByUrl("home/manage/0/detail");
+  // console.log(this.router);
+}
+
+printingMethod(){
+
+}
 
 
 
@@ -248,7 +262,7 @@ export class ManageComponent implements OnInit {
 
   test() {
     console.log("HELLO");
-    this.router.navigateByUrl("home/manage/{personId}/detail");
+    this.router.navigateByUrl("home/manage/1/detail");
   }
 
   ngOnInit(): void {
