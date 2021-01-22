@@ -135,5 +135,5 @@ export const commonReducer = function (
 
     }
 
-    return initialState;
+    return state;
 }

@@ -34,5 +34,5 @@ export const manageReducer = function(
     
     }
 
-    return initialState;
+    return state;
   }

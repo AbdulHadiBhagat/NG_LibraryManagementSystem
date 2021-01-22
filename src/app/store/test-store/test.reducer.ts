@@ -23,5 +23,5 @@ export const testReducer = function(
 
     }
 
-    return initialState;
+    return state;
   }

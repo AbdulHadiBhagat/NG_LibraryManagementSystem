@@ -6,12 +6,8 @@ export const SET_LIBRARIAN_LIST = "LibrarianList";
 export const SET_PERSON_DETAILS = "setPersonDetails";
 export const SET_PERSON_ONHOLD_REQUESTS = "setPersonOnHoldRequests";
 export const SET_PERSON_LOAN_REQUESTS = "setPersonLoanRequests";
-<<<<<<< HEAD
 export const SET_PERSON_ID="setPersonId";
-=======
 export const SET_ACCEPT_ONHOLD_REQUEST="setAcceptOnHoldRequest"
-
->>>>>>> 9355a80682f10376e35c8d1e55fd025b2d39c5c5
 
 
 export const DEFAULT_URL = "http://localhost:8080/"
@@ -158,21 +154,17 @@ deletePerson(url:any,id:any , versionNo:any){
         
 }
 
-<<<<<<< HEAD
 setPersonId(data: any) {
-    return { type: SET_PERSON_ID, payload: data }
-=======
-receivedBookFromLoanHistory(url:any,id:any,Obj:any)
-{
-    return(dispatch:any,getState:any)=>{
-        return this.dataService.put(DEFAULT_URL + url+id,Obj)
-        .subscribe((data:any)=>{
-            // return dispatch(this.setdeletePerson(data));
-        } )  }
-        
-}
+    return { type: SET_PERSON_ID, payload: data }}
 
->>>>>>> 9355a80682f10376e35c8d1e55fd025b2d39c5c5
+    receivedBookFromLoanHistory(url:any,id:any,Obj:any)
+    {
+        return(dispatch:any,getState:any)=>{
+            return this.dataService.put(DEFAULT_URL + url+id,Obj)
+            .subscribe((data:any)=>{
+                // return dispatch(this.setdeletePerson(data));
+            } )  }
+            
+    }    
 
-}
 }

@@ -42,5 +42,5 @@ export const bookReducer = function(
 
     }
 
-    return initialState;
+    return state;
   }
