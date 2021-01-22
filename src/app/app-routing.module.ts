@@ -18,6 +18,7 @@ import { onholdgridComponent } from './modules/onhold-grid/onhold-grid.component
 import { OnholdsComponent } from './modules/onholds/onholds.component';
 import { LoansComponent } from './modules/loans/loans.component';
 import { BookComponent } from './modules/Book/book.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -25,8 +26,8 @@ const routes: Routes = [
   // {path:'history', component:PersonHistoryCardComponent},
   { path: 'home', component: NavbarComponent,
      children:[
-      { path: '', component:HomeComponentComponent},
-      { path: 'home', component:HomeComponentComponent},
+      { path: '', component:HomeComponentComponent,canActivate:[LoginGuard]},
+      { path: 'home', component:HomeComponentComponent, canActivate: [LoginGuard]},
       { path: 'manage', component:ManageComponent},
       { path:'manage/:id',component:PersonTabComponent,
           children:[

@@ -68,6 +68,7 @@ import { LoansComponent } from './modules/loans/loans.component';
 import { OnholdsComponent } from './modules/onholds/onholds.component';
 import { onholdgridComponent } from './modules/onhold-grid/onhold-grid.component';
 import { Service } from './modules/Dtos/loan-dto/loan-dto';
+import { LoginGuard } from './guards/login.guard';
 //import { BorrowerDtoComponent } from './modules/Dtos/borrower-dto/borrower-dto.component';
 //import { LoanDtoComponent } from './modules/Dtos/loan-dto/loan-dto.component';
 //import { OnHoldDtoComponent } from './modules/Dtos/on-hold-dto/on-hold-dto.component';
@@ -137,7 +138,7 @@ import { Service } from './modules/Dtos/loan-dto/loan-dto';
   exports: [
     RouterModule
   ],
-  providers: [Service,appStoreProviders,], //BookCardsComponent,
+  providers: [Service,appStoreProviders,LoginGuard], //BookCardsComponent,
   bootstrap: [AppComponent],
   entryComponents: [BooksPopupComponent]
 

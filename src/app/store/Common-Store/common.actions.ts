@@ -55,6 +55,8 @@ export class CommonActions {
             return this.dataService.getAll(DEFAULT_URL + "book/" + "topn/" + "8").subscribe((data: any) => {
                 console.log(data, "COMMON ACTIONS BOOKS",getState().common.allBooks);
                 return dispatch(this.setAllBooks(data.clientdata));
+            },(err:any)=> {
+                // notify(err)
             })
 
         }
