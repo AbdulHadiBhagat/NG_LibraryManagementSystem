@@ -110,7 +110,7 @@ postAcceptOnHoldReqeuest(url:any,id:any,obj:any)
     return(dispatch:any,getState:any)=>{
         return this.dataService.post(DEFAULT_URL + url+id , obj )
         .subscribe((data:any)=>{
-            return dispatch(this.setAcceptOnHoldRequest(data.clientdata));
+            return dispatch(this.getPersonOnHoldRequests("onhold/holdbyperson/",getState().manage.personId))
         } )  }
 
 }
@@ -126,7 +126,7 @@ deleteRejectOnHoldRequest(url:any,id:any,versionNo:any)
     return(dispatch:any,getState:any)=>{
         return this.dataService.delete(DEFAULT_URL + url,id , versionNo)
         .subscribe((data:any)=>{
-            return dispatch(this.setAcceptOnHoldRequest(data.clientdata));
+            return dispatch(this.getPersonOnHoldRequests("onhold/holdbyperson/",getState().manage.personId))
         } )  }
 
 }
@@ -155,16 +155,17 @@ deletePerson(url:any,id:any , versionNo:any){
 }
 
 setPersonId(data: any) {
-    return { type: SET_PERSON_ID, payload: data }}
+    return { type: SET_PERSON_ID, payload: data }
+}
 
-    receivedBookFromLoanHistory(url:any,id:any,Obj:any)
-    {
-        return(dispatch:any,getState:any)=>{
-            return this.dataService.put(DEFAULT_URL + url+id,Obj)
-            .subscribe((data:any)=>{
-                // return dispatch(this.setdeletePerson(data));
-            } )  }
-            
-    }    
+receivedBookFromLoanHistory(url:any,id:any,Obj:any)
+{
+    return(dispatch:any,getState:any)=>{
+        return this.dataService.put(DEFAULT_URL + url+id,Obj)
+        .subscribe((data:any)=>{
+            return dispatch(this.getPersonLoanRequests("loan/byperson/",getState().manage.personId))
+        } )  }
+        
+}   
 
 }

@@ -106,6 +106,7 @@ export class  CarasolComponentComponent implements OnInit {
 
   }
   ngOnInit() {
+  console.log(this.store.getState().common,"getState") 
   let person= this.store.getState().common.person;
   this.type=person.type;
   console.log(this.type)

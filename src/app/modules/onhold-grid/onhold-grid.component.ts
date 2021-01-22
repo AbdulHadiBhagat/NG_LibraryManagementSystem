@@ -42,9 +42,11 @@ this.personOnHoldSubscriber=this.personOnHold$.subscribe((data:any)=>{
 
     if(e.columnIndex==1){
       console.log(e.data,"event");
-    console.log(this.store.getState().common,"hey ya")
+    console.log(this.store.getState().common.person,"hey ya")
     this.store.dispatch<any>(this.manageAction.deleteRejectOnHoldRequest("onhold",e.data.reqID,0));
     }  
+
+    
   }
 
 }

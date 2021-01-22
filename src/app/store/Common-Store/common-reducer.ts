@@ -50,6 +50,7 @@ export const commonReducer = function (
     switch (action.type) {
 
         case SET_PERSON:
+            console.log(action.payload,"action")
             return {
                 ...state,
                 person: action.payload
