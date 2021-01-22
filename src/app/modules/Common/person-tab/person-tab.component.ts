@@ -4,6 +4,8 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
 import { ManageActions } from 'src/app/store/Manage-Store/manage-actions';
 import DevExpress from 'devextreme';
+import { checkForActionTypeUniqueness } from '@ngrx/store/src/runtime_checks';
+import { BookActions } from 'src/app/store/Book-store/book.actions';
 
 @Component({
   selector: 'app-person-tab',
@@ -12,7 +14,7 @@ import DevExpress from 'devextreme';
 })
 export class PersonTabComponent implements OnInit {
 
-  
+  varCheck:any;
 
   // tabs = [
   //   { 
@@ -23,7 +25,46 @@ export class PersonTabComponent implements OnInit {
   //     "title": "Tab2", 
   //     "template":"templ2" }];
 tabContent: any;
- tabs = [
+tabs:any=[];
+
+
+
+checkk(){
+  // debugger;
+  let check=window.location.pathname;
+if(check=="/home/book/1/detail"){
+  this.varCheck=1;
+  this.tabs = [
+    {     
+        id: 0,
+        text: "Book", 
+        icon: "user", 
+        content: "Person tab content",
+        selector: "<LoginComponent>",
+        path:'home/book/1/detail',
+    },
+    { 
+        id: 1,
+        text: "OnHold History", 
+        icon: "comment", 
+        content: "Check1 tab content",
+        selector: 'app-person-history-card',
+        path:'home/book/1/onhold',
+    },
+    { 
+        id: 2,
+        text: "Loan History", 
+        icon: "comment", 
+        content: "I am different tab",
+        path:'home/book/1/loan',
+    }
+  ];
+}
+
+
+else if(check=="/home/manage/1/detail"){
+  this.varCheck=2;
+  this.tabs = [
   {     
       id: 0,
       text: "Person", 
@@ -48,7 +89,8 @@ tabContent: any;
       path:'home/manage/1/loan',
   }
 ];
-
+}
+}
 // checkingTabs(){
 //   if(){
 
@@ -58,7 +100,7 @@ tabContent: any;
 //   }
 // }
 
-  constructor(private router:Router, private store:NgRedux<any>, private action:ManageActions) {
+  constructor(private router:Router, private store:NgRedux<any>, private action:ManageActions,private bookAction:BookActions) {
     // this.router.navigate(this.tabs[0].path);
     console.log('path');
     // this.tabContent = this.tabs[0].selector;
@@ -74,10 +116,21 @@ tabContent: any;
     console.log(e.itemIndex);
     if(e.itemIndex==1)
     {
+      if(this.varCheck==2){
       this.store.dispatch<any>(this.action.getPersonOnHoldRequests("onhold/holdbyperson/",this.store.getState().manage.personId));
+      }
+      else if(this.varCheck==1){
+        this.store.dispatch<any>(this.bookAction.getHoldRequests(this.store.getState().common.bookDetailId));
+      }
     }
     else if(e.itemIndex==2){
+      if(this.varCheck==2){
       this.store.dispatch<any>(this.action.getPersonLoanRequests("loan/byperson/",this.store.getState().manage.personId));
+      }
+      else if(this.varCheck==1){
+        this.store.dispatch<any>(this.bookAction.getLoans(this.store.getState().common.bookDetailId));
+
+      }
 
     }
     // validation
@@ -103,6 +156,8 @@ tabContent: any;
   ngOnInit(): void {
     console.log(this.store.getState().common,"getStateTab") 
     console.log("Hello");
+    console.log(window.location.pathname);
+    this.checkk();
   }
 
 }
